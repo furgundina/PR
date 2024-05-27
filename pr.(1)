@@ -1,0 +1,550 @@
+from bs4 import BeautifulSoup
+import requests
+
+url = "https://www.gatewaytotheclassics.com/browse/display.php?author=london&book=wild&story=fang"  #  URL нужного веб-сайта, в моем случае Gateaway to the Classiscs
+response = requests.get(url)
+
+soup = BeautifulSoup(response.text, "html.parser")
+
+paragraphs = soup.find_all("p")
+
+for paragraph in paragraphs:
+    print(paragraph.text)
+
+    #или,если текст из моей библиотеки
+import re
+
+
+
+text = """
+
+
+BUCK'S  first day on the Dyea beach was like a nightmare. Every hour
+was filled with shock and surprise. He had
+been suddenly jerked from the heart of civilization and
+flung into the heart of things primordial. No lazy,
+sun-kissed life was this, with nothing to do but loaf and be
+bored. Here was neither peace, nor rest, nor a
+moment's safety. All was confusion and action, and every
+moment life and limb were in peril. There was
+imperative need to be constantly alert; for these dogs and
+men were not town dogs and men. They were savages,
+all of them, who knew no law but the law of club and fang.
+
+
+He had never seen dogs fight as these wolfish creatures
+fought, and his first experience taught him an
+unforgettable 
+lesson. It is true, it was a vicarious
+experience, else he would not have lived to profit by it.
+Curly was the victim. They were camped near the log store,
+where she, in her friendly way, made advances to a
+husky dog the size of a full-grown wolf, though not half so
+large as she. There was no warning, only a leap in
+like a flash, a metallic clip of teeth, a leap out equally
+swift, and Curly's face was ripped open from eye to
+jaw.
+
+
+It was the wolf manner of fighting, to strike and leap away;
+but there was more to it than this. Thirty or
+forty huskies ran to the spot and surrounded the combatants
+in an intent and silent circle. Buck did not
+comprehend that silent intentness, nor 
+the eager way with
+which they were licking their chops. Curly rushed
+her antagonist, who struck again and leaped aside. He met
+her next rush with his chest, in a peculiar fashion
+that tumbled her off her feet. She
+never regained them. This was what the onlooking huskies had
+waited for. They closed in upon her, snarling and
+yelping, and she was buried, screaming with agony, beneath
+the bristling mass of bodies.
+
+
+So sudden was it, and so unexpected, that Buck was taken
+aback. He saw Spitz run out his scarlet tongue in a
+way he had of laughing; and he saw François, swinging an
+axe, spring into the mess of dogs. Three men with
+clubs were helping him to scatter them. It did not take
+long. Two minutes from the time Curly went down, the
+last of her assailants were clubbed off. But she lay there
+limp and lifeless in the bloody, trampled snow,
+almost literally torn to pieces, the swart half-breed
+standing over her and cursing horribly. 
+
+
+The scene often
+came back to Buck to trouble him in his sleep. So that was
+the way. No fair play. Once down, that was the end
+of you. Well, he would see to it that 
+he never went down.
+Spitz ran out his tongue and laughed again, and from
+that moment Buck hated him with a bitter and deathless
+hatred.
+
+
+Before he had recovered from the shock caused by the tragic
+passing of Curly, he received another shock.
+François fastened upon him an arrangement of straps and
+buckles. It was a harness, such as he had seen the
+grooms put on the horses at home. And as he had seen horses
+work, so he was set to work, hauling François on a
+sled to the forest that fringed the valley, and returning
+with a load of firewood. Though his dignity was
+sorely hurt by thus being made a draught animal, he was too
+wise to rebel. He buckled down with a will and did
+his best, though it was all new and strange. François was
+stern, demanding instant obedience, and by virtue of
+his whip receiving instant obedience; while Dave, who was an
+experienced wheeler, nipped Buck's hind quarters
+whenever he was in error. Spitz was the leader, likewise
+experienced, and while he could not always get at
+Buck, he growled sharp reproof now and again, or cunningly
+threw his weight in the traces to jerk Buck into
+the way he should 
+go. Buck learned
+easily, and under the combined tuition of his two mates and
+François made remarkable progress. Ere they
+returned to camp he knew enough to stop at "ho," to go ahead
+at "mush," to swing wide on the bends, and to
+keep clear of the wheeler when the loaded sled shot downhill
+at their heels.
+
+
+"T'ree vair' good dogs," François told Perrault. "Dat Buck,
+heem pool lak hell. I tich heem queek as
+anyt'ing."
+
+
+By afternoon, Perrault, who was in a hurry to be on the
+trail with his despatches, returned with two more
+dogs. "Billee" and "Joe" he called them, two brothers, and
+true huskies both. Sons of the one mother though
+they were, they were as different as day and night. 
+
+
+Billee's
+one fault was his excessive good nature, while
+Joe was the very opposite, sour and introspective, with a
+perpetual snarl and a malignant eye. 
+
+
+Buck received
+them in comradely fashion, Dave ignored 
+them, while Spitz
+proceeded to thrash first one and then the other.
+Billee wagged his tail appeasingly, turned to run when he
+saw that
+appeasement was of no avail, and cried (still appeasingly)
+when Spitz's sharp teeth scored his flank. But no
+matter how Spitz circled, Joe whirled around on his heels to
+face him, mane bristling, ears laid back, lips
+writhing and snarling, jaws clipping together as fast as he
+could snap, and eyes diabolically
+gleaming—the incarnation of belligerent fear. So
+terrible was his appearance that Spitz was forced to
+forego disciplining him; but to cover his own discomfiture
+he turned upon the inoffensive and wailing Billee
+and drove him to the confines of the camp.
+
+
+By evening Perrault secured another dog, an old husky, long
+and lean and gaunt, with a battle-scarred face and
+a single eye which flashed a warning of prowess that
+commanded respect. He was called Sol-leks, which means
+the Angry One. 
+
+
+Like Dave, he asked nothing, gave 
+nothing, expected nothing; and when he marched slowly and
+deliberately into their midst, even Spitz left him alone. He
+had one peculiarity which Buck was unlucky enough
+to discover. He did not like to be
+approached on his blind side. Of this offence Buck was
+unwittingly guilty, and the first knowledge he had of
+his indiscretion was when Sol-leks whirled upon him and
+slashed his shoulder to the bone for three inches up
+and down. Forever after Buck avoided his blind side, and to
+the last of their comradeship had no more trouble.
+His only apparent ambition, like Dave's, was to be left
+alone; though, as Buck was afterward to learn, each of
+them possessed one other and even more vital ambition.
+
+
+That night Buck faced the great problem of sleeping. The
+tent, illumined by a candle, glowed warmly in the
+midst of the white plain; and when he, as a matter of
+course, entered it, both Perrault and François bombarded
+him with curses and 
+cooking utensils, till he recovered from
+his consternation and fled ignominiously into the
+outer cold. A chill wind was blowing that nipped him sharply
+and bit with especial venom into his wounded
+shoulder. He lay down on the snow and attempted to sleep,
+but the frost soon drove
+him shivering to his feet. Miserable and disconsolate, he
+wandered about among the many tents, only to find
+that one place was as cold as another. Here and there savage
+dogs rushed upon him, but he bristled his
+neck-hair and snarled (for he was learning fast), and they
+let him go his way unmolested.
+
+
+Finally an idea came to him. He would return and see how his
+own team-mates were making out. To his
+astonishment, they had disappeared. Again he wandered about
+through the great camp, looking for them, and
+again he returned. Were they in the tent? No, that could not
+be, else he would not have been driven out. Then
+where could they possibly be? With drooping tail and
+shivering body, very forlorn 
+indeed, he aimlessly circled
+the tent. Suddenly the snow gave way beneath his fore legs
+and he sank down. Something wriggled under his
+feet. He sprang back, bristling and snarling, fearful of the
+unseen and unknown. But a friendly little yelp
+reassured him, and he went back to investigate. A whiff of
+warm air ascended to his
+nostrils, and there, curled up under the snow in a snug
+ball, lay Billee. He whined placatingly, squirmed and
+wriggled to show his good will and intentions, and even
+ventured, as a bribe for peace, to lick Buck's face
+with his warm wet tongue.
+
+
+Another lesson. So that was the way they did it, eh? Buck
+confidently selected a spot, and with much fuss and
+waste effort proceeded to dig a hole for himself. In a trice
+the heat from his body filled the confined space
+and he was asleep. The day had been long and arduous, and he
+slept soundly and comfortably, though he growled
+and barked and wrestled with bad dreams.
+
+
+Nor did he open his eyes till roused by the noises of the
+waking camp. At first he did not know where he was.
+It had snowed during the 
+night and he was completely buried.
+The snow walls pressed him on every side, and a
+great surge of fear swept through him—the fear of the
+wild thing for the trap. It was a token that he
+was harking back through his own life to the lives of his
+forebears; for he
+was a civilized dog, an unduly civilized dog, and of his own
+experience knew no trap and so could not of
+himself fear it. The muscles of his whole body contracted
+spasmodically and instinctively, the hair on his
+neck and shoulders stood on end, and with a ferocious snarl
+he bounded straight up into the blinding day, the
+snow flying about him in a flashing cloud. Ere he landed on
+his feet, he saw the white camp spread out before
+him and knew where he was and remembered all that had passed
+from the time he went for a stroll with Manuel to
+the hole he had dug for himself the night before.
+
+
+A shout from François hailed his appearance. "Wot I say?"
+the dog-driver cried to Perrault. "Dat Buck for sure
+learn queek as anyt'ing."
+
+
+Perrault nodded gravely. As courier for the Canadian
+Government, bearing important despatches, 
+he was anxious
+to secure the best dogs, and he was particularly gladdened
+by the possession of Buck.
+
+
+Three more huskies were added to the
+team inside an hour, making a total of nine, and before
+another quarter of an hour had passed they were in
+harness and swinging up the trail toward the Dyea Cañon.
+Buck was glad to be gone, and though the work was
+hard he found he did not particularly despise it. He was
+surprised at the eagerness which animated the whole
+team and which was communicated to him; but still more
+surprising was the change wrought in Dave and Sol-leks.
+They were new dogs, utterly transformed by the harness. All
+passiveness and unconcern had dropped from them.
+They were alert and 
+active, anxious that the work should go
+well, and fiercely irritable with whatever, by
+delay or confusion, retarded that work. The toil of the
+traces seemed the supreme expression of their being,
+and all that they lived for and the only thing in which they
+took delight.
+
+
+Dave was wheeler or sled dog, pulling in front of him was
+Buck, then came Sol-leks; the rest of the team was
+strung out ahead, single file, to the leader, which position
+was filled by Spitz.
+
+
+Buck had been purposely placed between Dave and Sol-leks so
+that he might receive instruction. Apt scholar
+that he was, they were equally apt teachers, never allowing
+him to linger long in error, and enforcing their
+teaching with their sharp teeth. Dave was fair and 
+very
+wise. He never nipped Buck without cause, and he never
+failed to nip him when he stood in need of it. As François's
+whip backed him up, Buck found it to be cheaper
+to mend his ways than to retaliate. Once, during a brief
+halt, when he got tangled in the traces and delayed
+the start, both Dave and Sol-leks flew at him and
+administered a sound trouncing. The resulting tangle was
+even worse, but Buck took good care to keep the traces clear
+thereafter; and ere the day was done, so well had
+he mastered his work, his mates about ceased nagging him.
+François's whip snapped less frequently, and
+Perrault even honored Buck by lifting up his feet and
+carefully examining them.
+
+
+It was a hard day's run, up the Cañon, through Sheep Camp,
+past the Scales and
+the timber line, across glaciers and snowdrifts hundreds of
+feet deep, and over the great Chilcoot Divide,
+which stands between the salt water and the fresh and guards
+forbiddingly the sad and lonely North. They made
+good time down the chain of lakes which fills the craters of
+extinct volcanoes, and late that night pulled
+into the huge camp at the head of Lake 
+Bennett, where
+thousands of gold-seekers were building boats against the
+breakup of the ice in the spring. Buck made his hole in the
+snow and slept the sleep of the exhausted just,
+but all too early was routed out in the cold darkness and
+harnessed with his mates to the sled.
+
+
+That day they made forty miles, the trail being packed; but
+the next day, and for many days to follow, they
+broke their own trail, worked harder, and made poorer time.
+As a rule, Perrault travelled ahead of the team,
+packing the snow with webbed shoes to make it easier for
+them. François, guiding the sled at the gee-pole,
+sometimes exchanged places with him, but not often. Perrault
+was in a hurry,
+and he prided himself on his knowledge of ice, which
+knowledge was indispensable, for the fall ice was very
+thin, and where there was swift water, there was no ice at
+all.
+
+
+Day after day, for days unending, Buck toiled in the traces.
+Always, they broke camp in the dark, and the
+first gray of dawn found them hitting the trail with fresh
+miles reeled off behind them. And always they
+pitched camp after dark, eating their bit 
+of fish, and
+crawling to sleep into the snow. Buck was ravenous. The
+pound and a half of sun-dried salmon, which was his ration
+for each day, seemed to go nowhere. He never had
+enough, and suffered from perpetual hunger pangs. Yet the
+other dogs, because they weighed less and were born
+to the life, received a pound only of the fish and managed
+to keep in good condition.
+
+
+He swiftly lost the fastidiousness which had characterized
+his old life. A dainty eater, he found that his
+mates, finishing first, robbed him of his unfinished ration.
+There was no defending it. While he was fighting
+off two
+or three, it was disappearing down the throats of the
+others. To remedy this, he ate as fast as they; and, so
+greatly did hunger compel him, he was not above taking what
+did not belong to him. He watched and learned.
+When he saw Pike, one of the new dogs, a clever malingerer
+and thief, slyly steal a slice of bacon when
+Perrault's back was turned, he duplicated the performance
+the following day, getting away with the whole
+chunk. A great uproar was raised, but he was unsuspected;
+while Dub, an awkward blunderer who was always
+getting caught, was punished for Buck's misdeed.
+
+
+This first theft marked Buck as fit to survive in the
+hostile Northland environment. It marked his
+adaptability, his capacity to adjust himself to changing
+conditions, the lack of which would have meant swift
+and terrible death. It marked, further, the decay or going
+to pieces of his moral nature, a vain thing and a
+handicap in the ruthless struggle for existence. It was all
+well enough in the Southland, under the law of
+love and fellowship, to respect
+private property and personal feelings; but in the
+Northland, under the law of club and fang, whoso took such
+things into account was a fool, and in so far as he observed
+them he would fail to prosper.
+
+
+Not that Buck reasoned it out. He was fit, that was all, and
+unconsciously he accommodated himself to the new
+mode of life. All his days, no matter what the odds, he had
+never run from a fight. But the club of the man in
+the red sweater had beaten into him a more fundamental and
+primitive code. Civilized, he could have died for a
+moral consideration, say the defence of Judge Miller's
+riding-whip; but the completeness of his decivilization
+was now evidenced by his ability to flee from the defence of
+a moral consideration and so save his hide. He
+did not steal for joy of it, but because of the clamor of
+his stomach. He did not rob openly, but stole
+secretly and cunningly, out of respect 
+for club and fang. In
+short, the things he did were done because it was
+easier to do them than not to do them.
+
+
+His development (or retrogression) was rapid. His muscles
+became hard as iron, and he grew callous to all
+ordinary pain. He achieved an internal as well as external
+economy. He could eat anything, no matter how
+loathsome or indigestible; and, once eaten, the juices of
+his stomach extracted the last least particle of
+nutriment; and his blood carried it to the farthest reaches
+of his body, building it into the toughest and
+stoutest of tissues. Sight and scent became remarkably keen,
+while his hearing developed such acuteness that
+in his sleep he heard the faintest sound and knew whether it
+heralded peace or peril. He learned to bite the
+ice out with his teeth when it collected between his toes;
+and when he was thirsty 
+and there was a thick scum
+of ice over the water hole, he would break it by rearing and
+striking it with stiff fore legs. His most
+conspicuous trait was an ability to scent the wind and
+forecast it a night in advance. No matter how
+breathless the air when he dug his nest by tree or bank, the
+wind that later blew inevitably found him to
+leeward, sheltered and snug.
+
+
+And not only did he learn by experience, but instincts long
+dead became alive again. The domesticated
+generations fell from him. In vague ways he remembered back
+to the youth of the breed, to the time the wild
+dogs ranged in packs through the primeval forest and killed
+their meat as they ran it down. It was no task for
+him to learn 
+to fight with cut and slash and the quick wolf
+snap. In this manner had fought forgotten
+ancestors. They quickened the old life within him, and the
+old tricks which they had stamped into the heredity
+of the breed were his tricks. They came to him without
+effort or discovery, as though they had been his
+always. And when, on the still cold nights, he pointed his
+nose at a star and howled long and wolf-like, it was
+his ancestors, dead and dust, pointing nose at star and
+howling down through the centuries and through him.
+And his cadences were their cadences, the cadences which
+voiced their woe and what to them was the meaning of
+the stillness, and the cold, and dark.
+
+
+Thus, as token of what a 
+puppet thing life
+is, the ancient song surged through him and he came into his
+own again; and he came because men had found a
+yellow metal in the North, and because Manuel was a
+gardener's helper whose wages did not lap over the needs
+of his wife and divers small copies of himself.
+
+
+
+
+"""
+def preprocess_text(text):
+
+    text = re.sub(r'^[^\n]*\n', '', text)
+
+
+    text = re.sub(r'\s+', ' ', text)
+
+    return text
+
+
+processed_text = preprocess_text(text)
+
+print(processed_text)
+
+#на примере 2х сравниваю частотки
+
+import matplotlib.pyplot as plt
+from collections import Counter
+
+
+
+def get_word_frequencies(text):
+    words = re.findall(r'\b\w+\b', text.lower())
+    return Counter(words)
+
+
+text1 = "Old longings nomadic leap, Chafing at custom's chain, Again from its brumal sleep Wakens the ferine strain." Duck did not read the newspapers, or he would have known that trouble was brewing, not alone for himself, but for every tide-water dog, strong of muscle and with warm, long hair, from Puget Sound to San Diego. Because men, groping in the Arctic darkness, had found a yellow metal, and because steamship and transportation companies were booming the find, thousands of men were rushing into the Northland. These men wanted dogs, and the dogs they wanted were heavy dogs, with strong muscles by which to toil, and furry coats to protect them from the frost. Buck lived at a big house in the sun-kissed Santa Clara Valley. Judge Miller's place, it was called. It stood back from the road, half hidden among the trees, through which glimpses could be caught of the wide cool veranda that ran around its four sides. The house was approached by gravelled driveways which wound about through wide-spreading lawns and under the interlacing boughs of tall poplars. At the rear things were on even a more spacious scale than at the front. There were great stables, where a dozen grooms and boys held forth, rows of vine-clad servants' cottages, an endless and orderly array of outhouses, long grape arbors, green pastures, orchards, and berry patches. Then there was the pumping plant for the artesian well, and the big cement tank where Judge Miller's boys took their morning plunge and kept cool in the hot afternoon. And over this great demesne Buck ruled. Here he was born, and here he had lived the four years of his life. It was true, there were other dogs. There could not but be other dogs on so vast a place, but they did not count. They came and went, resided in the populous kennels, or lived obscurely in the recesses of the house after the fashion of Toots, the Japanese pug, or Ysabel, the Mexican hairless,—strange creatures that rarely put nose out of doors or set foot to ground. On the other hand, there were the fox terriers, a score of them at least, who yelped fearful promises at Toots and Isabel looking out of the windows at them and protected by a legion of housemaids armed with brooms and mops. But Buck was neither house-dog nor kennel-dog. The whole realm was his. He plunged into the swimming tank or went hunting with the Judge's sons; he escorted Mollie and Alice, the Judge's daughters, on long twilight or early morning rambles; on wintry nights he lay at the Judge's feet before the roaring library fire; he carried the Judge's grandsons on his back, or rolled them in the grass, and guarded their footsteps through wild adventures down to the fountain in the stable yard, and even beyond, where the paddocks were, and the berry patches. Among the terriers he stalked imperiously, and Toots and Ysabel he utterly ignored, for he was king,—king over all creeping, crawling, flying things of Judge Miller's place, humans included. His father, Elmo, a huge St. Bernard, had been the Judge's inseparable companion, and Buck bid fair to follow in the way of his father. He was not so large,—he weighed only one hundred and forty pounds,—for his mother, Shep, had been a Scotch shepherd dog. Nevertheless, one hundred and forty pounds, to which was added the dignity that comes of good living and universal respect, enabled him to carry himself in right royal fashion. During the four years since his puppyhood he had lived the life of a sated aristocrat; he had a fine pride in himself, was even a trifle egotistical, as country gentlemen sometimes become because of their insular situation. But he had saved himself by not becoming a mere pampered house-dog. Hunting and kindred outdoor delights had kept down the fat and hardened his muscles; and to him, as to the cold-tubbing races, the love of water had been a tonic and a health preserver. And this was the manner of dog Buck was in the fall of 1897, when the Klondike strike dragged men from all the world into the frozen North. But Buck did not read the newspapers, and he did not know that Manuel, one of the gardener's helpers, was an undesirable acquaintance. Manuel had one besetting sin. He loved to play Chinese lottery. Also, in his gambling, he had one besetting weakness—faith in a system; and this made his damnation certain. For to play a system requires money, while the wages of a gardener's helper do not lap over the needs of a wife and numerous progeny. The Judge was at a meeting of the Raisin Growers' Association, and the boys were busy organizing an athletic club, on the memorable night of Manuel's treachery. No one saw him and Buck go off through the orchard on what Buck imagined was merely a stroll. And with the exception of a solitary man, no one saw them arrive at the little flag station known as College Park. This man talked with Manuel, and money chinked between them. "You might wrap up the goods before you deliver 'm," the stranger said gruffly, and Manuel doubled a piece of stout rope around Buck's neck under the collar. "Twist it, an' you'll choke 'm plentee," said Manuel, and the stranger grunted a ready affirmative. Buck had accepted the rope with quiet dignity. To be sure, it was an unwonted performance: but he had learned to trust in men he knew, and to give them credit for a wisdom that outreached his own. But when the ends of the rope were placed in the stranger's hands, he growled menacingly. He had merely intimated his displeasure, in his pride believing that to intimate was to command. But to his surprise the rope tightened around his neck, shutting off his breath. In quick rage he sprang at the man, who met him halfway, grappled him close by the throat, and with a deft twist threw him over on his back. Then the rope tightened mercilessly, while Buck struggled in a fury, his tongue lolling out of his mouth and his great chest panting futilely. Never in all his life had he been so vilely treated, and never in all his life had he been so angry. But his strength ebbed, his eyes glazed, and he knew nothing when the train was flagged and the two men threw him into the baggage car. The next he knew, he was dimly aware that his tongue was hurting and that he was being jolted along in some kind of a conveyance. The hoarse shriek of a locomotive whistling a crossing told him where he was. He had travelled too often with the Judge not to know the sensation of riding in a baggage car. He opened his eyes, and into them came the unbridled anger of a kidnapped king. The man sprang for his throat, but Buck was too quick for him. His jaws closed on the hand, nor did they relax till his senses were choked out of him once more. "Yep, has fits," the man said, hiding his mangled hand from the baggageman, who had been attracted by the sounds of struggle. "I'm takin' 'm up for the boss to 'Frisco. A crack dog-doctor there thinks that he can cure 'm." Concerning that night's ride, the man spoke most eloquently for himself, in a little shed, back of a saloon on the San Francisco water front. "All I get is fifty for it," he grumbled; "an' I wouldn't do it over for a thousand, cold cash." His hand was wrapped in a bloody handkerchief, and the right trouser leg was ripped from knee to ankle. "How much did the other mug get?" the saloon-keeper demanded. "A hundred," was the reply. "Wouldn't take a sou less, so help me." "That makes a hundred and fifty," the saloon-keeper calculated; "and he's worth it, or I'm a squarehead." The kidnapper undid the bloody wrappings and looked at his lacerated hand. "If I don't get the hydrophoby—" "It'll be because you was born to hang," laughed the saloon-keeper. "Here, lend me a hand before you pull your freight," he added. Dazed, suffering intolerable pain from throat and tongue, with the life half throttled out of him, Buck attempted to face his tormentors. But he was thrown down and choked repeatedly, till they succeeded in filing the heavy brass collar from off his neck. Then the rope was removed, and he was flung into a cagelike crate. There he lay for the remainder of the weary night, nursing his wrath and wounded pride. He could not understand what it all meant. What did they want with him, these strange men? Why were they keeping him pent up in this narrow crate? He did not know why, but he felt oppressed by the vague sense of impending calamity. Several times during the night he sprang to his feet when the shed door rattled open, expecting to see the Judge, or the boys at least. But each time it was the bulging face of the saloon-keeper that peered in at him by the sickly light of a tallow candle. And each time the joyful bark that trembled in Buck's throat was twisted into a savage growl. But the saloon-keeper let him alone, and in the morning four men entered and picked up the crate. More tormentors, Buck decided, for they were evil-looking creatures, ragged and unkempt; and he stormed and raged at them through the bars. They only laughed and poked sticks at him, which he promptly assailed with his teeth till he realized that that was what they wanted. Whereupon he lay down sullenly and allowed the crate to be lifted into a wagon. Then he, and the crate in which he was imprisoned, began a passage through many hands. Clerks in the express office took charge of him; he was carted about in another wagon; a truck carried him, with an assortment of boxes and parcels, upon a ferry steamer; he was trucked off the steamer into a great railway depot, and finally he was deposited in an express car. For two days and nights this express car was dragged along at the tail of shrieking locomotives; and for two days and nights Buck neither ate nor drank. In his anger he had met the first advances of the express messengers with growls, and they had retaliated by teasing him. When he flung himself against the bars, quivering and frothing, they laughed at him and taunted him. They growled and barked like detestable dogs, mewed, and flapped their arms and crowed. It was all very silly, he knew; but therefore the more outrage to his dignity, and his anger waxed and waxed. He did not mind the hunger so much, but the lack of water caused him severe suffering and fanned his wrath to fever pitch. For that matter, high-strung and finely sensitive, the ill treatment had flung him into a fever, which was fed by the inflammation of his parched and swollen throat and tongue. He was glad for one thing: the rope was off his neck. That had given them an unfair advantage; but now that it was off, he would show them. They would never get another rope around his neck. Upon that he was resolved. For two days and nights he neither ate nor drank, and during those two days and nights of torment, he accumulated a fund of wrath that boded ill for whoever first fell foul of him. His eyes turned blood-shot, and he was metamorphosed into a raging fiend. So changed was he that the Judge himself would not have recognized him; and the express messengers breathed with relief when they bundled him off the train at Seattle. Four men gingerly carried the crate from the wagon into a small, high-walled back yard. A stout man, with a red sweater that sagged generously at the neck, came out and signed the book for the driver. That was the man, Buck divined, the next tormentor, and he hurled himself savagely against the bars. The man smiled grimly, and brought a hatchet and a club. "You ain't going to take him out now?" the driver asked. "Sure," the man replied, driving the hatchet into the crate for a pry. There was an instantaneous scattering of the four men who had carried it in, and from safe perches on top the wall they prepared to watch the performance. Buck rushed at the splintering wood, sinking his teeth into it, surging and wrestling with it. Wherever the hatchet fell on the outside, he was there on the inside, snarling and growling, as furiously anxious to get out as the man in the red sweater was calmly intent on getting him out. "Now, you red-eyed devil," he said, when he had made an opening sufficient for the passage of Buck's body. At the same time he dropped the hatchet and shifted the club to his right hand. And Buck was truly a red-eyed devil, as he drew himself together for the spring, hair bristling, mouth foaming, a mad glitter in his blood-shot eyes. Straight at the man he launched his one hundred and forty pounds of fury, surcharged with the pent passion of two days and nights. In mid air, just as his jaws were about to close on the man, he received a shock that checked his body and brought his teeth together with an agonizing clip. He whirled over, fetching the ground on his back and side. He had never been struck by a club in his life, and did not understand. With a snarl that was part bark and more scream he was again on his feet and launched into the air. And again the shock came and he was brought crushingly to the ground. This time he was aware that it was the club, but his madness knew no caution. A dozen times he charged, and as often the club broke the charge and smashed him down. After a particularly fierce blow, he crawled to his feet, too dazed to rush. He staggered limply about, the blood flowing from nose and mouth and ears, his beautiful coat sprayed and flecked with bloody slaver. Then the man advanced and deliberately dealt him a frightful blow on the nose. All the pain he had endured was as nothing compared with the exquisite agony of this. With a roar that was almost lionlike in its ferocity, he again hurled himself at the man. But the man, shifting the club from right to left, coolly caught him by the under jaw, at the same time wrenching downward and backward. Buck described a complete circle in the air, and half of another, then crashed to the ground on his head and chest. For the last time he rushed. The man struck the shrewd blow he had purposely withheld for so long, and Buck crumpled up and went down, knocked utterly senseless. "He's no slouch at dog-breakin', that's wot I say," one of the men on the wall cried enthusiastically. "Druther break cayuses any day, and twice on Sundays," was the reply of the driver, as he climbed on the wagon and started the horses. Buck's senses came back to him, but not his strength. He lay where he had fallen, and from there he watched the man in the red sweater. " 'Answers to the name of Buck,' " the man soliloquized, quoting from the saloon-keeper's letter which had announced the consignment of the crate and contents. "Well, Buck, my boy," he went on in a genial voice, "we've had our little ruction, and the best thing we can do is to let it go at that. You've learned your place, and I know mine. Be a good dog and all 'll go well and the goose hang high. Be a bad dog, and I'll whale the stuffin' outa you. Understand?" As he spoke he fearlessly patted the head he had so mercilessly pounded, and though Buck's hair involuntarily bristled at touch of the hand, he endured it without protest. When the man brought him water he drank eagerly, and later bolted a generous meal of raw meat, chunk by chunk, from the man's hand. He was beaten (he knew that); but he was not broken. He saw, once for all, that he stood no chance against a man with a club. He had learned the lesson, and in all his after life he never forgot it. That club was a revelation. It was his introduction to the reign of primitive law, and he met the introduction halfway. The facts of life took on a fiercer aspect; and while he faced that aspect uncowed, he faced it with all the latent cunning of his nature aroused. As the days went by, other dogs came, in crates and at the ends of ropes, some docilely, and some raging and roaring as he had come; and, one and all, he watched them pass under the dominion of the man in the red sweater. Again and again, as he looked at each brutal performance, the lesson was driven home to Buck: a man with a club was a lawgiver, a master to be obeyed, though not necessarily conciliated. Of this last Buck was never guilty, though he did see beaten dogs that fawned upon the man, and wagged their tails, and licked his hand. Also he saw one dog, that would neither conciliate nor obey, finally killed in the struggle for mastery. Now and again men came, strangers, who talked excitedly, wheedlingly, and in all kinds of fashions to the man in the red sweater. And at such times that money passed between them the strangers took one or more of the dogs away with them. Buck wondered where they went, for they never came back; but the fear of the future was strong upon him, and he was glad each time when he was not selected. Yet his time came, in the end, in the form of a little weazened man who spat broken English and many strange and uncouth exclamations which Buck could not understand. "Sacredam!" he cried, when his eyes lit upon Buck. "Dat one dam bully dog! Eh? How moch?" "Three hundred, and a present at that," was the prompt reply of the man in the red sweater. "And seein' it's government money, you ain't got no kick coming, eh, Perrault?" Perrault grinned. Considering that the price of dogs had been boomed skyward by the unwonted demand, it was not an unfair sum for so fine an animal. The Canadian Government would be no loser, nor would its despatches travel the slower. Perrault knew dogs, and when he looked at Buck he knew that he was one in a thousand—"One in ten t'ousand," he commented mentally. Buck saw money pass between them, and was not surprised when Curly, a good-natured Newfoundland, and he were led away by the little weazened man. That was the last he saw of the man in the red sweater, and as Curly and he looked at receding Seattle from the deck of the Narwhal, it was the last he saw of the warm Southland. Curly and he were taken below by Perrault and turned over to a black-faced giant called François. Perrault was a French-Canadian, and swarthy; but François was a French-Canadian half-breed, and twice as swarthy. They were a new kind of men to Buck (of which he was destined to see many more), and while he developed no affection for them, he none the less grew honestly to respect them. He speedily learned that Perrault and François were fair men, calm and impartial in administering justice, and too wise in the way of dogs to be fooled by dogs. In the 'tween-decks of the Narwhal, Buck and Curly joined two other dogs. One of them was a big, snow-white fellow from Spitzbergen who had been brought away by a whaling captain, and who had later accompanied a Geological Survey into the Barrens. He was friendly, in a treacherous sort of way, smiling into one's face the while he meditated some underhand trick, as, for instance, when he stole from Buck's food at the first meal. As Buck sprang to punish him, the lash of François's whip sang through the air, reaching the culprit first; and nothing remained to Buck but to recover the bone. That was fair of François, he decided, and the half-breed began his rise in Buck's estimation. The other dog made no advances, nor received any; also, he did not attempt to steal from the newcomers. He was a gloomy, morose fellow, and he showed Curly plainly that all he desired was to be left alone, and further, that there would be trouble if he were not left alone. "Dave" he was called, and he ate and slept, or yawned between times, and took interest in nothing, not even when the Narwhal crossed Queen Charlotte Sound and rolled and pitched and bucked like a thing possessed. When Buck and Curly grew excited, half wild with fear, he raised his head as though annoyed, favored them with an incurious glance, yawned, and went to sleep again. Day and night the ship throbbed to the tireless pulse of the propeller, and though one day was very like another, it was apparent to Buck that the weather was steadily growing colder. At last, one morning, the propeller was quiet, and the Narwhal was pervaded with an atmosphere of excitement. He felt it, as did the other dogs, and knew that a change was at hand. François leashed them and brought them on deck. At the first step upon the cold surface, Buck's feet sank into a white mushy something very like mud. He sprang back with a snort. More of this white stuff was falling through the air. He shook himself, but more of it fell upon him. He sniffed it curiously, then licked some up on his tongue. It bit like fire, and the next instant was gone. This puzzled him. He tried it again, with the same result. The onlookers laughed uproariously, and he felt ashamed, he knew not why, for it was his first snow.  BUCK'S first day on the Dyea beach was like a nightmare. Every hour was filled with shock and surprise. He had been suddenly jerked from the heart of civilization and flung into the heart of things primordial. No lazy, sun-kissed life was this, with nothing to do but loaf and be bored. Here was neither peace, nor rest, nor a moment's safety. All was confusion and action, and every moment life and limb were in peril. There was imperative need to be constantly alert; for these dogs and men were not town dogs and men. They were savages, all of them, who knew no law but the law of club and fang. He had never seen dogs fight as these wolfish creatures fought, and his first experience taught him an unforgettable lesson. It is true, it was a vicarious experience, else he would not have lived to profit by it. Curly was the victim. They were camped near the log store, where she, in her friendly way, made advances to a husky dog the size of a full-grown wolf, though not half so large as she. There was no warning, only a leap in like a flash, a metallic clip of teeth, a leap out equally swift, and Curly's face was ripped open from eye to jaw. It was the wolf manner of fighting, to strike and leap away; but there was more to it than this. Thirty or forty huskies ran to the spot and surrounded the combatants in an intent and silent circle. Buck did not comprehend that silent intentness, nor the eager way with which they were licking their chops. Curly rushed her antagonist, who struck again and leaped aside. He met her next rush with his chest, in a peculiar fashion that tumbled her off her feet. She never regained them. This was what the onlooking huskies had waited for. They closed in upon her, snarling and yelping, and she was buried, screaming with agony, beneath the bristling mass of bodies. So sudden was it, and so unexpected, that Buck was taken aback. He saw Spitz run out his scarlet tongue in a way he had of laughing; and he saw François, swinging an axe, spring into the mess of dogs. Three men with clubs were helping him to scatter them. It did not take long. Two minutes from the time Curly went down, the last of her assailants were clubbed off. But she lay there limp and lifeless in the bloody, trampled snow, almost literally torn to pieces, the swart half-breed standing over her and cursing horribly. The scene often came back to Buck to trouble him in his sleep. So that was the way. No fair play. Once down, that was the end of you. Well, he would see to it that he never went down. Spitz ran out his tongue and laughed again, and from that moment Buck hated him with a bitter and deathless hatred. Before he had recovered from the shock caused by the tragic passing of Curly, he received another shock. François fastened upon him an arrangement of straps and buckles. It was a harness, such as he had seen the grooms put on the horses at home. And as he had seen horses work, so he was set to work, hauling François on a sled to the forest that fringed the valley, and returning with a load of firewood. Though his dignity was sorely hurt by thus being made a draught animal, he was too wise to rebel. He buckled down with a will and did his best, though it was all new and strange. François was stern, demanding instant obedience, and by virtue of his whip receiving instant obedience; while Dave, who was an experienced wheeler, nipped Buck's hind quarters whenever he was in error. Spitz was the leader, likewise experienced, and while he could not always get at Buck, he growled sharp reproof now and again, or cunningly threw his weight in the traces to jerk Buck into the way he should go. Buck learned easily, and under the combined tuition of his two mates and François made remarkable progress. Ere they returned to camp he knew enough to stop at "ho," to go ahead at "mush," to swing wide on the bends, and to keep clear of the wheeler when the loaded sled shot downhill at their heels. "T'ree vair' good dogs," François told Perrault. "Dat Buck, heem pool lak hell. I tich heem queek as anyt'ing." By afternoon, Perrault, who was in a hurry to be on the trail with his despatches, returned with two more dogs. "Billee" and "Joe" he called them, two brothers, and true huskies both. Sons of the one mother though they were, they were as different as day and night. Billee's one fault was his excessive good nature, while Joe was the very opposite, sour and introspective, with a perpetual snarl and a malignant eye. Buck received them in comradely fashion, Dave ignored them, while Spitz proceeded to thrash first one and then the other. Billee wagged his tail appeasingly, turned to run when he saw that appeasement was of no avail, and cried (still appeasingly) when Spitz's sharp teeth scored his flank. But no matter how Spitz circled, Joe whirled around on his heels to face him, mane bristling, ears laid back, lips writhing and snarling, jaws clipping together as fast as he could snap, and eyes diabolically gleaming—the incarnation of belligerent fear. So terrible was his appearance that Spitz was forced to forego disciplining him; but to cover his own discomfiture he turned upon the inoffensive and wailing Billee and drove him to the confines of the camp. By evening Perrault secured another dog, an old husky, long and lean and gaunt, with a battle-scarred face and a single eye which flashed a warning of prowess that commanded respect. He was called Sol-leks, which means the Angry One. Like Dave, he asked nothing, gave nothing, expected nothing; and when he marched slowly and deliberately into their midst, even Spitz left him alone. He had one peculiarity which Buck was unlucky enough to discover. He did not like to be approached on his blind side. Of this offence Buck was unwittingly guilty, and the first knowledge he had of his indiscretion was when Sol-leks whirled upon him and slashed his shoulder to the bone for three inches up and down. Forever after Buck avoided his blind side, and to the last of their comradeship had no more trouble. His only apparent ambition, like Dave's, was to be left alone; though, as Buck was afterward to learn, each of them possessed one other and even more vital ambition. That night Buck faced the great problem of sleeping. The tent, illumined by a candle, glowed warmly in the midst of the white plain; and when he, as a matter of course, entered it, both Perrault and François bombarded him with curses and cooking utensils, till he recovered from his consternation and fled ignominiously into the outer cold. A chill wind was blowing that nipped him sharply and bit with especial venom into his wounded shoulder. He lay down on the snow and attempted to sleep, but the frost soon drove him shivering to his feet. Miserable and disconsolate, he wandered about among the many tents, only to find that one place was as cold as another. Here and there savage dogs rushed upon him, but he bristled his neck-hair and snarled (for he was learning fast), and they let him go his way unmolested. Finally an idea came to him. He would return and see how his own team-mates were making out. To his astonishment, they had disappeared. Again he wandered about through the great camp, looking for them, and again he returned. Were they in the tent? No, that could not be, else he would not have been driven out. Then where could they possibly be? With drooping tail and shivering body, very forlorn indeed, he aimlessly circled the tent. Suddenly the snow gave way beneath his fore legs and he sank down. Something wriggled under his feet. He sprang back, bristling and snarling, fearful of the unseen and unknown. But a friendly little yelp reassured him, and he went back to investigate. A whiff of warm air ascended to his nostrils, and there, curled up under the snow in a snug ball, lay Billee. He whined placatingly, squirmed and wriggled to show his good will and intentions, and even ventured, as a bribe for peace, to lick Buck's face with his warm wet tongue. Another lesson. So that was the way they did it, eh? Buck confidently selected a spot, and with much fuss and waste effort proceeded to dig a hole for himself. In a trice the heat from his body filled the confined space and he was asleep. The day had been long and arduous, and he slept soundly and comfortably, though he growled and barked and wrestled with bad dreams. Nor did he open his eyes till roused by the noises of the waking camp. At first he did not know where he was. It had snowed during the night and he was completely buried. The snow walls pressed him on every side, and a great surge of fear swept through him—the fear of the wild thing for the trap. It was a token that he was harking back through his own life to the lives of his forebears; for he was a civilized dog, an unduly civilized dog, and of his own experience knew no trap and so could not of himself fear it. The muscles of his whole body contracted spasmodically and instinctively, the hair on his neck and shoulders stood on end, and with a ferocious snarl he bounded straight up into the blinding day, the snow flying about him in a flashing cloud. Ere he landed on his feet, he saw the white camp spread out before him and knew where he was and remembered all that had passed from the time he went for a stroll with Manuel to the hole he had dug for himself the night before. A shout from François hailed his appearance. "Wot I say?" the dog-driver cried to Perrault. "Dat Buck for sure learn queek as anyt'ing." Perrault nodded gravely. As courier for the Canadian Government, bearing important despatches, he was anxious to secure the best dogs, and he was particularly gladdened by the possession of Buck. Three more huskies were added to the team inside an hour, making a total of nine, and before another quarter of an hour had passed they were in harness and swinging up the trail toward the Dyea Cañon. Buck was glad to be gone, and though the work was hard he found he did not particularly despise it. He was surprised at the eagerness which animated the whole team and which was communicated to him; but still more surprising was the change wrought in Dave and Sol-leks. They were new dogs, utterly transformed by the harness. All passiveness and unconcern had dropped from them. They were alert and active, anxious that the work should go well, and fiercely irritable with whatever, by delay or confusion, retarded that work. The toil of the traces seemed the supreme expression of their being, and all that they lived for and the only thing in which they took delight. Dave was wheeler or sled dog, pulling in front of him was Buck, then came Sol-leks; the rest of the team was strung out ahead, single file, to the leader, which position was filled by Spitz. Buck had been purposely placed between Dave and Sol-leks so that he might receive instruction. Apt scholar that he was, they were equally apt teachers, never allowing him to linger long in error, and enforcing their teaching with their sharp teeth. Dave was fair and very wise. He never nipped Buck without cause, and he never failed to nip him when he stood in need of it. As François's whip backed him up, Buck found it to be cheaper to mend his ways than to retaliate. Once, during a brief halt, when he got tangled in the traces and delayed the start, both Dave and Sol-leks flew at him and administered a sound trouncing. The resulting tangle was even worse, but Buck took good care to keep the traces clear thereafter; and ere the day was done, so well had he mastered his work, his mates about ceased nagging him. François's whip snapped less frequently, and Perrault even honored Buck by lifting up his feet and carefully examining them. It was a hard day's run, up the Cañon, through Sheep Camp, past the Scales and the timber line, across glaciers and snowdrifts hundreds of feet deep, and over the great Chilcoot Divide, which stands between the salt water and the fresh and guards forbiddingly the sad and lonely North. They made good time down the chain of lakes which fills the craters of extinct volcanoes, and late that night pulled into the huge camp at the head of Lake Bennett, where thousands of gold-seekers were building boats against the breakup of the ice in the spring. Buck made his hole in the snow and slept the sleep of the exhausted just, but all too early was routed out in the cold darkness and harnessed with his mates to the sled. That day they made forty miles, the trail being packed; but the next day, and for many days to follow, they broke their own trail, worked harder, and made poorer time. As a rule, Perrault travelled ahead of the team, packing the snow with webbed shoes to make it easier for them. François, guiding the sled at the gee-pole, sometimes exchanged places with him, but not often. Perrault was in a hurry, and he prided himself on his knowledge of ice, which knowledge was indispensable, for the fall ice was very thin, and where there was swift water, there was no ice at all. Day after day, for days unending, Buck toiled in the traces. Always, they broke camp in the dark, and the first gray of dawn found them hitting the trail with fresh miles reeled off behind them. And always they pitched camp after dark, eating their bit of fish, and crawling to sleep into the snow. Buck was ravenous. The pound and a half of sun-dried salmon, which was his ration for each day, seemed to go nowhere. He never had enough, and suffered from perpetual hunger pangs. Yet the other dogs, because they weighed less and were born to the life, received a pound only of the fish and managed to keep in good condition. He swiftly lost the fastidiousness which had characterized his old life. A dainty eater, he found that his mates, finishing first, robbed him of his unfinished ration. There was no defending it. While he was fighting off two or three, it was disappearing down the throats of the others. To remedy this, he ate as fast as they; and, so greatly did hunger compel him, he was not above taking what did not belong to him. He watched and learned. When he saw Pike, one of the new dogs, a clever malingerer and thief, slyly steal a slice of bacon when Perrault's back was turned, he duplicated the performance the following day, getting away with the whole chunk. A great uproar was raised, but he was unsuspected; while Dub, an awkward blunderer who was always getting caught, was punished for Buck's misdeed. This first theft marked Buck as fit to survive in the hostile Northland environment. It marked his adaptability, his capacity to adjust himself to changing conditions, the lack of which would have meant swift and terrible death. It marked, further, the decay or going to pieces of his moral nature, a vain thing and a handicap in the ruthless struggle for existence. It was all well enough in the Southland, under the law of love and fellowship, to respect private property and personal feelings; but in the Northland, under the law of club and fang, whoso took such things into account was a fool, and in so far as he observed them he would fail to prosper. Not that Buck reasoned it out. He was fit, that was all, and unconsciously he accommodated himself to the new mode of life. All his days, no matter what the odds, he had never run from a fight. But the club of the man in the red sweater had beaten into him a more fundamental and primitive code. Civilized, he could have died for a moral consideration, say the defence of Judge Miller's riding-whip; but the completeness of his decivilization was now evidenced by his ability to flee from the defence of a moral consideration and so save his hide. He did not steal for joy of it, but because of the clamor of his stomach. He did not rob openly, but stole secretly and cunningly, out of respect for club and fang. In short, the things he did were done because it was easier to do them than not to do them. His development (or retrogression) was rapid. His muscles became hard as iron, and he grew callous to all ordinary pain. He achieved an internal as well as external economy. He could eat anything, no matter how loathsome or indigestible; and, once eaten, the juices of his stomach extracted the last least particle of nutriment; and his blood carried it to the farthest reaches of his body, building it into the toughest and stoutest of tissues. Sight and scent became remarkably keen, while his hearing developed such acuteness that in his sleep he heard the faintest sound and knew whether it heralded peace or peril. He learned to bite the ice out with his teeth when it collected between his toes; and when he was thirsty and there was a thick scum of ice over the water hole, he would break it by rearing and striking it with stiff fore legs. His most conspicuous trait was an ability to scent the wind and forecast it a night in advance. No matter how breathless the air when he dug his nest by tree or bank, the wind that later blew inevitably found him to leeward, sheltered and snug. And not only did he learn by experience, but instincts long dead became alive again. The domesticated generations fell from him. In vague ways he remembered back to the youth of the breed, to the time the wild dogs ranged in packs through the primeval forest and killed their meat as they ran it down. It was no task for him to learn to fight with cut and slash and the quick wolf snap. In this manner had fought forgotten ancestors. They quickened the old life within him, and the old tricks which they had stamped into the heredity of the breed were his tricks. They came to him without effort or discovery, as though they had been his always. And when, on the still cold nights, he pointed his nose at a star and howled long and wolf-like, it was his ancestors, dead and dust, pointing nose at star and howling down through the centuries and through him. And his cadences were their cadences, the cadences which voiced their woe and what to them was the meaning of the stillness, and the cold, and dark. Thus, as token of what a puppet thing life is, the ancient song surged through him and he came into his own again; and he came because men had found a yellow metal in the North, and because Manuel was a gardener's helper whose wages did not lap over the needs of his wife and divers small copies of himself. 
+
+"
+text2 = "And so, the minute her mother had departed for the minister's house next morning, and Ben had gone to his day's work, chopping wood for Deacon Blodgett, Polly assembled her force around the old stove, and proceeded to business. She and the children had been up betimes that morning to get through with the work; and now, as they glanced around with a look of pride on the neatly swept floor, the dishes all done, and everything in order, the moment their mother's back was turned they began to implore Polly to hurry and begin. "It's most 'leven o'clock," said Joel, who, having no work to do outside, that day, was prancing around, wild to help along the festivities; "it's most 'leven o'clock, Polly Pepper! you won't have it done." "Oh, no; 'tisn't either, Joe;" said Polly, with a very flushed face, and her arms full of kindlings, glancing up at the old clock as she spoke; " 'tisn't but quarter of nine; there, take care, Phronsie! you can't lift off the cover; do help her, Davie." "No; let me!" cried Joel, springing forward; "it's my turn; Dave got the shingles; it's my turn, Polly." "So 'tis," said Polly; "I forgot; there," as she flung in the wood, and poked it all up in a nice little heap coaxingly. "It can't help but burn; what a cake we'll have for mamsie!" "It'll be so big," cried Phronsie, hopping around on one set of toes, "that mamsie won't know what to do, will she, Polly?" "No, I don't believe she will," said Polly, gayly, stuffing in more wood; "Oh, dear! there goes Ben's putty; it's all come out!" "So it has," said Joel, going around back of the stove to explore; and then he added cheerfully, "it's bigger'n ever; oh! it's an awful big hole, Polly!" "Now, whatever shall we do!" said Polly, in great distress; "that hateful old crack! and Ben's clear off to Deacon Blodgett's!" "I'll run and get him," cried Joel, briskly; "I'll bring him right home in ten minutes." "Oh, no, you must not, Joe," cried Polly in alarm; "it wouldn't ever be right to take him off from his work; mamsie wouldn't like it." "What will you do, then?" asked Joel, pausing on his way to the door. "I'm sure I don't know," said Polly, getting down on her knees to examine the crack; "I shall have to stuff it with paper, I s'pose." " 'Twon't stay in," said Joel, scornfully; "don't you know you stuffed it before, last week?" "I know," said Polly, with a small sigh; and sitting down on the floor, she remained quite still for a minute, with her two black hands thrust out straight before her. "Can't you fix it?" asked Davie, soberly, coming up; "then we can't have the cake." "Dear me!" exclaimed Polly, springing up quickly; "don't be afraid; we're going to have that cake! There, you ugly old thing, you!" (this to the stove) "see what you've done!" as two big tears flew out of Phronsie's brown eyes at the direful prospect; and the sorrowful faces of the two boys looked up into Polly's own, for comfort. "I can fix it, I most know; do get some paper, Joe, as quick as you can." "Don't know where there is any," said Joel, rummaging around; "it's all tore up; 'xcept the almanac; can't I take that?" "Oh dear, no!" cried Polly; "put it right back, Joe; I guess there's some in the wood-shed." "There isn't either," said little Davie, quickly; "Joel and I took it to make kites with." "Oh dear," groaned Polly; "I don't know what we shall do; unless," as a bright thought struck her, "you let me have the kites, boys." "Can't," said Joel; "they're all flew away; and torn up." "Well, now, children," said Polly, turning round impressively upon them, the effect of which was heightened by the extremely crocky appearance she had gained in her explorations, "we must have some paper, or something to stop up that old hole with—some way, there!" "I know," said little Davie, "where we'll get it; it's up-stairs;" and without another word he flew out of the room, and in another minute he put into Polly's hand an old leather boot-top, one of his most treasured possessions. "You can chip it," he said, "real fine, and then 'twill go in." "So we can," said Polly; "and you're a real good boy, Davie, to give it; that's a splendid present to help celebrate for mamsie!" "I'd a-given a boot-top," said Joel, looking grimly at the precious bit of leather which Polly was rapidly stripping into little bits, "if I'd a-hed it; I don't have anything!" "I know you would, Joey," said Polly, kindly; "there now, you'll stay, I guess!" as with the united efforts of the two boys, cheered on by Phronsie's enthusiastic little crow of delight, the leather was crowded into place, and the fire began to burn. "Now, boys," said Polly, getting up, and drawing a long breath, "I'm going over to Grandma Bascom's to get her to tell me how to make the cake; and you must stay and keep house." "I'm going to nail," said Joel; "I've got lots to do." "All right," said Polly, tying on her hood; "Phronsie'll love to watch you; I won't be gone long," and she was off. "Grandma Bascom," wasn't really the children's grandmother; only everybody in the village called her so by courtesy. Her cottage was over across the lane, and just a bit around the corner; and Polly flew along and up to the door, fully knowing that now she would be helped out of her difficulty. She didn't stop to knock, as the old lady was so deaf she knew she wouldn't hear her, but opened the door and walked in. Grandma was sweeping up the floor, already as neat as a pin; when she saw Polly coming, she stopped, and leaned on her broom. "How's your ma?" she asked, when Polly had said "good morning," and then hesitated. "Oh, mammy's pretty well," shouted Polly into the old lady's ear; "and to-morrow's her birthday!" "To-morrow'll be a bad day!" said grandma. "Oh, don't never say that. You mustn't borrow trouble, child." "I didn't," said Polly; "I mean—it's her birthday, grandma!" this last so loud that grandma's cap-border vibrated perceptibly. "The land's sakes 'tis!" cried Mrs. Bascom, delightedly; "you don't say so!" "Yes," said Polly, skipping around the old lady, and giving her a small hug; "and we're going to give her a surprise." "What is the matter with her eyes?" asked grandma, sharply, turning around and facing her; "she's been a-sewin' too stiddy, hain't she?" "A surprise!" shouted Polly, standing upon tiptoe, to bring her mouth on a level with the old lady's ear; "a cake, grandma, a big one!" "A cake!" exclaimed grandma, dropping the broom to settle her cap, which Polly in her extreme endeavors to carry on the conversation, had knocked slightly awry; "well, that'll be fine." "Yes," said Polly, picking up the broom, and flinging off her hood at the same time; "and, oh! won't you please tell me how to make it, grandma!" "To be sure; to be sure;" cried the old lady, delighted beyond measure to give advice; "I've got splendid receets; I'll go get 'em right off," and she ambled to the door of the pantry. "And I'll finish sweeping up," said Polly, which grandma didn't hear; so she took up the broom, and sent it energetically, and merrily flying away to the tune of her own happy thoughts. "Yes, they're right in here," said grandma, waddling back with an old tin teapot in her hand;—"goodness, child! what a dust you've kicked up! that ain't the way to sweep." And she took the broom out of Polly's hand, who stood quite still in mortification. "There," she said, drawing it mildly over the few bits she could scrape together, and gently coaxing them into a little heap; "that's the way; and then they don't go all over the room." "I'm sorry," began poor Polly. " 'Tain't any matter," said Mrs. Bascom kindly, catching sight of Polly's discomfited face; " 'tain't a mite of matter; you'll sweep better next time; now let's go to the cake;" and putting the broom into the corner, she waddled back again to the table, followed by Polly, and proceeded to turn out the contents of the teapot, in search of just the right "receet." But the right one didn't seem to appear; not even after the teapot was turned upside down and shaken by both grandma's and Polly's anxious hands. Every other "receet" seemed to tumble out gladly, and stare them in the face—little dingy rolls of yellow paper, with an ancient odor of spice still clinging to them; but all efforts to find this particular one failed utterly. "Won't some other one do?" asked Polly, in the interval of fruitless searching, when grandma bewailed and lamented, and wondered, "where I could a put it!" "No, no, child," answered the old lady; "now, where do you s'pose 'tis!" and she clapped both hands to her head, to see if she could possibly remember; "no, no, child," she repeated. "Why, they had it down to my niece Mirandy's weddin'—'twas just elegant! light as a feather; and 'twan't rich either," she added; "no eggs, nor—" "Oh, I couldn't have eggs;" cried Polly, in amazement at the thought of such luxury; "and we've only brown flour, grandma, you know." "Well, you can make it of brown," said Mrs. Bascom, kindly; "when the raisins is in 'twill look quite nice." "Oh, we haven't any raisins," answered Polly. "Haven't any raisins!" echoed grandma, looking at her over her spectacles; "what are you goin' to put in?" "Oh—cinnamon," said Polly, briskly; "we've got plenty of that, and—it'll be good, I guess, grandma!" she finished, anxiously; "anyway, we must have a cake; there isn't any other way to celebrate mamsie's birthday." "Well, now," said grandma, bustling around; "I shouldn't be surprised if you had real good luck, Polly. And your ma'll set ever so much by it; now, if we only could find that receet!" and returning to the charge she commenced to fumble among her bits of paper again; "I never shall forget how they eat on it; why, there wasn't a crumb left, Polly!" "Oh, dear," said Polly, to whom "Mirandy's wedding cake" now became the height of her desires; "if you only can find it! can't I climb up and look on the pantry shelves?" "Maybe 'tis there," said Mrs. Bascom, slowly; "you might try; sometimes I do put things away, so's to have 'em safe." So Polly got an old wooden chair, according to direction, and then mounted up on it, with grandma below to direct, she handed down bowl after bowl, interspersed at the right intervals with cracked teacups and handleless pitchers. But at the end of these explorations, "Mirandy's wedding cake" was further off than ever. " 'Tain't a mite o' use," at last said the old lady, sinking down in despair, while Polly perched on the top of the chair and looked at her; "I must a-give it away." "Can't I have the next best one, then?" asked Polly, despairingly, feeling sure that "Mirandy's wedding cake" would have celebrated the day just right; "and I must hurry right home, please," she added, getting down from the chair, and tying on her hood; "or Phronsie won't know what to do." So another "receet" was looked over, and selected; and with many charges, and bits of advice not to let the oven get too hot, etc., etc., Polly took the precious bit in her hand, and flew over home. "Now, we've got to—" she began, bounding in merrily, with dancing eyes; but her delight had a sudden stop, as she brought up so suddenly at the sight within, that she couldn't utter another word. Phronsie was crouching, a miserable little heap of woe, in one corner of the mother's big calico-covered rocking-chair, and crying bitterly, while Joel hung over her in the utmost concern. "What's the matter?" gasped Polly. Flinging the "receet" on the table, she rushed up to the old chair and was down on her knees before it, her arms around the little figure. Phronsie turned, and threw herself into Polly's protecting arms, who gathered her up, and sitting down in the depths of the chair, comforted her as only she could. "What is it?" she asked of Joel, who was nervously begging Phronsie not to cry; "now, tell me all that's happened." "I was a-nailing," began Joel; "oh dear! don't cry, Phronsie! do stop her, Polly." "Go on," said Polly, hoarsely. "I was a-nailing," began Joel, slowly; "and—and—Davie's gone to get the peppermint," he added, brightening up. "Tell me, Joe," said Polly, "all that's been going on," and she looked sternly into his face; "or I'll get Davie to," as little Davie came running back, with a bottle of castor oil, which in his flurry he had mistaken for peppermint. This he presented with a flourish to Polly, who was too excited to see it. "Oh, no!" cried Joel, in intense alarm; "Davie isn't going to! I'll tell, Polly; I will truly." "Go on, then," said Polly; "tell at once;" (feeling as if somebody didn't tell pretty quick, she should tumble over.) "Well," said Joel, gathering himself up with a fresh effort, "the old hammer was a-shaking and Phronsie stuck her foot in the way—and—I couldn't help it, Polly—no, I just couldn't, Polly." Quick as a flash, Polly tore off the little old shoe, and well-worn stocking, and brought to light Phronsie's fat little foot. Tenderly taking hold of the white toes, the boys clustering around in the greatest anxiety, she worked them back and forth, and up and down. "Nothing's broken," she said at last, and drew a long breath. "It's there," said Phronsie, through a rain of tears; "and it hurts, Polly;" and she began to wiggle the big toe, where around the nail was settling a small black spot. "Poor little toe," began Polly, cuddling up the suffering foot. Just then, a small and peculiar noise struck her ear; and looking up she saw Joel, with a very distorted face, making violent efforts to keep from bursting out into a loud cry. All his attempts, however, failed; and he flung himself into Polly's lap in a perfect torrent of tears. "I didn't—mean to—Polly," he cried; " 'twas the—ugly, old hammer! oh dear!" "There, there, Joey, dear," said Polly, gathering him up in the other corner of the old chair, close to her side; "don't feel bad; I know you didn't mean to," and she dropped a kiss on his stubby black hair. When Phronsie saw that anybody else could cry, she stopped immediately, and leaning over Polly, put one little fat hand on Joel's neck. "Don't cry," she said; "does your toe ache?" At this, Joel screamed louder than ever; and Polly was at her wit's end to know what to do; for the boy's heart was almost broken. That he should have hurt Phronsie! the baby, the pet of the whole house, upon whom all their hearts centered—it was too much. So for the next few moments, Polly had all she could do by way of comforting and consoling him. Just as she had succeeded, the door opened, and Grandma Bascom walked in. "Settin' down?" said she; "I hope your cake ain't in, Polly," looking anxiously at the stove, "for I've found it;" and she waved a small piece of paper triumphantly towards the rocking-chair as she spoke. "Do tell her," said Polly to little David, "what's happened; for I can't get up." So little Davie went up to the old lady, and standing on tiptoe, screamed into her ear all the particulars he could think of, concerning the accident that had just happened. "Hey?" said grandma, in a perfect bewilderment; "what's he a-sayin', Polly—I can't make it out." "You'll have to go all over it again, David," said Polly, despairingly; "she didn't hear one word, I don't believe." So David tried again; this time with better success. And then he got down from his tiptoes, and escorted grandma to Phronsie, in flushed triumph. "Land alive!" said the old lady, sitting down in the chair which he brought her; "you got pounded, did you?" looking at Phronsie, as she took the little foot in her ample hand. "Yes'm," said Polly, quickly; " 'twasn't any one's fault; what'll we do for it, grandma?" "Wormwood," said the old lady, adjusting her spectacles in extreme deliberation, and then examining the little black and blue spot, which was spreading rapidly, "is the very best thing; and I've got some to home—you run right over," she said, turning round on David, quickly, "an' get it; it's a-hang-in' by the chimbley." "Let me; let me!" cried Joel, springing out of the old chair, so suddenly that grandma's spectacles nearly dropped off in fright; "oh! I want to do it for Phronsie!" "Yes, let Joel, please," put in Polly; "he'll find it, grandma." So Joel departed with great speed; and presently returned, with a bunch of dry herbs, which dangled comfortingly by his side, as he came in. "Now I'll fix it," said Mrs. Bascom, getting up and taking off her shawl; "there's a few raisins for you, Polly; I don't want 'em, and they'll make your cake go better," and she placed a little parcel on the table as she spoke. "Yes, I'll put it to steep; an' after it's put on real strong, and tied up in an old cloth, Phronsie won't know as she's got any toes!" and grandma broke up a generous supply of the herb, and put it into an old tin cup, which she covered up with a saucer, and placed on the stove. "Oh!" said Polly; "I can't thank you! for the raisins and all—you're so good!" "They're awful hard," said Joel, investigating into the bundle with Davie, which, however, luckily the old lady didn't hear. "There, don't try," she said cheerily; "an' I found cousin Mirandy's weddin' cake receet, for—" "Did you?" cried Polly; "oh! I'm so glad!" feeling as if that were comfort enough for a good deal. "Yes, 'twas in my Bible," said Mrs. Bascom; "I remember now; I put it there to be ready to give John's folks when they come in; they wanted it; so you'll go all straight now; and I must get home, for I left some meat a-boilin'." So grandma put on her shawl, and waddled off, leaving a great deal of comfort behind her. "Now, says I," said Polly to Phronsie, when the little foot was snugly tied up in the wet wormwood, "you've got to have one of mamsie's old slippers." "Oh, ho," laughed Phronsie; "won't that be funny, Polly!" "I should think it would," laughed Polly, back again, pulling on the big cloth slipper, which Joel produced from the bedroom, the two boys joining uproariously, as the old black thing flapped dismally up and down, and showed strong symptoms of flying off. "We shall have to tie it on." "It looks like a pudding bag," said Joel, as Polly tied it securely through the middle with a bit of twine; "an old black pudding bag!" he finished. "Old black pudding bag!" echoed Phronsie, with a merry little crow; and then all of a sudden she grew very sober, and looked intently at the foot thrust out straight before her, as she still sat in the chair. "What is it, Phronsie?" asked Polly, who was bustling around, making preparations for the cake-making. "Can I ever wear my new shoes again?" asked the child, gravely, looking dismally at the black bundle before her. "Oh, yes; my goodness, yes!" cried Polly; "as quick again as ever; you'll be around again as smart as a cricket in a week—see if you aren't!" "Will it go on?" asked Phronsie, still looking incredulously at the bundle, "and button up?" "Yes, indeed!" cried Polly, again; "button into every one of the little holes, Phronsie Pepper; just as elegant as ever!" "Oh!" said Phronsie; and then she gave a sigh of relief, and thought no more of it, because Polly had said that all would be right. 
+"
+def preprocess_text(text):
+
+    text = re.sub(r'^[^\n]*\n', '', text1)
+
+
+    text = re.sub(r'\s+', ' ', text)
+
+    return text
+
+
+processed_text = preprocess_text(text)
+
+print(processed_text)
+def preprocess_text(text):
+
+    text = re.sub(r'^[^\n]*\n', '', text)
+
+
+    text = re.sub(r'\s+', ' ', text)
+
+    return text
+
+
+processed_text = preprocess_text(text)
+
+print(processed_text2)
+
+freq1 = get_word_frequencies(text1)
+freq2 = get_word_frequencies(text2)
+
+
+def plot_frequencies(freq1, freq2):
+    all_words = list(set(freq1.keys()).union(set(freq2.keys())))
+    all_words.sort()
+    
+    freq1_values = [freq1[word] for word in all_words]
+    freq2_values = [freq2[word] for word in all_words]
+
+    x = range(len(all_words))
+    
+    plt.figure(figsize=(14, 7))
+
+    plt.bar(x, freq1_values, width=0.4, label='Текст 1', align='center')
+    plt.bar(x, freq2_values, width=0.4, label='Текст 2', align='edge')
+
+    plt.xlabel('Слова')
+    plt.ylabel('Частота')
+    plt.title('Сравнение частотности слов в текстах')
+    plt.xticks(x, all_words, rotation=90)
+    plt.legend()
+    
+    plt.tight_layout()
+    plt.show()
+
+# сам график
+plot_frequencies(freq1, freq2)
+
+
+    
