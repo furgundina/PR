@@ -1,0 +1,5042 @@
+install.packages(c("tidytext", "dplyr", "stringr", "wordcloud", "RColorBrewer"))
+library(tidytext)
+library(dplyr)
+library(stringr)
+library(wordcloud)
+library(RColorBrewer)
+
+text_data <- data.frame(
+  text = c("
+                              STAR WARS
+
+                              Episode V
+                                   
+                       EMPIRE STRIKES BACK
+
+                         Script adaptation by
+                  Lawrence Kasdan Leigh Brackett
+                           fromstory by
+                             George Lucas
+
+                            LUCASFILM LTD.
+
+
+                        
+
+
+long time ago,a galaxy far, far, away...
+
+
+   dark time for Rebellion. Although Death Star has
+been destroyed, Imperial troops have driven Rebel forces from
+their hidden base pursued them across galaxy.
+   Envading dreaded Imperial Starfleet,groupfreedom fighters
+led by Luke Skywalkerestablishednew secret baseremote
+ice worldHoth.
+   evil lord Darth Vader, obsessed with finding young Skywalker,
+has dispatched thousandsremote probes into far reaches of
+space...
+
+
+EXTERIOR: GALAXY  PLANET HOTH
+
+          Star Destroyer moves through space, releasing Imperial probe
+        robots fromunderside. 
+           Onethese probes zooms toward planet Hoth lands
+      ice-covered surface. An explosion marks point of
+        impact. 
+
+EXTERIOR: HOTH  METEORITE CRATER  SNOW PLAIN  DAY
+
+          weird mechanical sound rises above whiningthe
+        wind.strange probe robot, with several extended sensors,
+        emerges from smoke-shrouded crater. ominous mechanical
+        probe floats across snow plain disappears into the
+        distance.
+
+EXTERIOR: PLAINHOTH  DAY
+
+          small figure gallops across windswept ice slope. The
+        bundled rider is mounted onlarge gray snow lizard, a
+        Tauntaun. Curving plumessnow rise from beneath the
+        speeding pawstwo-legged beast.
+           rider gallops upslope reins his lizarda
+        stop. Pulling off his protective goggles, Luke Skywalker
+        notices somethingsky. takespair of
+        electrobinoculars from his utility belt through them sees
+        smoke rising from where probe robotcrashed.
+           wind whipsLukes fur-lined cap activates a
+        comlink transmitter. His Tauntaun shifts moans nervously
+        beneath him.
+
+LUKE: (into comlink) Echo ThreeEcho Seven. Han, old buddy, do you
+read me?
+           Afterlittle staticfamiliar voice isard.
+
+HAN: (over comlink) Loud clear, kid. Whats up?
+
+LUKE: (into comlink) Well, I finished my circle. I dont pick up any
+life readings.
+
+HAN: (over comlink) There isnt enough lifethis ice cubefill a
+space cruiser. sensors are placed. going back.
+
+LUKE: (into comlink) Right. Ill see you shortly. Theresmeteorite
+that hground nearre. I wantcheck out. wont take
+long.
+
+           Luke clicks off his transmitter reins backhis
+        nervous lizard. pats beastheadcalm it.
+
+LUKE:y, steady girl. Whats matter? You smell something?
+
+           Luke takessmall device from his belt starts to
+        adjust when suddenlylarge shadow falls over hfrom
+        behind.arsmonstrous howl turnssee an eleven-
+        foot-tall shape towering over him. isWampa Ice Creature,
+        lunginghferociously.
+
+LUKE: Aaargh!
+
+           Luke grabs for his pistol, but is hflatface by a
+        huge white claw. falls unconscious into snowa
+        moment terrified screamsTauntaun are cut short by
+        horrible snap ofneck being broken.
+           Wampa Ice Creature grabs Luke by one ankle drags
+        haway across frozen plain.
+
+EXTERIOR: HOTH  REBEL BASE ENTRANCE  DAY
+
+          stalwart figure rides his Tauntaun upentrance
+       an enormous ice cave.
+
+INTERIOR: HOTH  REBEL BASE  MAIN HANGAR DECK
+
+           Rebel troopers rush about unloading supplies otherwise
+        securing their new base. rider, Han Solo, swings off his
+        lizard pulls off his goggles.
+           walks into main hangar deck toward Millennium
+        Falcon, which is parked among several fighters. Mechanics, R2
+        units, various other droids hurry about. Han stopsthe
+        Millennium Falcon where his Wookiee copilot, Chewbacca, is
+        welding oncentral lifter. Chewie stops his work lifts
+        his face shield, growling an irritated greetinghis boss.
+
+HAN: Chewie!
+
+           Wookiee grumblesreply.
+
+HAN: All right, dont lose your temper. Ill come right back give
+youhand.
+
+           Chewbacca puts his mask backreturnshis welding
+       Han leaves.
+
+INTERIOR: HOTH  REBEL BASE  COMMCENTER
+
+          makeshift commcenterbeen set upa blasted area
+       thick ice. low-ceilinged room isbeehiveactivity.
+        Controllers, troops, droids move about setting up
+        electronic equipment monitoring radar signals.
+           General Rieekan straightens up fromconsoleHans
+        approach.
+
+RIEEKAN: Solo?
+
+HAN: No signlife out there, General. sensors areplace.
+Youll know if anything comes around.
+
+RIEEKAN: Commander Skywalker reportedyet?
+
+HAN: No.s checking outmeteorite that hnear him.
+
+RIEEKAN: (indicates radar screen) With all meteor activitythis
+system,goingbe difficultspot approaching ships.
+
+           Takingdeep breath, Han blurts out what ishis mind.
+
+HAN: General, Ive gotleave. I cant stay anymore.
+
+           Princess Leia, standing atconsole nearby, is dresseda
+        short white combat jacket pants.r hair is brained and
+        tied acrossrada Nordic fashion. She overhears their
+        conversation seems somewhat distressed.
+
+RIEEKAN: sorryhear that.
+
+HAN: Well, therespricemyad. If I dont pay off Jabba the
+Hut, Imdead man.
+
+RIEEKAN:death marks not an easy thinglive with. Youregood
+fighter, Solo. I hatelose you.
+
+HAN: Thank you, General.
+
+           turnsLeiaRieekan moves away.
+
+HAN: (with feeling) Well, Your Highness, I guess this is it.
+
+LEIA: Thats right.
+
+           Leia is angry. Han sees sheno warmthoffer him.
+        shakes hisad adoptssarcastic tone.
+
+HAN: (cooly) Well, dont get all mushyme. So long, Princess.
+
+           Han walks away into quiet corridor adjoining the
+        commcenter. Leia stewsmoment, then hurries after him.
+
+INTERIOR: HOTH  REBEL BASE  ICE CORRIDOR
+
+LEIA: Han!
+
+           Han stopscorridor turnsface Leia.
+
+HAN: Yes, Your Highnessness?
+
+LEIA: I thought you decidedstay.
+
+HAN: Well, bounty hunter we ran intoOrd Mantell changed my
+mind. 
+
+LEIA: Han, we need you!
+
+HAN: We?
+
+LEIA: Yes.
+
+HAN: Oh, what about you need?
+
+LEIA: (mystified) I need? I dont know what youre talking about.
+
+HAN: (shakes hisad, fed up) You probably dont.
+
+LEIA: what precisely am I supposedknow?
+
+HAN: Come on! You want mestay becauseway you feel about
+me.
+
+LEIA: Yes. Youregreatlpus. Yourenatural leader...
+
+HAN: No! Thats not it. Come on. Aahhh  uh huh! Come on.
+
+           Leia stareshim, understanding, then laughs.
+
+LEIA: Youre imagining things.
+
+HAN: Am I? Then why are you following me? Afraid I was goingleave
+without giving yougoodbye kiss?
+
+LEIA: Id justsoon kissWookiee.
+
+HAN: I can arrange that. You could usegood kiss!
+
+           Angrily, Han strides down corridorLeia stares after
+        him.
+
+INTERIOR: HOTH  REBEL BASE  ANOTHER ICE CORRIDOR
+
+          familiar streambeeps whistlesrald approach
+       Artoo-Detoo See-Threepio, who appear aroundcorner
+        move along an ice wall toward main hangar.
+
+THREEPIO: Dont tryblame me. I didnt ask youturnthe
+thermalater. I merely commented that was freezingthe
+princesss chamber. Butsupposedbe freezing. How are we going
+to dry out allr clothes? I really dont know.
+
+           Artoo beepsstreamprotesting whistles.
+
+THREEPIO: Oh, switch off.
+
+INTERIOR: HOTH  REBEL BASE  MAIN HANGAR DECK
+
+           two robots stopHan Solos space freighter. Han and
+        Chewie are struggling with their central lifters.
+
+HAN: (to Chewie) Why do you take this apart now? tryingget us
+outhere you pull boththese.
+
+           Chewie grumblesirritation.
+
+THREEPIO: Excuse me, sir.
+
+HAN: (to Chewie) Put them back together right now.
+
+THREEPIO: Might I haveword with you, please?
+
+HAN: What do you want?
+
+THREEPIO: Well,Princess Leia, sir. Shes been tryingget you
+on communicator.
+
+HAN: I turned off. I dont wanttalkher.
+
+THREEPIO: Oh. Well, Princess Leia is wondering about Master Luke.
+hasnt come back yet. She doesnt know where is.
+
+HAN: I dont know where is.
+
+THREEPIO: Nobody knows where is.
+
+HAN: What do you mean, nobody knows?
+
+           Han glancesfading lightentranceice
+        cavenight slowly beginsfallplanet.
+
+THREEPIO: Well, uh, you see...
+
+           Han jumps down off lift,Threepio follows him.
+
+HAN: Deck Officer. Deck Officer!
+
+THREEPIO: Excuse me, sir. Might I inqu-...
+
+           Han abruptly puts his hover Threepios mouththe
+        deck officer approaches.
+
+DECK OFFICER: Yes, sir?
+
+HAN: Do you know where Commander Skywalker is?
+
+DECK OFFICER: I havent seen him.possible camethrough the
+south entrance.
+
+HAN:possible? Why dont you go find out?getting dark out
+there.
+
+DECK OFFICER: Yes, sir.
+
+           deck officer leaves hurriedly,Han takes his hand
+        off Threepios mouth.
+
+THREEPIO: Excuse me, sir. Might I inquire whats going on?
+
+HAN: Why not?
+
+THREEPIO: Impossible man. Come along, Artoo, lets find Princess Leia.
+Between ourselves, I think Master Luke isconsiderable danger.
+
+INTERIOR: HOTH  REBEL BASE  MAIN ICE TUNNEL
+
+           deck officer his assistant hurry toward Hanhe
+        enters tunnel.
+
+DECK OFFICER: Sir, Commander Skywalker hasnt comethrough the
+south entrance. might have forgottencheck in.
+
+HAN: Not likely. Are speeders ready?
+
+DECK OFFICER: Not yet. Were having some trouble adapting themthe
+cold.
+
+HAN: Then well havego outTauntauns.
+
+DECK OFFICER: Sir, temperatures dropping too rapidly.
+
+HAN: Thats right. my friends outit.
+
+ASSISTANT OFFICER: Ill cover sector twelve. Have com-control set
+screen alpha.
+
+           Han pushes through troops mountsTauntaun.
+
+DECK OFFICER: Your Tauntaunll freeze before you reach first
+marker.
+
+HAN: Then Ill see youhell!
+
+           Han maneuvers his mount outcave races into the
+        dark bitter night.
+
+EXTERIOR: HOTH  ICE GORGE  DUSK
+
+           jagged face ofhuge ice wall sits gloomilydim
+        twilight ofHoth day. Luke hangs upside down, ankles frozen
+        into icy stalactites, his extended arms withinfootthe
+        snow floor. One sidehis face is covereda dried mask of
+        frozen blood. opens his easchilling moanthe
+        hideous ice creature echoes off gorge walls. Luke pulls
+        himself up, grabs holdhis ankles, futilely tries to
+        unfasten throngs.
+           Exhausted, drops back into his hanging position.he
+        hangs there, spies his lightsaber lying nearpilehis
+        discarded gear, about three feet outreach.
+           focusessaber and,his hstrains toward the
+        weapon, squeezes his etightconcentration.
+           Justice creature looms over Luke, lightsaber
+        jumps into Lukes hand.
+           young warrior instantly ignites his sword, swinging up,
+        cuts himself loose from ice. flopssnowa
+       ap. startled creature moves back, his giant yellow eyes
+        blinking. Luke scrambleshis feet. swings his lightsaber
+        beast screamspain.
+
+EXTERIOR: HOTH  ENTRANCEICE GORGE  DUSK
+
+           Luke staggers outgorge into dark snowy
+        twilight. Weak exhausted, stumbles downsnow bank.
+
+EXTERIOR: HOTH  SNOW PLAIN  DUSK
+
+          small, lone figure ridingTauntaun races through the
+        hostile vastnesssnow cold.runs, Tauntauns
+        legs kick up large cloudssnow ice into snowy air.
+
+EXTERIOR: HOTH  OUTSIDE ICE HANGAR  DUSK
+
+           Artoo standsfalling snow, beeping worriedly.
+        Threepio moves stiffly overhim.
+
+THREEPIO: You must come along now, Artoo. Theres really nothing more
+we can do. my joints are freezing up.
+
+           Artoo beeps, long low.
+
+THREEPIO: Dont say thing like that!course well see Master Luke
+again.ll be quite all right, youll see. (to himself) Stupid
+little short-circuit.ll be quite all right.
+
+           Threepio turnsgo back inside main hangarArtoo
+        mournfully keeps his vigil.
+
+EXTERIOR: HOTH  SNOW DRIFT  DUSK
+
+           wind is blowing quite strong now. Luke struggles to
+        stay upright, butblastfreezing snow knocks hover.
+        strugglesget up, but cant. young warrior from
+        Tatooine drags himselfcouplefeet then collapses.
+
+INTERIOR: REBEL BASE  MAIN HANGAR DECK  ENTRANCE  NIGHT
+
+           Princess Leia stands inside dark entranceRebel
+        base, waiting forsigntwo Rebelroes. She shivers
+       cold wind as, nearby, Chewie sits with hisadhis
+        hands.background, Artoo Threepio move through the
+        doors. 
+          Rebel lieutenant movesMajor Derlin, an officer
+        keeping watch with princess.
+
+LIEUTENANT: Sir, all patrols are in. Theres still no contact from
+Skywalker or Solo.
+
+THREEPIO: Mistress Leia, Artoo sayss been quite unablepick up
+any signals, although does admthat his own range is far too
+weakabandon all hope.
+
+           Leia nods an acknowledgment, but she is lostthought.
+
+DERLIN: Your Highness, theres nothing more we can do tonight. The
+shield doors must be closed.
+
+           turnslieutenant.
+
+DERLIN: Close doors.
+
+LIEUTENANT: Yes, sir.
+
+           lieutenant walks away. Chewie lets outlong, mournful
+        howl, somewhat likecoyote.same moment, Artoo begins
+       complex seriesefficient beeps.
+
+THREEPIO: Artoo says chancessurvival are seven hundred
+seventy-five...to one.
+
+           Leia stands prayingherselfhuge metal doors slam
+        across entranceice cave. loud booms echo
+        throughout huge cavern. Chewie lets out another suffering
+        howl.
+
+THREEPIO: Actually, Artoobeen knownmake mistakes...from time
+to time. Oh, dear, oh, dear. Dont worry about Master Luke. sure
+hell be all right.s quite clever, you know...forhuman being.
+
+EXTERIOR: HOTH  SNOW DRIFT  DUSK
+
+           Luke lies face downsnow, nearly unconscious. Slowly
+        looks up sees Ben Kenobi, barely visible through the
+        blowing snow. is hardtell if Kenobi is real or a
+        hallucination.
+
+BEN: Luke...Luke.
+
+LUKE: (weakly) Ben?
+
+BEN: You will goDagobah system.
+
+LUKE: Dagobah system?
+
+BEN: There you will learn from Yoda, Jedi Master who instructed
+me.
+
+           imageBen fades, revealinglone Tauntaun rider
+        approaching from windswept horizon.
+
+LUKE: (groaning faintly) Ben...Ben.
+
+           Luke drops into unconsciousness.
+           Han pulls up leaps off his mount. hurrieshis
+        snow-covered friend, cradling himhis arms. Hans Tauntaun
+        lets outlow, pitiful bellow. But Hans concern is with
+        Luke, shakes hurgently.
+
+HAN: Luke! Luke! Dont do this, Luke. Come on, give mesignre.
+
+           Luke doesnt respond. Han begins frantically rubbing and
+        slapping Lukes unconscious face.he startslift the
+        youth, Hanarsrasping sound behind him. turns, just in
+        timesee his Tauntaun stagger then fall over into the
+        snow.
+           Han carries Lukemoaning beast. Then, withfinal
+        groan, Tauntaun expires.
+
+HAN: Not much time.
+
+           pushes Lukes inert form against bellydead
+        beast.
+
+LUKE: (moaning) Ben...Ben...
+
+HAN: Hang on, kid.
+
+LUKE: Dagobah system...
+
+           Han ignites Lukes saber cuts beast fromad to
+        toe. quickly tossessteaming innards into snow,
+        then lifts Lukes inert form stuffs hinside the
+        carcass.
+
+HAN: (reeling from odor) Whew...
+
+LUKE: Dagobah...
+
+HAN: This may smell bad, kid...
+
+LUKE: (moaning) Yoda...
+
+HAN: ...but will keep you warm...til I get shelter built.
+(strugglingget Lukecarcass) Ooh...I thought they smelled
+badoutside!
+
+           windpicked up considerably, making difficult to
+        move. Han removespack from dead creatures back, taking
+        outshelter container. beginsset up what can only be
+       pitiful protection againstbitter Hoth night.
+
+EXTERIOR: HOTH  SNOWDRIFT  DAWN
+
+           Four snub-nosed armored snowspeeders race across white
+        landscape.
+
+INTERIOR: SNOWSPEEDER COCKPIT
+
+           There is only one pilot, Zev,enclosed two-man
+        craft. concentratesscopes which ring his cockpit.
+       arslow beep from onehis monitors.
+
+ZEV: (into transmitter) Echo Base...Ive got something! Not much, but
+could belife form.
+
+EXTERIOR: HOTH  SNOWDRIFT
+
+           small craft banks makesslow arc, then races off
+      new direction.
+
+INTERIOR: SNOWSPEEDER  COCKPIT
+
+           pilot switches over tonew transmitter.
+
+ZEV: (into transmitter) This is Rouge Two. this is Rouge Two. Captain
+Solo, so you copy? Commander Skywalker, do you copy? This is Rouge
+Two.
+
+           There issharp cracklestatic, thenfaint voice.
+
+HAN: (filtered over Zevs receiver) Good morning. Niceyou guys to
+drop by.
+
+ZEV: (switching transmitters) Echo Base...this is Rouge Two. I found
+them. Repeat, I found them.
+
+EXTERIOR: HOTH  SNOWDRIFT  DAY
+
+           small shelter Han set up is covered with snowthe
+        windward side.makeshift antenna rests gingerlytop the
+        snowdrift. Han spots Zevs snowspeeder approachingthe
+        distance, begins waving his arms franticallytiny
+        craft.
+
+INTERIOR: REBEL BASE  MEDICAL CENTER
+
+           Strange robot surgeons adjustmasselectronic
+        equipment.switch is thrownsudden blinding flash
+        obscures Lukea bacta tank filled withthick, gelatinous
+        slime. beginsthrash about, ravingdelirium.
+
+INTERIOR: REBEL BASE  MEDICAL CENTER  RECOVERY ROOM
+
+           Luke sits upa recovery-room bed, weak but smiling. His
+        face shows terrible wounds from Wampas attack. Threepio
+        Artoo enter room.
+
+THREEPIO: Master Luke, sir,goodsee you fully functional
+again.
+
+           Artoo beeps his good wishes.
+
+THREEPIO: Artoo expresses his relief, also.
+
+           Han Chewie make their entrance. Wookiee growls a
+        greeting.
+
+HAN: How are you feeling, kid? You dont look so badme.fact,
+you look strong enoughpull ears offGundark.
+
+LUKE: Thanksyou.
+
+HAN: Thats two you owe me, junior.
+
+           Han turnsLeia enters room. looksher with a
+        big, devilish grin.
+
+HAN: Well your Worship, looks like you managedkeep me around for a
+little while longer.
+
+LEIA: (haughtily) I had nothingdo with it. General Rieekan thinks
+its dangerous for any shipsleave system until weve activated
+energy shield.
+
+HAN: Thatsgood story. I think you just cant bearlet a
+gorgeous guy like me outyour sight.
+
+LEIA: I dont know where you get you delusions, laser brain.
+
+           Chewie is amused; laughshis manner. Han, enjoying
+        himself, regards Chewie good-humoredly.
+
+HAN: Laugh up, fuzz ball. But you didnt see us alonesouth
+passage.
+
+           Luke sparksthis; looksLeia.
+
+HAN: She expressedr true feelings for me.
+
+           Leia is flushed, edarting between Luke Han.
+
+LEIA: My...! Why, you stuck up,...half-witted,...scruffy-looking...
+nerf-herder!
+
+HAN: Whos scruffy-looking? (to Luke) I must have hher pretty close
+to markgetr all riled up like that, huh, kid?
+
+           Leia looks vulnerable formoment, then mask falls
+        again, she focusesLuke.
+
+LEIA: Why, I guess you dont know everything about women yet?
+
+           With that she leans over kisses Lukelips. Then
+        she turnsherel walks out, leaving everyonethe
+        room slightly dumbstruck. With some smugness, Luke puts his
+        hands behind hisad grins.
+           Suddenly,distance, muffled soundan alarm is
+       ard.
+
+ANNOUNCER: (over loudspeaker)adquarters personnel, reportcommand
+center.
+
+           voice repeats order Han, Chewie, Artoo, and
+        Threepio hurry outroom, bidding farewellLuke.
+
+HAN: Take easy.
+
+THREEPIO: Excuse us, please.
+
+INTERIOR: HOTH  REBEL BASE  COMMCENTER
+
+           Rieekan looks up grimly fromconsole screen. calls
+        overLeia Han.
+
+RIEEKAN: Princess...we havevisitor.
+
+           group hurries overRieekan.
+
+RIEEKAN: Weve picked up something outside basezone twelve,
+moving east.
+
+SENIOR CONTROLLER:metal.
+
+LEIA: Then couldnt be onethose creatures that attacked Luke.
+
+HAN: could bespeeder, oneours.
+
+SENIOR CONTROLLER: No. Wa theres something very weak coming
+through.
+
+           Threepio steps upcontrol panel listens intently
+       strange signal.
+
+THREEPIO: Sir, I am fluentsix million formscommunication. This
+signal is not used by Alliance. could be an Imperial code.
+
+           transmission endsstatic.
+
+HAN: isnt friendly, whatever is. Come on, Chewie, lets check
+out.
+
+RIEEKAN: Send Rouges Ten Elevenstation three-eight.
+
+EXTERIOR: HOTH  SNOW PLAIN  DAY
+
+           dark probe robot moves past smoldering ruins of
+        station three-eight downridge toward Rebel base. It
+        raiseslarge antenna from top ofhead begins to
+        send outpiercing signal.
+           probe droidspotted Chewbacca who, not thirty feet
+        away,popped hisad oversnow bank. Instantly, the
+        probe robot swings around,deadly ray readyfire. But
+        before can getshot off, is hfrom behind bylaser
+        bolt, explodesa million pieces.
+           Han Solo replaces his blasterits holster peers
+        intentlysmoldering remainsImperial probe.
+
+INTERIOR: HOTH  REBEL BASE  COMMCENTER
+
+           Leia Rieekan listenHancomlink.
+
+HAN: (over comlink) Afraid theres not much left.
+
+LEIA: (into comlink) What was it?
+
+HAN: (over comlink) Droidsome kind. I didnt hthat hard. It
+must have hadself-destruct.
+
+LEIA: (into comlink) An Imperial probe droid.
+
+HAN: (over comlink) Itsgood bet Empire knows werere.
+
+RIEEKAN: Wed better start evacuation.
+
+EXTERIOR: SPACE  IMPERIAL FLEET
+
+           Darth Vaders Star Destroyer, larger more awesome than
+        five Imperial Star Destroyers that surround it, sits in
+        vastnessspace. six huge ships are surrounded by a
+        convoysmaller spacecraft. TIE fighters dartfro.
+
+INTERIOR: DARTH VADERS STAR DESTROYER  BRIDGE  MAIN CONTROL DECK
+
+           Controllers working vast complexelectronic controls
+       ar ominous approaching footsteps look up from their
+        controls. squat, evil-looking Admiral Ozzel young,
+        powerfully built General Veers, who have been conferring near
+        front, also feel approaching presence turn toward
+        it. Darth Vader, LordSith, enters likechill wind.
+       Vader moves across wide bridge, Captain Piett hurries
+        upOzzel.
+
+PIETT: Admiral.
+
+OZZEL: Yes, Captain
+
+PIETT: I think weve got something, sir. report is onlyfragment
+had.
+
+OZZEL: (irritated) We have thousandsprobe droids searching the
+galaxy. I want proof, not leads!
+
+PIETT: visuals indicate life readings.
+
+OZZEL: could mean anything. If we followed every lead...
+
+PIETT: But, sir, Hoth system is supposedbe devoidhuman
+forms.
+
+           Vader moves tolarge screen showing an imageRebel
+        snow base. Rebel speeders can be seen approaching base in
+        distance.
+
+VADER: You found something?
+
+PIETT: Yes, my lord.
+
+VADER: (studying imageconsole screen) Thats it. The
+Rebels are there.
+
+OZZEL: My lord, there are so many uncharted settlements. could be
+smugglers, could be...
+
+VADER: That is system. sure Skywalker is with them. Set
+your course for Hoth system. General Veers, prepare you men.
+
+INTERIOR: HOTH  REBEL BASE  TRANSPORT BAY
+
+          captain issues instructionstwohis menthe
+        entrancemain transport bay. Several Rebel transports
+        behind them are being loaded by men carryingavy boxes and
+        moving quickly, but notpanic.
+
+REBEL CAPTAIN: Groups seven ten will stay behindfly the
+speeders.sooneach transport is loaded, evacuation control will
+give clearance for immediate launch.
+
+REBEL FIGHTER: Right, sir.
+
+INTERIOR: HOTH  REBEL BASE  MAIN HANGAR DECK
+
+           Alarms sound. Troops, ground crews, droids rush to
+        their alert stations. Armored snowspeeders are lined up in
+        attack formation near main entrance.
+          midstall this activity, Han does some frantic
+        weldingliftersMillennium Falcon.
+           Han finishes his work hops downhangar floor.
+        pulls out his comlink, all while eyeing problematic
+        lifters.
+
+HAN: (into comlink,Chewie) Okay, thats it. Try it...Off! Turn it
+off! Turn off! Off!
+
+           Smoke rises fromminor explosionlifter.
+        Exasperated, Han surveys new damage.
+
+INTERIOR: REBEL BASE  MEDICAL CENTER
+
+           Luke dressesreadiness for evacuationhis
+        attending medical droid stands by.
+
+MEDICAL DROID: Sir, will take quite awhileevacuate T-forty-
+sevens.
+
+LUKE: Well, forgetavy equipment. Theres plentytimeget
+smaller modulestransports.
+
+MEDICAL DROID: Take care, sir.
+
+LUKE: Thanks.
+
+INTERIOR: REBEL BASE  MAIN HANGAR DECK
+
+           Pilots, gunners, R2 units scurry about. Luke, pulling
+       hisavy-weather jacket, isaded towardrowarmored
+        speeders. stopsrearMillennium Falcon, where
+        Han Chewie are tryingrepair right lifter with even
+        more haste than before.
+
+LUKE: Chewie, take careyourself, okay?
+
+          Luke pats Chewiearm, Chewie puts his arms around
+        Luke gives himtight hug. Han is discussing lifter
+        withrepair droid when sees Luke.
+
+HAN: Hi, kid. (to droid) Theres gotbereason for it. Check it
+at other end. Waitsecond. (to Luke) You all right?
+
+LUKE: Yeah.
+
+HAN: Be careful.
+
+LUKE: You, too.
+
+           Luke smiles, then waveshis friend walks on. After a
+        few steps, stops looks back. Han glances up two
+        exchangesilent communication, each wishing other
+        safety, happiness  many things, all difficultverbalize.
+
+INTERIOR: REBEL BASE  CONTROL ROOM.
+
+           Alarms sound throughout hidden Rebel base.the
+        control room,controller urgently gestures for General
+        Rieekancheckcomputer scan.
+
+CONTROLLER: General, theresfleetStar Destroyers coming out of
+hyperspacesector four.
+
+RIEEKAN: Reroute all powerenergy shield. Weve gothold
+them till all transports are away. Prepare for ground assault.
+
+           Rieekan exits hurriedly.
+
+INTERIOR: VADERS STAR DESTROYER  VADERS CHAMBER  MEDITATION CUBICLE
+
+           dark cubicle is illuminated bysingle shaftlight
+        which fallsbrooding Dark Lordhe sits onraised
+        meditation cube. General Veers enters room approaches
+        silent, unmoving Vader. Although seemingly very sure of
+        himself, Veers is still not bold enoughinterrupt the
+        meditating lord. younger general stands quietly at
+        attention until evil presence speaks.
+
+VADER: What is it, General?
+
+VEERS: My lord, fleetmoves outlight-speed. Com-Scan has
+detected an energy field protecting an area around sixth planet of
+Hoth system. field is strong enoughdeflect any
+bombardment.
+
+VADER: (angrily) Rebels are alertedour presence. Admiral Ozzel
+came outlight-speed too closesystem.
+
+VEERS: felt surprise was wiser...
+
+VADER: isclumsyhe is stupid. General, prepare your troops
+forsurface attack.
+
+VEERS: Yes, my lord.
+
+           Veers turns smartly leavesVader activateslarge
+        viewscreen showing bridgehis mighty ship. Admiral
+        Ozzel appearsviewscreen, standing slightlyfront of
+        Captain Piett.
+
+OZZEL: Lord Vader, fleetmoved outlight-speed, were
+preparing to...Aaagh!
+
+VADER: You have failed me for last time, Admiral. Captain Piett.
+
+           Piett steps forward,admiral moves away, slightly
+        confused, touching his throatbeginsconstrict
+        painfully.
+
+PIETT: Yes, my lord.
+
+VADER: Make readylout troops beyond energy shield and
+deploy fleet so that nothing gets off that system. You are in
+commnow, Admiral Piett.
+
+PIETT: Thank you, Lord Vader.
+
+           Pietts pleasure about his unexpected promotion is not an
+        unmixed emotion. glances warilystruggling Admiral
+        Ozzel who, withfinal choke, stumbles fallsa
+        lifelessap before him.
+
+INTERIOR: REBEL BASE  MAIN HANGAR DECK
+
+           Withsenseurgency, Leia quickly briefsgroup of
+        pilots gatheredcenterhangar.
+
+LEIA: All troop carriers will assemblenorth entrance. The
+heavy transport ships will leavesoontheyre loaded. Only two
+fighter escorts per ship. energy shield can only be opened for a
+short time, so youll havestay very closeyour transports.
+
+HOBBIE: Two fighters againstStar Destroyer?
+
+LEIA: ion cannon will fire several shotsmake sure that any
+enemy ships will be outyour flight path. When youve gotten past
+energy shield, proceed directlyrendezvous point.
+Understood?
+
+PILOTS: (in unison) Right. Okay.
+
+LEIA: Good luck.
+
+DERLIN: Okay. Everyoneyour stations. Lets go!
+
+           pilots hurry away.
+
+EXTERIOR: HOTH  ICE PLAIN  SNOW TRENCH  DAY
+
+           Rebel troops carryavy bazooka-type weapons position
+        them along snow trench. Men hurriedly respondtheir
+        officers yelled orders brace themselves against the
+        rhythmic gustsbitter-cold wind.
+           Other troops load power packs intogun turret swing
+       guns into position.
+
+EXTERIOR: HOTH  ICE PLAIN  POWER GENERATORS
+
+           Near base power generators, troops rushset up their
+       avy battle equipment. Buzzing loudly, generators send
+        along, sparking fingersenergy into bitter Hoth wind.
+
+INTERIOR: REBEL BASE  COMMCENTER
+
+           long lineRebel controllers is tense,are
+        Princess Leia General Rieekan, who are trying very hard
+        notshow any fear.
+
+RIEEKAN: Their primary target will be power generators. Prepare to
+open shield.
+
+EXTERIOR: ICE PLAIN
+
+           Rebel transport two escort fighters begin their
+        departure from ice planet.
+
+EXTERIOR: SPACE  IMPERIAL STAR DESTROYER
+
+          huge Imperial Star Destroyer rest againstseastars,
+        far above white surfaceplanet Hoth.
+
+INTERIOR: IMPERIAL STAR DESTROYER  BRIDGE
+
+           An Imperial controller approaches his commander.
+
+CONTROLLER: Sir, Rebel ships are coming into our sector.
+
+CAPTAIN: Good. Our first catchday.
+
+INTERIOR: REBEL BASE  COMMCENTER
+
+WOMAN CONTROLLER: Stby, ion control....Fire!
+
+EXTERIOR: REBEL BASE ICE CAVE  ION CANNON
+
+           giant ball-shaped ion cannon rotates into position and
+        blasts two red energy beams skyward.
+
+EXTERIOR: SPACE  HOTH  REBEL TRANSPORT
+
+           Rebel transportescort race away from white
+        planet, closely followed by two red energy beams.
+          Rebel transport races toward waiting Imperial
+        Star Destroyer, is overtaken by two scarlet energy
+        bolts. Imperial Star Destroyer is hitconning tower
+        by powerful bolts, which set up fiery explosionsits
+        metal hull.
+           big Star Destroyer veers, then spins wildly out of
+        control.Imperial ship careers into deep space, the
+        Rebel transport races awaysafety.
+
+INTERIOR: REBEL BASE  MAIN HANGAR DECK
+
+           Pilots, gunners, troopers hurrytheir stations and
+        their vehicles.
+
+ANNOUNCER: (over loudspeaker) first transport is away.
+
+          Everyone cheersannouncement, which echoes through
+        hangar. Luke turns walks on,ading toward his
+        snowspeeder. His gunner, Dack,fresh-faced, eager kid, is
+        gladsee him. They climb in.
+
+DACK: Feeling all right, sir?
+
+LUKE: Just like new, Dack. How about you?
+
+DACK: Right now I feel I could takewhole Empire myself.
+
+LUKE: (quietly, strapping in) I know what you mean.
+
+EXTERIOR: HOTH  ICE PLAIN
+
+          thin horizon line cuts across bleak landscape. Small
+        dot-size objects beginappearhorizon, movingthe
+        directionRebel base.
+
+EXTERIOR: HOTH  ICE PLAIN  SNOW TRENCH
+
+          Rebel officer liftspairelectrobinocularshis
+        eyes. Through lens seesvery close view ofgiant
+        Imperial snow walker. adjusts view which then zooms
+        backreveal three moreominous battle machines.
+        Small flashesyellow fire billow from gunsthe
+        lumbering snow walkers.
+           officer lowers his binocularsregular rhythmic
+        pounding beginsmake ground vibrate. pounding grows
+        louder is accompanied byhigh-pitched, metallic
+        rattling. officer speaks into his comlink.
+
+TRENCH OFFICER: Echo Station Three-T-Eight.
+
+INTERIOR: REBEL BASE  CORRIDOR
+
+           Pilots gunners racetheir waiting snowspeeders. Ice
+        snow begin falling from wallscorridor, shaken
+        by pounding Imperial snow walkerthey draw ever nearer.
+
+TRENCH OFFICER: (over comlink) We have spotted Imperial walkers!
+
+CONTROLLER: Imperial walkersnorth ridge.
+
+EXTERIOR: HOTH  ICE PLAIN  SNOW TRENCH
+
+           Rebel troops atheir weaponshorizon as
+        explosions erupt all around them. They are nervous their
+        griptheir weapons tightens from cold from fear.
+           Behind troopsdozen snowspeeders race through the
+        sky.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+LUKE: (into comlink) Echo station Five-Seven. Wereour way.
+
+EXTERIOR: HOTH  ICE PLAIN  BATTLEFIELD
+
+           fleetsnowspeeders races above ice fieldfull
+        throttle. They accelerate away from basead toward
+        distant walkers.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+LUKE: (into comlink) All right, boys, keep tight now.
+
+DACK: Luke, I have no approach vector. not set.
+
+LUKE: Steady, Dack. Attack pattern delta. Go now!
+
+EXTERIOR: HOTH  ICE PLAIN  BATTLEFIELD
+
+           cannons mountedwalkerad firethe
+        speeders. Other walkers loombackground. Two speeders
+        race away past twoenormous walkers bankthe
+        right.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+LUKE: All right, coming in.
+
+           turns his speederads directlyonethe
+        walkers, flying towardtowering legs. horizon twists
+       speeder banks between legs.
+
+LUKE: (into comlink) Hobbie, you still with me?
+
+EXTERIOR: HOTH  ICE PLAIN  BATTLEFIELD
+
+           Two speeders race directlyhead ofwalker, then
+        splfly past it.
+           Three other walkers march onward, firing all cannons.
+
+EXTERIOR: HOTH  ICE PLAIN  SNOWTRENCH
+
+           Rebel troops fireapproaching walkers,snow
+        ice explode all around them.
+
+EXTERIOR: HOTH  ICE PLAIN  BATTLEFIELD
+
+          speeder banks through away from legs ofwalker.
+        Two other speeders pass first speeder from opposite
+        direction. Other Rebel craft race just above icy plain.
+          giant walkerad swivels fires, striking a
+        snowspeeder sending crashinga ballflames.
+
+INTERIOR: IMPERIAL SNOW WALKER  COCKPIT
+
+           General Veers two walker pilots keepcareful eye on
+        racing Rebel snowspeedersthey maneuver their lumbering
+        war machine forward.
+           Lukes speeder banksfrom sideVeerss walker and
+       ads straight forviewport, blasting away. An explosion
+        hits walker window, but dissipates, doing no harm. The
+        speeder roars up over impregnable war machine.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+           Luke looks backwalkergrows smallerthe
+        distance.
+
+LUKE: That armors too strong for blasters.
+
+          horizon, another walker moves up past Lukes cockpit
+        window, twisting outsightLuke banks starts another
+        run.
+
+LUKE: (into comlink) Rouge Group, use your harpoons tow cables. Go
+for legs. might be our only chancestopping them. (to Dack)
+All right, stby, Dack.
+
+           Dack isgunners controls.
+
+DACK: Luke, weve gotmalfunctionfire control. Ill havecut
+in auxiliary.
+
+LUKE: Just hang on. Hang on, Dack. Get readyfire that tow cable.
+
+           Barely keeping his seattumbling ship, Dack struggles
+       set up his harpoon gun.
+           Luke swings his speeder aroundads toward an oncoming
+        walker. Laser bolts flak fill air, creatingdeadly
+        obstacle course for tiny craft.
+
+EXTERIOR: HOTH  ICE PLAIN  BATTLEFIELD
+
+           Rouge Leader another snowspeeder flytight formation
+        toward walkerexplosions burst all around them.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+           After sustainingheavy volleyfire, Luke turns around
+       see if Dack is all right.
+
+LUKE: Dack? Dack!
+
+           Dack is lost. Blood streams down his forehead, which
+        restshis smoldering controls. Out back window, an
+        Imperial walker recedesdistance.
+
+EXTERIOR: HOTH  ICE PLAIN  SNOW TRENCH AREA
+
+           Rebel troops fire dishlike ray gun while explosions
+        erupt around them.
+
+EXTERIOR: HOTH  ICE PLAIN  BATTLEFIELD
+
+           Two walkers lumber toward Rebel base asspeeder
+        between them explodesa ballflames.
+
+EXTERIOR: HOTH  ICE PLAIN  SNOW TRENCH
+
+           dislike ray gun is hbylaser bolt instantly
+        explodes.
+
+INTERIOR: IMPERIAL SNOW WALKER  COCKPIT
+
+           Through cockpwindow, Veers his pilot can see the
+        Rebel power generatorsdistance.
+          hologramDarth Vader appears oncontrol panel
+        screen.
+
+VEERS: Yes, Lord Vader. Ive reached main power generator. The
+shield will be downmoments. You may start your landing.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+LUKE: (into comlink) Rouge Three.
+
+INTERIOR: WEDGES SNOWSPEEDER, ROUGE THREE  COCKPIT
+
+WEDGE: (into comlink) Copy, Rouge Leader
+
+LUKE: (over comlink) Wedge, Ive lost my gunner. Youll havemake
+this shot. Ill cover for you. Set your harpoon. Follow menext
+pass.
+
+WEDGE: (into comlink) Coming around, Rouge Leader.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+LUKE: (into comlink) Steady, Rouge Two
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           Wedges speeder races through legsonethe
+        monstrous walkers.
+
+INTERIOR: WEDGES SNOWSPEEDER, ROUGE THREE  COCKPIT
+
+WEDGE: (to gunner) Activate harpoon.
+
+           Wedges gunner reaches forfiring switchactivate the
+        harpoon. harpoon flashes out, speeds toward the
+        receding legswalker.
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           harpoon hurtles toward walker,an instant is
+        embeddedonewalkers legs.
+
+INTERIOR: WEDGES SNOWSPEEDER, ROUGE THREE  COCKPIT
+
+WEDGE: (to gunner) Good shot, Janson.
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           speeder Rouge Three races around onegiant
+        walkers feet, trailing cable behind it. Continuing around
+        back foot, Rouge Three then circles walker around the
+        tail end.
+
+INTERIOR: WEDGES SNOWSPEEDER, ROUGE THREE  COCKPIT
+
+           Wedge checks his controls banks around frontthe
+        walker.
+
+WEDGE: One more pass.
+
+JANSON: Coming around. Once more.
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           speeder sweeps leftrightfrontgiant
+        legs, towing cable behind it.
+
+INTERIOR: WEDGES SNOWSPEEDER, ROUGE THREE  COCKPIT
+
+JANSON: One more.
+
+           Wedge swings speeder between legsgiant
+        walker.
+
+JANSON: Cable out! Letr go!
+
+WEDGE: Detach cable.
+
+EXTERIOR: WEDGES SNOWSPEEDER, ROUGE THREE
+
+           cable releasebackspeeder snaps loose
+        cable drops away.
+
+INTERIOR: WEDGES SNOWSPEEDER, ROUGE THREE  COCKPIT
+
+JANSON: Cable detached.
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           speeder zooms away into distance. tangled legs
+       enormous war machine attemptstep, butthey do the
+        giant Imperial walker beginstopple. teeters for a
+        moment, then crashes onto icy ground, sending snow and
+        metal pieces flying.
+
+EXTERIOR: HOTH  ICE PLAIN  SNOW TRENCH
+
+           troopstrenches cheersightthe
+        crashing walker.
+           An officer givessignalhis men Rebel troops
+        charge fallen war machine.
+
+TRENCH OFFICER: Come on!
+
+           troops run toward downed walker, followed by two
+        Rebel speeders flying overhead. Justthey reach walker,
+        explodes, impact throwing somemen onto the
+        frozen ground.
+
+INTERIOR: WEDGES SNOWSPEEDER, ROUGE THREE  COCKPIT
+
+           Wedge lets outtriumphant yell, banking his speeder away
+        from fallen walker.
+
+WEDGE: (into comlink) Whooha!! That got him!
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+LUKE: (into comlink) I see it, Wedge. Good work.
+
+INTERIOR: REBEL BASE  COMMCENTER
+
+           Large chunksice tumble into commcenterLeia
+        General Rieekan monitor computer screens.
+
+RIEEKAN: I dont think we can protect two transports attime.
+
+LEIA:risky, but we cant hold out much longer. We have no
+choice.
+
+RIEEKAN: (into comlink) Launch patrols.
+
+LEIA: (to an aide) Evacuate remaining ground staff.
+
+INTERIOR: REBEL BASE  MAIN HANGAR
+
+           Muffled distant explosions create widening cracksthe
+        ice roofhangar. Tryingignore noise falling
+        bitssnow, Han worksoneFalcons lifters while
+        Chewie worksonewings. Noticing Chewie attach a
+        wrong part, Han grows impatient.
+
+HAN: No, no! No! This one goes there, that one goes there. right?
+
+          another areahangar, Threepio watchesArtoo is
+        raised up into Lukes X-wing fighter.
+
+THREEPIO: Artoo, you take good careMaster Luke now, understand?
+And...do take careyourself. Oh, dear, oh, dear.
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           fierce battlevast snow plainsHoth rages on.
+        Imperial walkers continue their slow, steady assault on
+        Rebel base, firing lasersthey lumber ever onward. In
+        snow trench, Rebel troops fire large bazookalike guns and
+        dishlike ray gunsexplosions erupt around them.gun tower
+      hbylaser bolt instantly explodes. Another blast
+        destroysray gun.
+
+INTERIOR: IMPERIAL SNOW WALKER  COCKPIT
+
+           General Veers studies various readoutshis control
+        panel.
+
+VEERS: All troops will debark for ground assault. Preparetarget
+main generator.
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           Lukes speeder Rouge Two flyformation, banking from
+        rightleft flying above erupting battlefield. Flak
+        bursts all around them.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+           Luke, glancing over, sees Rouge Twohis left. His ship
+        shuddersflak bursts nearby.
+
+LUKE: (into comlink) Rouge Two, are you all right?
+
+INTERIOR: ZEVS SNOWSPEEDER, ROUGE TWO  COCKPIT
+
+ZEV: (into comlink) Yeah. with you, Rouge Leader.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+LUKE: (into comlink) Well set harpoon. Ill cover for you.
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           two speeders race across horizon toward giant
+        walkers.
+
+INTERIOR: ZEVS SNOWSPEEDER, ROUGE TWO  COCKPIT
+
+ZEV: (into comlink) Coming around.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+LUKE: (into comlink) Watch that cross fire, boys.
+
+INTERIOR: ZEVS SNOWSPEEDER, ROUGE TWO  COCKPIT
+
+ZEV: (into comlink) Set for position three. (to gunner) Steady.
+
+LUKE: (over comlink) Stay tight low.
+
+EXTERIOR: ZEVS SNOWSPEEDER, ROUGE TWO
+
+           Lukes speeder movesformation with Rouge Two, when
+        suddenly Zevs speeder is hbylaser bolt. His ship bucks
+        violently under impact cockpexplodesa ball
+       flame.
+           Spewing smoke, speeder hurtles towardlooming walker.
+        Before they collide. Rouge Two explodesa million flaming
+        pieces.
+
+INTERIOR: LUKES SNOWSPEEDER, ROUGE LEADER  COCKPIT
+
+           Desperately, Luke works controlshis flak-buffeted
+        ship. Suddenly, speeder is rocked byhuge explosion.
+        Luke struggles with controls withlookterrorhis
+        face. speeder fills with smoke, electrical sparks jump
+        about cockpit.
+
+LUKE: (into comlink) Hobbie, Ive been hit!
+
+INTERIOR: REBEL BASE  COMMCENTER
+
+           Apart from distant thunderlaser blasts, the
+        corridor is strangely quiet empty. Running footsteps echo
+        through freezing hallway, then Han appears. Cracks have
+        appearedsomewalls some pipes have broken,
+        sending hot steam billowing into underground hallways. Han
+        hurries into commcenter. isshambles, but some
+        people are stilltheir posts.he enters,gigantic
+        cave-in almost obliterates room. finds Leia and
+        Threepio near onecontrol boards.
+
+HAN: You all right?
+
+           Leia nods. She is surprisedsee him.
+
+LEIA: Why are you stillre?
+
+HAN: Iard commcenter had been hit.
+
+LEIA: You got your clearanceleave.
+
+HAN: Dont worry. Ill leave. First goingget youyour ship.
+
+THREEPIO: Your Highness, we must take this last transport.our
+only hope.
+
+LEIA: (to controller) Send all troopssector twelvesouth
+slopeprotect fighters.
+
+          blast rocks commcenter, throwing Threepio
+        backward into Hans arms.
+
+ANNOUNCER: (over loudspeaker) Imperial troops have entered base.
+
+HAN: Come on...thats it.
+
+LEIA: (toad controller) Give evacuation code signal. get to
+your transports!
+
+           Leia looks exhausted. Han grabsr startsleadr
+        out.
+          Han, Leia, Threepio run outcommcenter,
+        code signal can beard echoing off corridor walls.
+
+HEAD CONTROLLER: K-one-zero...all troops disengage.
+
+THREEPIO: (to Han Leia) Oh! Wafor me!
+
+EXTERIOR: BATTLEFIELD  SNOW TRENCH
+
+           Rebel troops retreat under awesome Imperial onslaught.
+
+OFFICER: Begin retreat!
+
+SECOND OFFICER: Fall back!
+
+           Troops flee from battle, ground exploding around
+        them.
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           Threegiant walkers, firing lasers, advance toward
+        Rebeladquarters.
+
+EXTERIOR: HOTH  SNOW TRENCH
+
+           Continuing their retreat, Rebels see walkers
+        looming ever nearer.
+
+EXTERIOR: HOTH  BATTLEFIELD  ICE PLAIN
+
+          battlefield, Luke watches aswalker foot rises and
+        moves over him. looks upunderbellyhuge
+        walker, passing overhead.
+           Running beneath monstrous machine, Luke fires his
+        harpoon gunwalkers underside.thin cable follows
+        projectile from gun. magneticad cable
+        attach firmlymetal hull.
+           Still running under walker, Luke attaches cable
+        drumhis belt buckle. Soon is pulled up cable and
+        hangs dangling underneath walker.
+           walkers giant feet continuepound onward across the
+        frozen snow. Stray laser bolts whistle by Lukehe climbs up
+        cablewalkers hull, reachingsmall hatch.
+        Hanging precariously, Luke cuts solid metal hatch with his
+        laser sword.
+           takeslandmine from around his neck throws it
+        inside Imperial machine. Quickly, Luke starts down the
+        cable crashes onto icy ground far below. lies
+        unconscious asgiant rear leg passes by  just misses 
+        him.
+           giant walker stopsmid-step.muffled explosion
+        comes from within  then walkers mechanical insides 
+        are spewed out every conceivable opening. machine sits
+        deadits tracks, smoking likelocomotivestilts.
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           Veerss walker continuesadvance toward Rebel base.
+        smoldering walker that Luke exploded stands smoking just
+       rightVeerss path.
+
+INTERIOR: IMPERIAL SNOW WALKER - COCKPIT
+
+           Inside his walker, General Veers preparesfirethe
+        Rebel power generators.
+
+VEERS: Distancepower generators?
+
+PILOT: One-seven, decimal two-eight.
+
+           Veers reaches for electrorangefinder lines up the
+        main generator.
+
+VEERS: Target. Maximum fire power.
+
+EXTERIOR: HOTH  BATTLEFIELD
+
+           Rebel troops continue their desperate retreat, pushed
+        back by relentless Imperial assault.
+
+INTERIOR: HOTH  REBEL BASE  ICE CORRIDORS
+
+           With Threepio lagging behind, Han Leia race through the
+        crumbling ice corridors. Suddenly, there is an explosion. Han
+        turns, grabs princess, pullsrwalla
+        tremendous cave-in blacks their path.
+           takes comlink from his pocket.
+
+HAN: (into comlink) Transport, this is Solo. Better take off  I
+cant getyou. Ill get princess outFalcon.
+
+           Han Leia turn race down corridor.
+
+THREEPIO: But...but...but...where are you going? Uh...come back!!
+
+INTERIOR: HOTH  REBEL BASE  COMMCENTER
+
+           Imperial troops have reached base.they push through
+blocked passageway, Darth Vader strides behind them.
+
+INTERIOR: HOTH  REBEL BASE  ICE CORRIDOR
+
+           Han Leia run toward entrancemain hangar
+        where Millennium Falcon is docked. Threepio still lags
+        behind.
+
+THREEPIO: Wait! Wafor me! Wait! Stop!
+
+           doorhangar closeshis face.
+
+THREEPIO: (exasperated) How typical.
+
+           Quickly, door reopensHan reaches out pulls the
+        golden droid through.
+
+HAN: Come on.
+
+INTERIOR: HOTH  REBEL BASE  MAIN HANGAR
+
+           Chewie paces under shelterMillennium Falcons
+        landing gear. giant Wookiee pats underbellyhis
+        beloved ship barksfew reassuring words.he searches
+        worriedly for his captain, somethinglast catches his eye.
+           Chewie lets outrelieved shriekseeing Han Leia
+        running toward ship. Wookiee runs out into the
+        falling ice, lets outhowl, then runs up ships ramp.
+        Han Leia run up ramp after him, closely followed by
+        Threepio.
+
+HAN: Hurry up, goldenrod, or youre goingbepermanent resident!
+
+THREEPIO: Wait! Wait!
+
+INTERIOR: HOTH  REBEL BASE  ICE CORRIDOR
+
+           Imperial troops run through base corridors. Vader
+        surveys place.huge chunk falls, almost hitting him, but 
+        calmly, purposefully, continues around it.
+
+INTERIOR: REBEL BASE  MAIN HANGER  MILLENNIUM FALCON
+
+          distant, huge, explosion rocks hangar deck. Ice cakes
+        come crashing downMillennium Falcon.
+
+INTERIOR: MAIN HANGAR  MILLENNIUM FALCON  MAIN HOLD
+
+           Han, standing beforecontrol panel, is busy flipping
+        switchesChewie watchestroublesome gauge.worried Leia
+        observes their efforts.
+
+HAN: (to Chewie) Hows this?
+
+           Wookiee barksnegative reply.
+
+LEIA: Wouldlped if I got out pushed?
+
+HAN: might.
+
+           Threepio clanks into hold.
+
+THREEPIO: Captain Solo, Captain Solo...sir, might I suggest that
+you...
+        
+           Han gives gold robotdevastating look.
+
+THREEPIO: can wait.
+
+INTERIOR: MAIN HANGAR  MILLENNIUM FALCON  COCKPIT
+
+           They movecockpwhere Han flips some more
+        switches. Leia watches him, impatient, disbelieving.
+
+LEIA: bucketbolts is never goingget us past that blockade.
+
+HAN: This babys gotfew surprises lefther, sweetheart.
+
+           Han Leia look out cockpwindow seesquad of
+        stormtroopers rushing into far sidehangar.
+           Quickly, Han straps himself into pilots seat Leia
+        into navigators chair.
+
+INTERIOR: HOTH  REBEL BASE  MAIN HANGAR
+
+           Stormtroopers hurriedly set uplarge bazookalike weapon.
+        Behind them giant hangar doors open slowly.
+
+EXTERIOR: MAIN HANGAR  MILLENNIUM FALCON
+
+          laser gun appearsFalcon swings aroundaim
+       Imperial troops.
+           stormtroopers, preparingfire their bazooka cannon,
+        are hby Falcons fire are thrown aboutall
+        directions.
+
+INTERIOR: MAIN HANGAR  MILLENNIUM FALCON  COCKPIT
+
+           Chewie rushes into cockpit.
+
+HAN: Come on! Come on! Switch over. Lets hope we dont have a
+burnout.
+
+          laser hits window near Chewiehe is settling into
+        his chair. Letting outloud whelp, Chewie quickly pulls back
+       controls first stageengine fire can be
+       ard. Han flashesbig grinLeia.
+
+HAN: See?
+
+LEIA: Someday youre goingbe wrong, I hope theresee it.
+
+           Han looksChewie.
+
+HAN: Punch it!
+
+           roarFalcons main engines blasts out everything
+       ice-cave wall rushes by outside cockpwindow.
+
+INTERIOR: REBEL BASE  MAIN HANGAR
+
+           More stormtroopers run into hangar, closely followed by
+        Vader.aring loud roarMillennium Falcons
+        engines, Vader looks toward main hangar doors justtime
+       see Falcon lift up disappear outside cave.
+
+EXTERIOR: HOTH  ICE SLOPE  DAY
+
+           Luke two other pilots look upMillennium Falcon
+        races above them, flying very closeground.
+           three pilots turn then, trudge onward toward their
+        X-wing fighters, each goinghis own ship. Luke waves
+        farewell, thenads toward his own fighter.
+           Artoo, seatedhis cubbyhole, chirps an excited greeting
+       Luke climbs aboard spacecraft.
+
+LUKE: Artoo! Getr ready for takeoff.
+
+           From his ship, Luke sees Wedgehis own X-wing, preparing
+        for takeoff.
+
+WEDGE: Good luck, Luke. See yourendezvous.
+
+           Luke smiles nodsWedge, then lowers himself into the
+        cockpof his X-wing while Artoo waitscubbyhole,
+        beeping impatiently.
+
+LUKE: Dont worry, Artoo. Were going, were going.
+
+           canopy over X-wing lowers snaps shut.
+
+EXTERIOR: SPACE  LUKES X-WING
+
+           Lukes fighter,wings closed, speeds away from icy
+        planet. Soon disappears into stars.
+
+INTERIOR: LUKES X-WING  COCKPIT
+
+           Luke, looking thoughtful, suddenly makesdecision.
+        flips several switches. stars shiftakes his
+        fighter intosteep turn. X-wing banks sharply flies
+        awaya new direction.
+           monitor screenLukes control panel prints out a
+        question from concerned Artoo.
+
+LUKE: (into comlink) Theres nothing wrong, Artoo. just setting a
+new course.
+
+           Artoo beeps once again.
+
+LUKE: (into comlink) Were not goingregroup with others.
+
+           Artoo beginsprotest, whistling an unbelieving, What?!
+           Luke reads Artoos exclamationhis control panel.
+
+LUKE: (into comlink) Were goingDagobah system.
+
+           Luke checks his readouts makesfew adjustments.
+        rides along with only soft huminstrumentsbreak
+        silence. Finally, Artoo chirps up.
+
+LUKE: (into comlink) Yes, Artoo?
+
+           Artoo utterssoft, carefully phrased steamwhistles.
+
+LUKE: (into comlink, chuckling) Thats all right. Id likekeep it
+on manual control forwhile.
+
+           little droid lets outdefeated whimper. Luke smiles,
+        continueshis course.
+
+EXTERIOR: SPACE  MILLENNIUM FALCON
+
+           Millennium Falcon speeds away from Hoth, closely
+        followed by one huge Star Destroyer four tiny TIE
+        fighters.
+          is pursued, Falcon races toward two very bright
+        star-sized objects.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Inside cockpit, Chewie lets outloud howl. Han checks
+       ship is buffeted by exploding flak. appearsbe
+        doing six thingsonce.
+
+HAN: (harried) I saw them! I saw them!
+
+LEIA: Saw what?
+
+HAN: Star Destroyers, twothem, coming rightus.
+
+           Threepio bumps bangs his way into cockpit.
+
+THREEPIO: Sir, sir! Might I suggest...
+
+HAN: (to Leia) Shut hup or shut hdown! (to Chewie) Check the
+deflector shield!
+
+           Chewie barksreplyhe readjusts an overhead switch.
+
+HAN: Oh, great. Well, we can still outmaneuver them.
+
+EXTERIOR: SPACE  MILLENNIUM FALCON  STAR DESTROYERS
+
+           Millennium Falcon races toward onehuge oncoming
+        Star Destroyers. Suddenly, Falcon starts intodeep dive
+        straight down, closely followed by four TIE fighters. The
+        undersideStar Destroyer continues oncollision
+        course with two oncoming Star Destroyers. Slowly, starts
+       veerleft.
+
+INTERIOR: STAR DESTROYER  BRIDGE
+
+           Out front window, two approaching Star Destroyers
+        can be seen veeringleft.
+
+IMPERIAL OFFICER: Take evasive action!
+
+           Alarms sound all over huge ship. two other Star
+        Destroyers get closer, onethem moving over bridge so
+        close that makes brushing contact with it.
+
+EXTERIOR: SPACE  MILLENNIUM FALCON  TIE FIGHTERS
+
+           Millennium Falcon races away from colliding Star
+        Destroyers, still followed by four TIE fighters. Laser bolts
+        spark pitch-black skies.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Things have calmed downbit, but race isnt over yet.
+        Chewie barksHan. Leia is still tryingrecover from the
+        steep dive. ship is buffeted by laser blasts.
+
+HAN: Preparemake jumplight-speed.
+
+THREEPIO: But, sir!
+
+           buffetinglasers becomes louder stronger.
+
+LEIA: Theyre getting closer!
+
+HAN: (withgleamhis eye) Oh yeah? Watch this.
+
+           Expectantly, they look out cockpwindowstars do
+        not go into hyperspace, but just sthere.
+           Han Chewie lookeach other are thrown into an
+        acute stateconcern.
+
+LEIA: Watch what?
+
+           Han tries again. Still nothing.
+
+HAN: I think weretrouble.
+
+THREEPIO: If I may say so, sir, I noticed earlier hyperdrive
+motivatorbeen damaged.impossiblegolight-speed!
+
+HAN: Weretrouble!
+
+           explosions becomeavier.
+
+EXTERIOR: SPACE  MILLENNIUM FALCON  TIE FIGHTERS  STAR DESTROYER
+
+           Falcon races into starry vastness, followed by the
+        four Imperial TIE fighters an Imperial Star Destroyer.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Stars race byflak bursts outside Falcons window.
+
+INTERIOR: MILLENNIUM FALCON  HOLD
+
+           Han works furiouslysome control panels while giving
+        various ordersChewie.
+
+HAN: Horizontal boosters...!
+
+           (Chewie barks)
+
+HAN: Alluvial dampers...! Well thats not it.
+
+           (Chewie barks)
+
+HAN: Bring me hydrospanners!
+
+           Chewie hurries overpplaces toolsthe
+        edge.
+
+HAN: I dont know how were goingget outthis one.
+
+           Suddenly,loud thump hits sideFalcon,
+        causinglurch radically. Chewie barks. tools fall
+        into pittopHan.
+
+HAN: Oww! Chewie!
+
+           More turbulence rocks ship.
+
+HAN: That was no laser blast! Something hus.
+
+LEIA: (over comlink) Han, get upre!
+
+HAN: Come on, Chewie!
+
+           Han climbs outhold likeshot. Both Chewie
+        run outhold toward cockpit.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Out front cockpwindow, they see hundreds of
+        asteroids racing by.
+
+LEIA: Asteroids!
+
+           Han changes places with Leia whobeencontrols,
+        Chewie gets into his chair. Han works his controlsa
+        chunkrock crossesfrontship.
+
+HAN: Oh, no! Chewie, set two-seven-one.
+
+LEIA: What are you doing? Youre not actually going into an asteroid
+field?
+
+HAN: Theyd be crazyfollow us, wouldnt they?
+
+           Another asteroid thumps against ship Leia winces at
+        jolt.
+
+LEIA: You dont havedo thisimpress me.
+
+THREEPIO: Sir, possibilitysuccessfully navigating an asteroid
+field is approximately three thousand, seven hundred twentyone.
+
+HAN: Never tell me odds!
+
+EXTERIOR: ASTEROID BELT  MILLENNIUM FALCON
+
+           Falcon turns into asteroid stormship
+        completesturn, asteroids start coming straightthe
+        cockpwindows.
+          large asteroid tumbles away from Falcons pathtop
+        speed. Several smaller asteroids crash into big one,
+        creating small explosionsits surface. Other asteroids of
+        all sizes pass byevery direction, some colliding and
+        exploding. tiny Millennium Falcon veers around big
+        asteroid races past through rainrocks, followed
+        by four TIE fighters, which bob weave around the
+        asteroids.
+           Onepursuing TIE fighters connects with an asteroid
+        explodes. other fighters are pelted withsteady
+        streamsmaller explosions.
+           Two huge asteroids tumble toward Millennium Falcon,
+        which quickly banks around boththem. three TIE
+        fighters followhot pursuuntil onefighters
+        scrapes an asteroid tumbles outcontrol into deep
+        space.
+
+EXTERIOR: SPACE  STAR DESTROYER  ASTEROID BELT
+
+           massive Star Destroyer blasts oncoming asteroidsit
+        follows Falcon. Smaller asteroids explode acrossvast
+        surface.
+
+EXTERIOR: MILLENNIUM FALCON  TIE FIGHTERS  ASTEROID BELT
+
+           Falcon twistsits sideraces around an
+        oncoming asteroid. Two TIE fighters followdistance,
+        coming from either side.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Asteroids race by cockpwindowHan pilots his
+        trusty craft through dangerous field.
+           Looking out cockpwindow, Falcon crew seesbig
+        asteroid drop past window, narrowly missing their ship.
+           Chewie barksterror asslightly smaller asteroid comes
+        especially close close  bounces off Falcon
+        withloud crunch. Threepios hands cover his eyes.
+        managesshort peekcockpwindow. Princess Leia sits
+        stone-faced, staringaction. Han givesrquick
+        look.
+
+HAN: You said you wantedbe around when I mademistake; well,
+this could be it, sweetheart.
+
+LEIA: I take back. Were goingget pulverized if we stay out
+here much longer.
+
+           group watchesmore asteroids race by outside the
+        window.
+
+HAN: not goingargue with that.
+
+THREEPIO: Pulverized?
+
+HAN: goingcloseronebig ones.
+
+LEIA: Closer?
+
+THREEPIO: Closer?!
+
+           Chewbacca barks same word, only louder.
+
+EXTERIOR: MILLENNIUM FALCON  ASTEROID BELT
+
+           Millennium Falcon dives toward surfaceone of
+        moon-sized asteroids. There iscontinued display of
+        explosions against starry voidsmaller asteroids
+        collide with larger chunksrock. two remaining TIE
+        fighters follow Falconlarge asteroid. Falcon
+        skims surfacegiant asteroid as, all while,
+        small asteroids explodesurfaceship.
+           TIE fighters approach Falcon, butgiant asteroid
+        hurtles directly into their path.asteroid continues on
+       way, leaves remainstwo exploded TIE fighters to
+        tumble into deep space.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Rattled by violent rockingstarship, Threepio is
+        nearlyhysterics.
+
+THREEPIO: Oh, this is suicide!
+
+           Han notices somethinghis main scope nudges his
+        faithful Wookiee, pointing.
+
+HAN: There. That looks pretty good.
+
+LEIA: What looks pretty good?
+
+HAN: Yeah. Thatll do nicely.
+
+THREEPIO: (to Leia) Excuse me, maam, but where are we going?
+
+           Out cockpwindow, they see that they are skimming the
+        surfaceenormous asteroid nearinglarge crater.
+
+EXTERIOR: MILLENNIUM FALCON  GIANT ASTEROID CRATER
+
+           Millennium Falcon dives into huge crater and
+        disappears.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+LEIA: I hope you know what youre doing.
+
+HAN: Yeah, me too.
+
+INTERIOR: GIANT ASTEROID CRATER
+
+           Falcon races down into crater. walls are barely
+        visibleship speed through tunnellike opening. A
+        small cave appearsone sidecrater, Falcon
+        turns, slows, scoots into it.
+
+EXTERIOR: SPACE  LUKES X-WING
+
+           tiny X-wing speeds toward cloud coverDagobah.
+        Artoo, ridingbackfighter, turns hisad back
+        forth with some anxiety.
+
+INTERIOR: LUKES X-WING  COCKPIT
+
+           Luke watches Artoos wordsthey are translated and
+        screenedcomputer scope.
+
+LUKE: (into comlink) Yes, thats it. Dagobah.
+
+           Artoo beepshopeful inquiry.
+
+LUKE: (into comlink) No, not goingchange my mind about this.
+(gettinglittle nervous) not picking up any cities or
+technology. Massive life-form readings, though. Theres something
+alive down there...
+
+           Artoo beeps, this timeslightly worried question.
+
+LUKE: (into comlink) Yes, sureperfectly safe for droids.
+
+EXTERIOR: SPACE  DAGOBAH  LUKES X-WING
+
+           X-wing continuesflight through twilight above
+        cloud-covered planet.
+
+INTERIOR: LUKES X-WING  COCKPIT
+
+           Luke sees cloud race byhe takes his craft closer
+       planet. must operate his controls carefully since
+        cloud covercompletely obscured his vision. An alarm
+        buzzesbackground, Artoo beeps whistles
+        frantically.
+
+LUKE: (into comlink) I know, I know! All scopes are dead. I cant
+seething! Just hang on, goingstart landing cycle...
+
+           blastretrorockets is deafening, drowning out
+        Artoos electronic squeals. Suddenly, there iscracking
+        soundif limbs were being broken off trees then a
+        tremendous joltspacecraft stops. Luke pullsswitch
+        his canopy pops open.
+
+EXTERIOR: DAGOBAH  DUSK
+
+           mist-shrouded X-wing fighter is almost invisiblethe
+        thick fog. Luke climbs out onto long nosethe
+        spacecraftArtoo pops outhis cubbyholeback. The
+        young warrior surveys fog, which is barely pierced by the
+        ships landing lights. About all can make out are some
+        giant, twisted trees nearby. Artoo whistles anxiously.
+
+LUKE: No, Artoo, you stay put. Ill havelook around.
+
+           Artoo lets outshort beep.Luke moves along nose,
+        Artoo loses his balance disappears withsplash into the
+        boggy lake.
+
+LUKE: Artoo?
+
+           Luke kneels leans over plane looking for Artoo, but
+        water is still reveals no signlittle droid.
+
+LUKE: Artoo! Where are you?
+
+          small periscope breaks surfacewater a
+        gurgly beep isard. periscope startsmoveshore.
+        Relieved, Luke starts running along nosefighter to
+       tip.
+
+LUKE: Artoo! You be more careful.
+
+           outlineshore is now more than ten feet away.
+        Luke jumps off plane into water, scrambles upthe
+        shore, turnslook for Artoo. periscope still
+        steadily moves toward shore.
+
+LUKE: Artoo  that way!
+
+           Suddenly, through thick fog layer,dark shape
+        appears, moving toward little droid. dark, sinuous bog
+        beast dives beneath swampy water, makingloud clunk
+        against Artoos metal hull. droid disappears from sight,
+        utteringpathetic electronic scream.
+           Holding his ignited lightsaber before him, Luke wadesfew
+        feet into murky pool, looking for any signhis little
+        friend.
+
+LUKE: Artoo!
+
+           black surface is stilldeath itself...untilfew
+        bubbles beginappear. Then, phheewaat!! runt-size robot
+      spoutwater, makesgraceful arc, comes
+        crashing down intopatchsoft gray moss.
+
+LUKE: Oh, no! Are you all right? Come on. Youre lucky you dont taste
+very good. Anything broken?
+
+           Lukelps Artoohis feet begins wiping mud and
+        roots from his round metal body. Artoo responds with feeble,
+        soggy beeps.
+
+LUKE: If youre saying comingre wasbad idea, beginning to
+agree with you. Oh, Artoo, what are we doingre?like...
+something out ofdream, or, I dont know. Maybe just going
+crazy.
+
+          Luke glances aroundspooky swamp jungle that
+        surrounds him, Artoo ejectsstreammuddy water from one
+       his cranial ports.
+
+EXTERIOR: VADERS STAR DESTROYER  VADERS CHAMBER
+
+           Admiral PiettsitatesentrywayVaders private
+        cubicle. Aftermoment, steps into room pauses at
+        surprising sight before him.
+           Darth Vader, his back turned, is silhouettedgloom
+       far sidechamber.black, insectlike droid
+        attends him. Among various apparatuses surrounding them, a
+        respirator tube now retracts from Vaders uncoveredad. The
+       ad is bald withmassugly scar tissue covering it. The
+        black droid then lowers masklmet onto Vadersad.
+        When isplace, Dark Lord turnsface Piett.
+
+VADER: Yes, Admiral?
+
+PIETT: Our ships have sighted Millennium Falcon, lord. But...it
+has entered an asteroid field we cannot risk...
+
+VADER: (interrupting) Asteroids do not concern me, Admiral. I want
+that ship not excuses.
+
+PIETT: Yes, lord.
+
+EXTERIOR: ASTEROID CAVE  MILLENNIUM FALCON
+
+           pirate starship restsa dark, dripping asteroid
+        cave. is so dark that caves exact dimensions are
+        impossibledetermine.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Han Chewie busily shut down engine all
+        electronic systems. Threepio Leia watch worriedly.
+
+HAN: goingshut down everything but emergency power
+systems. 
+
+THREEPIO: Sir, almost afraidask, but...does that include
+shutting me down, too?
+
+           Chewie barks yes. But Han thinks otherwise.
+
+HAN: No, I need youtalkFalcon, find out whats wrong with
+hyperdrive.
+
+           Suddenly, ship lurches, causing all loose items in
+        cockpto go flying. Chewie howls.
+
+THREEPIO: Sir,quite possible this asteroid is not entirely
+stable.
+
+HAN: Not entirely stable? glad youreretell us these
+things.  Chewie, take professorback plug hinto the
+hyperdrive.
+
+THREEPIO: Oh! Sometimes I just dont understhuman behavior. After
+all, only tryingdo my jobmost...
+
+           sliding door closes behind indignant Threepio as
+        Chewie move backhold. Suddenly, ship
+        lurches again, throwing Leia across cabin into Hans arms.
+        Then, abruptly, motion stopssuddenlystarted.
+        With some surprise, Han Leia realize they areeach
+        others arms.
+
+LEIA: Let go.
+
+HAN: Sshh!
+
+LEIA: Let go, please.
+
+           Leia flushes, avertingr eyes. Shes not exactly fighting
+       get free. But,course, Han blows it...
+
+HAN: Dont get excited.
+
+           anger risesLeia.
+
+LEIA: Captain, beingld by you isnt quite enoughget me excited.
+
+HAN: Sorry, sweetheart. We havent got time for anything else.
+
+           Han grins quickly wickedlyLeiahe turns exits
+        through door. Leias confused emotions show clearlyher
+        lovely face.
+
+EXTERIOR: DAGOBAH  BOG CLEARING  DUSK
+
+           mistdispersedbit, but is stillvery
+        gloomy-looking swamp.
+           Luke pulls an equipment box from shoreclearing.
+        igniteslittle fusion furnace warms his hands before
+        it. Takingpower cable, plugs into Artoos noselike
+        socket.
+
+LUKE: Ready for some power? Okay. Lets see now. Put thatthere.
+There you go.
+
+           droid whistles his appreciation. Luke then opens a
+        containerprocessed food sits before thermal
+       ater.
+
+LUKE: (sighs) Now all I havedo is find this Yoda...if even
+exists.
+
+           Nervously, looks aroundforeboding jungle.
+
+LUKE: Still...theres something familiar about this place. I feel
+like...I dont know...
+
+STRANGE VOICE: Feel like what?
+
+           Luke jumps outhis skin. Artoo screechesterror. The
+        young warrior grabs for his lightsaberhe spins around,
+        looking for speaker. Mysteriously standing rightfront
+       Luke isstrange, bluish creature, not more than two feet
+        tall. wizened little thing is dressedrags. motions
+        toward Lukes sword.
+
+LUKE: (lookingcreature) Like were being watched!
+
+CREATURE: Away with your weapon! I mean you no harm.
+
+           After somesitation, Luke puts away his weapon, although
+        really doesnt understwhy. Artoo watches with interest.
+
+CREATURE: I am wondering, why are youre?
+
+LUKE: looking for someone.
+
+CREATURE: Looking? Found someone, you have, I would say, hmmm?
+
+           little creature laughs.
+
+LUKE: (Tryingkeep from smiling) Right.
+
+CREATURE:lp you I can. Yes, mmmm.
+
+LUKE: I dont think so. looking forgreat warrior.
+
+CREATURE: Ahhh!great warrior. (laughs shakes hisad) Wars not
+make one great.
+
+           With aid ofwalking stick, tiny stranger moves
+        overonecasessupplies. beginsrummage
+        around.
+           Artoo movesedgecase  standing almost eye
+        levelcreature who is carelessly handling supplies
+         squeaks his disapproval.
+           Their tiny visitor pick up containerfood Luke was
+        eating from takesbite.
+
+LUKE: Put that down.y! Thats my dinner.
+
+           creature spits out bitetaken. makes a
+        face.
+
+CREATURE: How you get so big, eating foodthis kind?
+
+           flips containerLukes direction reaches into
+        oneLukes supply cases.
+
+LUKE: Listen, friend, we didnt meanlin that puddle, if we
+could get our ship out, we would, but we cant, so why dont you
+just...
+
+CREATURE: (teasing) Aww, cannot get your ship out?
+
+           creature spots somethinginterestLukes case.
+        Luke loses patience grabs case away. creature
+        retains his prize tiny power lamp  examines with
+        delight.
+
+LUKE:y, you could have broken this. Dont do that. Ohhh...youre
+makingmess.y, give me that!
+
+CREATURE: (retreating with lamp) Mine! Or I willlp you not.
+
+           Clutchingtreasure, creature backs away from Luke,
+        drawing closerArtoo.Luke creature argue, one
+       Artoos little arms slowly moves out toward power lamp,
+        completely unnoticed by creature.
+
+LUKE: I dont want yourlp. I want my lamp back. Ill needget
+outthis slimy mudhole.
+
+CREATURE: Mudhole? Slimy? My home this is.
+
+           Artoo grabs holdlamp two little figures are
+        immediately engageda tug-of-war over it.
+           Artoo beepsfew angry, Give me thats.
+
+CREATURE: Ah, ah, ah!
+
+LUKE: Oh, Artoo, let hhave it.
+
+CREATURE: Mine! Mine!
+
+LUKE: Artoo!
+
+CREATURE: Mine!
+
+           creature lets go with one hpokes Artoo lightly
+        with one finger. Artoo reacts withstartled squeal, lets
+        go.
+
+CREATURE: Mine!
+
+LUKE: (fed up) Now will you move along, little fella? Were gotlot
+of workdo.
+
+CREATURE: No! No, no! Staylp you, I will. (laughs) Find your
+friend, hmm?
+
+LUKE: not looking forfriend, looking forJedi Master.
+
+CREATURE: Oohhh. Jedi Master. Yoda. You seek Yoda.
+
+LUKE: You know him?
+
+CREATURE: Mmm. Take youhim, I will. (laughs) Yes, yes. But now, we
+must eat. Come. Good food. Come.
+
+           With that, creature scurries outclearing,
+        laughing merrily. Luke stares after him. All sees is the
+        faint light from small power lamp moving through fog.
+        Luke makes his decision starts after creature.
+
+CREATURE: (in distance) Come, come.
+
+           Artoo, very upset, whistlesblue streakprotest.
+
+LUKE: Stayre watch after camp, Artoo.
+
+           Artoo beeps even more frantically. ButLuke disappears
+        from view, worried little droid grows quieter, utters
+       soft electronic sigh.
+
+INTERIOR: MILLENNIUM FALCON  MAIN HOLD AREA
+
+           Threepio whistles beepsstrange dialect into the
+        control panelfronthim. control panel whistles back
+       few mystifying beeps.
+
+THREEPIO: Oh, where is Artoo when I need him?
+
+           Han enters hold area kneelsfloor near the
+        control box.
+
+THREEPIO: Sir, I dont know where your ship learnedcommunicate,
+but itmost peculiar dialect. I believe, sir, says that the
+power couplingnegative axisbeen polarized. afraid
+youll havereplace it.
+
+HAN: Well,course Ill havereplace it.
+
+           handswire coil upChewie who is working near the
+        ceiling.
+
+HAN:re! Chewie...
+
+           Chewie brings hisad back through trap doorthe
+        ceiling whines. Han glances backThreepio, then speaks
+        quietlyChewie so only canar.
+
+HAN: (continued)...I think wed better replace negative power
+coupling.
+
+           Leia finishes welding valves shebeen working on
+        attemptsreengage system by pullinglever
+        attachedvalve. doesnt budge. Han noticesr
+        struggle, moveshelpr. She rebuffs him.
+
+HAN:y, Your Worship, only tryinghelp.
+
+LEIA: (still struggling) Would you please stop calling me that?
+
+           Hanarsnew toneher voice. watchesr pull on
+        lever.
+
+HAN: Sure, Leia.
+
+LEIA: Oh, you make so difficult sometimes.
+
+HAN: I do, I really do. You could belittle nicer, though. (he
+watchesr reaction) Come on, admit. Sometimes you think all
+right.
+
+           She lets golever rubsr sore hand.
+
+LEIA: Occasionally (a little smile, haltingly) maybe...when you arent
+acting likescoundrel.
+
+HAN: (laughs) Scoundrel? Scoundrel? I like soundthat.
+
+           With that, Han takesr hstartsmassage it.
+
+LEIA: Stop that.
+
+HAN: Stop what?
+
+           Leia is flushes, confused.
+
+LEIA: Stop that! My hands are dirty.
+
+HAN: My hands are dirty, too. What are you afraid of?
+
+LEIA: (looking right into his eyes) Afraid?
+
+           Han looksher withpiercing look.s never looked
+        more handsome, more dashing, more confident. reaches out
+        slowly takes Leias hagain from where is resting
+        onconsole. draws toward him.
+
+HAN: Youre trembling.
+
+LEIA: not trembling.
+
+           Then with an irresistible combinationphysical strength
+        emotional power, space pirate beginsdraw Leia
+        toward him...very slowly.
+
+HAN: You like me because Imscoundrel. There arent enough
+scoundrelsyour life.
+
+           Leia is now very closeHanshe speaks,r voice
+        becomes an excited whisper,tone completelyopposition to
+       r words.
+
+LEIA: I happenlike nice men.
+
+HAN: Imnice man.
+
+LEIA: No, youre not. Youre...
+
+           kissesr now, with slow, hot lips. takes his time,
+       though had forever, bendingr body backward. She has
+        never been kissed like this before, almost makesr
+        faint. When stops, she regainsr breath trieswork
+        up some indignation, but finds hardtalk.
+           Suddenly, Threepio appearsdoorway, speaking
+        excitedly.
+
+THREEPIO: Sir, sir! Ive isolated reverse power flux coupling.
+
+           Han turns slowly, icily, from their embrace.
+
+HAN: Thank you. Thank you very much.
+
+THREEPIO: Oh, youre perfectly welcome, sir.
+
+           moment spoiled, Han marches out after Threepio.
+
+EXTERIOR: SPACE  ASTEROID FIELD
+
+           Imperial fleet moves through asteroid-filled void,
+        intently seekingprey.
+
+INTERIOR: VADERS STAR DESTROYER  BRIDGE
+
+           Asteroids collide, creatingfireworks display outside the
+        bridge window. Darth Vader stands, staring out window
+        above control deck. Then slowly turns toward bridge.
+        Before hare hologram imagestwenty battleship
+        commanders. Onethese images, commander ofship that
+       just exploded, is fading away quickly. Another image, in
+        centerlittle apart from others, is faded and
+        continually disrupted by static. is imageCaptain
+        Needa, commanderStar Destroyer most hotlytail
+       Millennium Falcon. Admiral Piett an aide stand
+        behind Dark Lord.
+
+NEEDA: (in hologram)...that, Lord Vader, was last time they
+appearedanyour scopes. Considering amountdamage weve
+sustained, they must have been destroyed.
+
+VADER: No, Captain, theyre alive. I want every ship available to
+sweep asteroid field until they are found.
+
+           Imperial star captains fade out one by oneVader
+        turnsAdmiral Piett.
+
+PIETT: Lord Vader.
+
+VADER: Yes, Admiral, what is it?
+
+           admiral is scared, his face white assheet.
+
+PIETT: Emperor commands you make contact with him.
+
+VADER: Move ship outasteroid field so that we can send a
+clear transmission.
+
+PIETT: Yes, my lord.
+
+EXTERIOR: ASTEROID FIELD  VADERS STAR DESTROYER
+
+           Vaders Imperial Star Destroyer moves against vast sea
+       stars away from restfleet.
+
+INTERIOR: VADERS STAR DESTROYER  VADERS CHAMBER
+
+           Dark Lord, Darth Vader, is alonehis chamber. A
+        strange sound enters roomlight beginsplay
+        across Vaders black figure. looks up bows quickly.
+          twelve-foot hologramGalactic Emperor materializes
+        before Vader. Emperors dark robes monks hood are
+        reminiscentcloak worn by Ben Kenobi. His voice is even
+        deeper more frightening than Vaders.
+
+VADER: What is thy bidding, my master?
+
+EMPEROR: There isgreat disturbanceForce.
+
+VADER: I have felt it.
+
+EMPEROR: We havenew enemy  Luke Skywalker.
+
+VADER: Yes, my master.
+
+EMPEROR: could destroy us.
+
+VADER:s justboy. Obi-Wan can no longerlp him.
+
+EMPEROR: Force is strong with him. sonSkywalker must not
+becomeJedi.
+
+VADER: If could be turned, would becomepowerful ally.
+
+EMPEROR: Yes. Yes. would begreat asset. Can be done?
+
+VADER: will join us or die, my master.
+
+           Vader kneels. supreme Emperor passeshover the
+        crouched LordSith fades away.
+
+EXTERIOR: DAGOBAH  CREATURES HOUSE  NIGHT
+
+         avy downpourrain pounds through gnarled trees.
+       strange baroque mud house sits onmoss-covered knoll on
+        edge ofsmall lagoon. small, gnomish structure
+        radiateswarm glow fromthick glass windows.rain
+        tap-dancesmerry tuneArtoosad, stubby little
+        droid rises uphis tip-toespeek into oneglowing
+        portals.
+
+INTERIOR: CREATURES HOUSE
+
+           Artoo, peekingwindow, sees insidehouse
+        very plain, but cozy dwelling. Everything issame
+        small scalecreature. only thing outplace in
+        miniature room is Luke, whoseight makes four-foot
+        ceiling seem even lower. sits cross-leggedfloor of
+        living room.
+           creature isan adjoining arehis little kitchen
+         cooking up an incredible meal. stove issteaming
+        hodgepodgepots pans. wizened little host scurries
+        about chopping this, shredding that, showering everything
+        with exoticrbs spices. rushes back forth putting
+        platterstablefrontLuke, who watches the
+        creature impatiently.
+
+LUKE: Look, suredelicious. I just dont understwhy we
+cant see Yoda now.
+
+CREATURE: Patience! For Jedi is timeeatwell. Eat, eat.
+Hot. Good food, hm? Good, hmm?
+
+           Moving with some difficultycramped quarters, Luke
+        sits down near fire serves himself from pot.
+        Tasting unfamiliar concoction, is pleasantly surprised.
+
+LUKE: How far away is Yoda? Will take us longget there?
+
+CREATURE: Not far. Yoda not far. Patience. Soon you will be with him.
+(tasting food from pot) Rootleaf, I cook. Why wish you become
+Jedi? Hm?
+
+LUKE: Mostly becausemy father, I guess.
+
+CREATURE: Ah, your father. Powerful Jedi was, powerful Jedi, mmm.
+
+LUKE: (a little angry) Oh, come on. How could you know my father? You
+dont even know who I am. (fed up) Oh, I dont even know what Im
+doingre. Were wasting our time.
+
+           creature turns away from Luke speaks tothird
+        party.
+
+CREATURE: (irritated) I cannot teach him. boyno patience.
+
+           Lukesad spinsdirection creature faces. But
+        there is no one there. boy is bewildered, but gradually
+        dawnshthat little creature is Yoda, Jedi
+        Master, that is speaking with Ben.
+
+BENS VOICE: will learn patience.
+
+YODA: Hmmm. Much angerhim, like his father.
+
+BENS VOICE: Was I any different when you taught me?
+
+YODA: Hah. is not ready.
+
+LUKE: Yoda! I am ready. I...Ben! I can beJedi. Ben, tell hIm
+ready.
+
+           Tryingsee Ben, Luke startsget up but hits hisad
+       low ceiling.
+
+YODA: Ready, are you? What know youready? For eight hundred years
+have I trained Jedi. My own counsel will I keepwho isbe
+trained!Jedi must have deepest commitment, most serious
+mind. (to invisible Ben, indicating Luke) This onelong time
+have I watched. Never his mindwhere was. Hmm? What was
+doing. Hmph. Adventure.h! Excitement.h!Jedi craves not these
+things. (turningLuke) You are reckless!
+
+           Luke looks down. knows is true.
+
+BENS VOICE: So was I, if youll remember.
+
+YODA: is too old. Yes, too oldbegin training.
+
+           Luke thinks detectssubtle softeningYodas voice.
+
+LUKE: But Ive learned so much.
+
+           Yoda turns his piercing gazeLuke,though Jedi
+        Masters huge ecould somehow determine how much boy
+        had learned. Afterlong moment, little Jedi turns toward
+        where alone sees Ben.
+
+YODA: (sighs) Will finished what begins?
+
+LUKE: I wont fail you  not afraid.
+
+YODA: (turns slowly toward him) Oh, you will be. You will be.
+
+EXTERIOR: SPACE  STAR DESTROYERS  ASTEROID FIELD
+
+           Imperial fleet around Vaders ship is surrounded by the
+        asteroid storm. Asteroids big small pelt vast
+        exteriorsmenacing ships. Onesmaller Imperial
+        vessels is hbyhuge asteroid explodesa brilliant
+        flashlight.
+
+INTERIOR: ASTEROID CAVE  MILLENNIUM FALCON  COCKPIT
+
+           cockpis quiet lonly by indicator lights
+       control panel. Princess Leia sitspilots seat.
+        She runsr hacross control panelshe thinks of
+        Han confusioncreated withinr. Suddenly,
+        something outside cockpwindow catchesr eye. The
+        reflectionpanel lights obscuresr vision until a
+        soft suctionlike cup attaches itselfwindscreen. Leia
+        moves closersee what might be. Large, yellow eflash
+        open stare backher. Startled, she jumps back intor
+        seat,rart pounding. There isscurryfeetloud
+        screech,an instant eare gone. young
+        princess catchesr breath, jumps outher chair, races
+        from cockpit.
+
+INTERIOR: ASTEROID CAVE  MILLENNIUM FALCON  HOLD AREA
+
+           lights go bright forsecond then out again. Threepio
+        Chewbacca watchHan finishes with some wires.
+
+THREEPIO: Sir, if I may venture an opinion...
+
+HAN: not really interestedyour opinion, Threepio.
+
+           Leia rushes into cabin justHan drops final
+        floor panel into place.
+
+LEIA: (outbreath) Theres something out there.
+
+HAN: Where?
+
+LEIA: Outside,cave.
+
+          she speaks, there comessharp banginghull.
+        Chewie looks up barks anxiously.
+
+THREEPIO: There is. Listen! Listen!
+
+HAN: going out there.
+
+LEIA: Are you crazy?!
+
+HAN: I just got this bucket back together. not goinglet
+something tear apart.
+
+           Chewie grab their breath masks offrack hurry
+        out. Leia follows.
+
+LEIA: Then going with you.
+
+THREEPIO: I think might be better if I stayre guard the
+ship. (hears another mysterious noise) Oh, no.
+
+EXTERIOR: ASTEROID CAVE  MILLENNIUM FALCON
+
+           is very dark inside huge asteroid cave, too dark to
+        see what is attacking ship.
+           Leia stampsr footfloorcave.
+
+LEIA: This ground sure feels strange. doesnt feel like rock at
+all.
+
+           Han kneels studies ground, then attemptsstudy
+        outlinecave.
+
+HAN: Theres an awful lotmoisturehere.
+
+LEIA: I dont know. I havebad feeling about this.
+
+HAN: Yeah.
+
+           Chewie barks through his face mask, points toward the
+        ships cockpit.five-foot-long shape can be seen moving
+        across topFalcon. leathery creature lets out a
+        screechHan blasts withlaser bolt.
+
+HAN: (to Leia) Watch out!
+
+           black shape tumbles off spaceship onto the
+        groundfrontprincess. Han bends downinvestigate
+        dead creature.
+
+HAN: Yeah, thats what I thought. Mynock. Chewie, check rest of
+ship, make sure there arent any more attached. Theyre chewing on
+power cables.
+
+LEIA: Mynocks?
+
+HAN: Goinside. Well clean them off if there are any more.
+
+           Just then,swarmugly creatures swoops through the
+        air. Leia putsr arms overradprotectrself as
+        she runs toward ship. Chewie shoos another Mynock away
+        with his blaster. Severalbatlike creatures flap their
+        wings loudly against cockpwindowFalcon. Inside,
+        Threepio shudderstheir presence.
+
+THREEPIO: Ohhh! Go away! Go away! Beastly thing. Shoo! Shoo!
+
+           Han looks around strange, dripping cave.
+
+HAN: Waitminute...
+
+           unholsters his blaster firesfar sidethe
+        huge cave. cavern beginsshake ground starts to
+        buckle.
+           Chewie barks moves for ship, followed closely by
+        Leia Han. large wingsMynocks flap past them as
+        they protect their faces run up platform.
+
+INTERIOR: ASTEROID CAVE  MILLENNIUM FALCON  ENTRY AREA
+
+          soonHan Leia areboard, Chewie closes the
+        main hatch. ship continuesshakeave.
+
+HAN: All right, Chewie, lets get outhere!
+
+           Wookieeads for cockpitHan, followed by
+        Threepio, rusheshold area checks scopesthe
+        control panel. Leia hurries after.
+
+LEIA: Empire is still out there. I dont thinkwise to...
+
+           Han rushes pastrads for cockpit.
+
+HAN: (interrupting) No timediscuss this ascommittee.
+
+           with that is gone. main enginesFalcon
+        beginwhine. Leia races after him, bouncing aroundthe
+        shaking ship.
+
+LEIA: (angry) I am notcommittee!
+
+INTERIOR: ASTEROID CAVE  MILLENNIUM FALCON  COCKPIT
+
+           Han is alreadypilots seat pulling backthe
+        throttle. cave-quakegreatly diminished.
+
+LEIA: You cant make jumplight-speedthis asteroid field...
+
+HAN: Sdown, sweetheart. Were taking off!
+
+          ship beginsmove forward, Chewie barks.
+        notices something out window ahead. Threepio sees too.
+
+THREEPIO: Look!
+
+HAN: I see it, I see it.
+
+           Suddenly,rowjagged white stalagmites stalactites
+        can be seen surrounding entrance.Falcon moves
+        forward, entrancecave grows ever smaller. Han
+        pulls hardthrottle, sending his ship surging forward.
+
+THREEPIO: Were doomed!
+
+LEIA: cave is collapsing.
+
+HAN: This is no cave.
+
+LEIA: What?
+
+           Leias mouth drops open . She sees that rocksthe
+        cave entrance are not rocksall, but giant teeth, quickly
+        closing around tiny ship. Chewie howls.
+
+INTERIOR: SPACE SLUG MOUTH
+
+           Millennium Falcon, zooming through monsters mouth,
+        rollsits side barely makes between twothe
+        gigantic white teeth before huge jaws slams closed.
+
+EXTERIOR: CAVE ENTRANCE  GIANT ASTEROID
+
+           enormous space slug moveshead outcave as
+        Falcon flies out ofmouth. monster tiltshead,
+        watching starship fly away.
+
+EXTERIOR: MILLENNIUM FALCON  GIANT ASTEROID
+
+           Falcon races outasteroid crater into the
+        deadly rainasteroid storm.
+
+EXTERIOR: DAGOBAH  DAY
+
+           With Yoda strappedhis back, Luke climbs up onethe
+        many thick vines that growswamp. Pantingavily,
+        continues his course  climbing, flipping through air,
+        jumping over roots, racingoutheavy ground
+        fog.
+
+YODA: Run! Yes.Jedis strength flows from Force. But beware of
+dark side. Anger...fear...aggression. dark sideForce
+are they. Easily they flow, quickjoin youa fight. If once you
+start down dark path, forever will dominate your destiny,
+consume you will,did Obi-Wans apprentice.
+
+LUKE: Vader. Is dark side stronger?
+
+YODA: No...no...no. Quicker, easier, more seductive.
+
+LUKE: But how am Iknow good side from bad?
+
+YODA: You will know. When you are calm,peace. Passive.Jedi uses
+Force for knowledge defense, never for attack.
+
+LUKE: But tell me why I cant...
+
+YODA: (interrupting) No, no, there is no why. Nothing more will I
+teach you today. Clear your mindquestions. Mmm. Mmmmmm.
+
+           Artoo beepsdistanceLuke lets Yoda downthe
+        ground. Breathingavily, takes his shirt fromnearby
+        tree branch pulls on.
+           turnsseehuge, dead, black tree,base
+        surrounded byfew feetwater. Giant, twisted roots form a
+        dark sinister caveone side. Luke starestree,
+        trembling.
+
+LUKE: Theres something not rightre.
+
+           Yoda sits onlarge root, poking his Gimer Stick into the
+        dirt.
+
+LUKE: I feel cold, death.
+
+YODA: That place...is strong with dark sideForce.domain
+of evil is.you must go.
+
+LUKE: Whatsthere?
+
+YODA: Only what you take with you.
+
+           Luke looks warily between tree Yoda. starts to
+        straphis weapon belt.
+
+YODA: Your weapons...you will not need them.
+
+           Luke gives treelong look, than shakes hisad no.
+        Yoda shrugs. Luke reaches upbrush aside some hanging vines
+        enters tree.
+
+INTERIOR: DAGOBAH  TREE CAVE
+
+           Luke moves into almost total darknesswet and
+        slimy cave. youth can barely make out edgethe
+        passage. Holding his lsaber before him, seeslizard
+        crawling up sidecavesnake wrapped around
+        branches oftree. Luke drawsdeep breath, then pushes
+        deeper into cave.
+           space widens around him, but feels that rather than
+        sees it. His sword casts only lighpeers into the
+        darkness. is very quietre.
+           Then,loud hiss! Darth Vader appears across the
+        blackness, illuminated by his own just-ignited laser sword.
+        Immediately, charges Luke, saberld high. is upon the
+        youthseconds, but Luke sidesteps perfectly slashes at
+        Vader with his sword.
+           Vader is decapitated. Hislmet-encasedad flies from
+        his shouldershis body disappears into darkness. The
+        metallic banginghelmet fills caveVadersad
+        spins bounces, smashesfloor, finally stops.
+        For an instant restsfloor, then cracks
+        vertically. blacklmet breath mask fall away to
+        reveal...Lukesad.
+           Across space, standing Luke gaspssight,
+        wide-eyedterror.
+           decapitatedad fades away, asa vision.
+
+EXTERIOR: DAGOBAH  CAVE  DUSK
+
+           Meanwhile, Yoda sitsroot, calmly leaninghis
+        Gimer Stick.
+
+EXTERIOR: SPACE  VADERS STAR DESTROYER
+
+           Vaders Imperial Star Destroyer moves through space,
+        guarded byconvoyTIE fighters.
+
+INTERIOR: VADERS STAR DESTROYER  BRIDGE  CONTROL DECK
+
+           Vader standsback control areahis ships bridge
+        withmotley groupmen creatures. Admiral Piett and
+        two controllers stat frontbridge watch the
+        group with scorn.
+
+PIETT: Bounty hunters. We dont need that scum.
+
+FIRST CONTROLLER: Yes, sir.
+
+PIETT: Those Rebels wont escape us.
+
+          second controller interrupts.
+
+SECOND CONTROLLER: Sir, we havepriority signal from Star
+Destroyer Avenger.
+
+PIETT: Right.
+
+           group standing before Vader isbizarre array of
+        galactic fortune hunters: There is Bossk,slimy, tentacled
+        monster with two huge, bloodshot eyesa soft baggy face;
+        Zuckuss Dengar, two battle-scarred, mangy human types;
+        IG-88,battered, tarnished chrome war droid; Boba Fett,
+       mana weapon-covered armored space suit.
+
+VADER: ...there will besubstantial reward for one who finds
+Millennium Falcon. You are freeuse any methods necessary, but
+I want them alive. No disintegrations.
+
+BOBA FETT:you wish.
+
+          that moment, Admiral Piett approaches Vadera rush of
+        excitement.
+
+PIETT: Lord Vader! My lord, we have them.
+
+EXTERIOR: IMPERIAL STAR DESTROYER, AVENGER  ASTEROID BELT
+
+           Millennium Falcon speeds through deep space, closely
+        followed byfiring Imperial Star Destroyer.large asteroid
+        about same sizeFalcon tumbles rapidly toward the
+        starship. tiny Falcon banksavoid giant asteroid as
+        smaller rocks peltsurface. Then small craft roars
+        under asteroid which explodes harmlesslyhull of
+        vast Star Destroyer.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           ship shuddersflak explodes near cockpwindow.
+        Threepio checkstracking scope an side control panel
+        while Leia watches tensely out window.
+
+THREEPIO: Oh, thank goodness were coming outasteroid field.
+
+           Chewie barks excitedlyrainasteroids begins to
+        subside.bolt from Star Destroyer sets upfiery
+        explosionback sideFalcon, causinglurch
+       one side.
+
+EXTERIOR: MILLENNIUM FALCON  STAR DESTROYER, AVENGER  ASTEROID FIELD
+
+           Falcon is hhard by another bolt from Star
+        Destroyer which createshuge explosion near cockpof
+        smaller ship. Falcon tilts steeply, then rights
+        itself.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Han corrects anglehis ship.
+
+HAN: Lets get outhere. Ready for light-speed? One...two...three!
+
+           Han pulls backhyperspace throttle  nothing
+        happens. Flak bursts continuerock ship.
+
+HAN: (frantic)not fair!
+
+           Chewie is very angry startsgrowl barkhis
+        friend captain. Again, Han desperately pulls backthe
+        throttle.
+
+HAN: transfer circuits are working.not my fault!
+
+           Chewie puts hisadhis hands, whining.
+
+LEIA: (almost expecting it) No light-speed?
+
+HAN:not my fault.
+
+THREEPIO: Sir, we just lost main rear deflector shield. One more
+direct hitback quarter were done for.
+
+           Han pauses formoment, makesdecision, pulls back
+        onlever.
+
+HAN: Turnr around.
+
+           Chewie barkspuzzlement.
+
+HAN: I said turnr around! goingput all powerfront
+shield.
+
+LEIA: Youre goingattack them?!
+
+THREEPIO: Sir, oddssurvivingdirect assaultan Imperial
+Star Destroyer...
+
+LEIA: Shut up!
+
+EXTERIOR: SPACE  MILLENNIUM FALCON  ASTEROID FIELD
+
+           Falcon banks, makessteep, twisting turn.the
+        next moment is racing toward Star Destroyer, looking
+        very small against massive surfaceImperial ship.
+       moves across surfaceStar Destroyer, the
+        Falcon bobs weavesavoid numerous flak bursts.
+
+INTERIOR: STAR DESTROYER, AVENGER  BRIDGE
+
+           tiny Falconads directly for Avengers bridge.
+        Imperials stationed there are stunnedsee small
+        spaceship racing low across hull,aded directlythe
+        huge windowsbridge area. Alarms go off everywhere. The
+        Destroyers commander, Captain Needa, can scarcely believe his
+        eyes.
+
+NEEDA: Theyre movingattack position. Shields up!
+
+           Needa his men duckFalcon nears bridge
+        window.last minute, Falcon veers off out of
+        sight. All is quiet.
+
+NEEDA: Track them,. They may come around for another pass.
+
+TRACKING OFFICER: Captain Needa, ship no longer appearsour
+scopes.
+
+NEEDA: They cant have disappeared. No ship that small hascloaking
+device.
+
+TRACKING OFFICER: Well, theres no tracethem, sir.
+
+COMMUNICATIONS OFFICER: Captain, Lord Vader demands an updatethe
+pursuit.
+
+NEEDA: (drawingbreath) Getshuttle ready. I shall assume full
+responsibility for losing them, apologizeLord Vader.
+Meanwhile, continuescan area.
+
+COMMUNICATIONS OFFICER: Yes, Captain Needa.
+
+EXTERIOR: DAGOBAH  BOG  DAY
+
+           Lukes face is upside-down showing enormous strain.
+        standshis hands, with Yoda perchedhis feet. Opposite
+        Luke Yoda are two rocks sizebowling balls. Luke
+        staresrocks concentrates. Onerocks lifts
+        from ground floats uprestother.
+
+YODA: Use Force. Yes...
+
+           Yoda taps Lukes leg. Quickly, Luke lifts one hfrom the
+        ground. His body wavers, but maintains his balance. Artoo,
+        standing nearby, is whistling beeping frantically.
+
+YODA: Now...stone. Feel it.
+
+           Luke concentratestryinglift top rock. rises
+       few feet, shaking under strain. But, distracted by
+        Artoos frantic beeping, Luke loses his balance finally
+        collapses. Yoda jumps clear.
+
+YODA: Concentrate!
+
+           Annoyeddisturbance, Luke looks overArtoo, who
+      rocking urgently back forthfronthim.
+           Artoo waddles closerLuke, chirping wildly, then scoots
+        over edgeswamp. Catching on, Luke rushesthe
+        waters edge. X-wing fightersunk, only tip of
+       nose shows above lakes surface.
+
+LUKE: Oh, no. Well never get out now.
+
+           Yoda stamps his footirritation.
+
+YODA: So certain are you. Always with you cannot be done.ar you
+nothing that I say?
+
+           Luke looks uncertainly outship.
+
+LUKE: Master, moving stones around is one thing. This is totally
+different.
+
+YODA: No! No different! Only differentyour mind. You must unlearn
+what you have learned.
+
+LUKE: (focusing, quietly) All right, Ill give ittry.
+
+YODA: No! Try not. Do. Or do not. There is no try.
+
+           Luke closes his econcentratesthinking ship
+        out.
+           Slowly, X-wings nose beginsrise above water.
+        hovers formoment then slides back, disappearing once
+        again.
+
+LUKE: (pantingavily) I cant.too big.
+
+YODA: Size matters not. Lookme. Judge me by my size, do you? Hm?
+Mmmm.
+
+           Luke shakes hisad.
+
+YODA: well you should not. For my allyForce. a
+powerful ally is. Life creates it, makes grow.energy
+surrounds us binds us. Luminous beings are we...(Yoda pinches
+Lukes shoulder)...not this crude matter. (a sweeping gesture) You must
+feel Force around you. (gesturing)re, between you...me...the
+tree...rock...everywhere! Yes, even between this lthat
+ship!
+
+LUKE: (discouraged) You want impossible.
+
+           Quietly Yoda turns toward X-wing fighter. With his eyes
+        closed hisad bowed, raises his arm pointsthe
+        ship.
+           Soon, fighter rises above water moves forward
+       Artoo beepsterror scoots away.
+           entire X-wing moves majestically, surely, toward the
+        shore. Yoda stands ontree root guides fighter
+        carefully down toward beach.
+           Luke staresastonishmentfighter settles down
+        onto shore. walks toward Yoda.
+
+LUKE: I dont...I dont believe it.
+
+YODA: That is why you fail.
+
+           Luke shakes hisad, bewildered.
+
+EXTERIOR: SPACE  IMPERIAL FLEET
+
+           fleet around Vaders Star Destroyer now includes
+        Needas Star Destroyer, Avenger.
+
+INTERIOR: VADERS STAR DESTROYER  BRIDGE
+
+VADER: Apology accepted, Captain Needa.
+
+           Clutching desperatelyhis throat, Captain Needa slumps
+        down, then falls overhis back,feetDarth Vader.
+        Two stormtroopers pick up lifeless body carry it
+        quickly awayAdmiral Piett twohis captains hurry up
+       Dark Lord.
+
+PIETT: Lord Vader, our ships have completed their scanarea and
+found nothing. If Millennium Falcon went into light-speed, itll
+beother sidegalaxy by now.
+
+VADER: Alert all commands. Calculate every possible destination along
+their last know trajectory.
+
+PIETT: Yes, my lord. Well find them.
+
+VADER: Dont fail me again, Admiral.
+
+           Vader exitsadmiral turnsan aide,little more
+        uneasy than when arrived.
+
+PIETT: Alert all commands. Deploy fleet.
+
+EXTERIOR: SPACE  IMPERIAL FLEET
+
+           Vaders ship moves away, flanked byfleetsmaller
+        ships. Avenger glides off into spaceopposite
+        direction. No onethat ship orVaders is aware that,
+        clingingsideAvenger, is pirateship, the
+        Millennium Falcon.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+THREEPIO: Captain Solo, this time you have gone too far. (Chewie
+growls) No, I will not be quiet, Chewbacca. Why doesnt anyone listen
+to me?
+
+HAN: (to Chewie) fleet is beginningbreak up. Go back stand
+by manual release for landing claw.
+
+           Chewie barks, struggles from his seat, climbs out of
+        cabin.
+
+THREEPIO: I really dont see how thats goinghelp. Surrender is a
+perfectly acceptable alternativeextreme circumstances. Empire
+may be gracious enough...
+
+           Leia reaches over shuts off Threepio, mid-sentence.
+
+HAN: Thank you.
+
+LEIA: What did you havemind for your next move?
+
+HAN: Well, if they follow standard Imperial procedure, theyll dump
+their garbage before they golight-speed, then we just float away.
+
+LEIA: With restgarbage. Then what?
+
+HAN: Then weve gotfindsafe port somewhere aroundre. Got any
+ideas?
+
+LEIA: No. Where are we?
+
+HAN: Anoat system.
+
+LEIA: Anoat system. Theres not much there.
+
+HAN: No. Well, wait. This is interesting. Lando.
+
+           points tocomputer mapscreencontrol panel.
+        Leia slips outher chair moves nexthandsome
+        pilot. Small light points representing several systems flash
+        bycomputer screen.
+
+LEIA: Lando system?
+
+HAN: Landos notsystem,sman. Lando Calrissian.scard
+player, gambler, scoundrel. Youd like him.
+
+LEIA: Thanks.
+
+HAN: Bespin.pretty far, but I think we can make it.
+
+LEIA: (reading from computer)mining colony?
+
+HAN: Yeah,Tibanna gas mine. Lando conned somebody outit. We go
+backlong way, Lando me.
+
+LEIA: Can you trust him?
+
+HAN: No. Butno love for Empire, I can tell you that.
+
+           Chewie barks over intercom. Han quickly changes his
+        readouts stretcheslook out cockpwindow.
+
+HAN: (into intercom)re we go, Chewie. Stby. Detach!
+
+           Han leans backhis chair gives Leia an invisible
+        smile. She thinks formoment, shakesrad;grin creeps
+        acrossr face she gives himquick kiss.
+
+LEIA: You do have your moments. Not many, but you have them.
+
+EXTERIOR: SPACE  IMPERIAL STAR DESTROYER
+
+          Avenger Star Destroyer moves slowly into space, the
+        hatchits underbelly opens, sendingtrailjunk behind
+        it. Hidden among refuse, Falcon tumbles away.the
+        next moment, Avenger roars off into hyperspace. The
+        Falcons engines are ignited, races off into the
+        distance. Amidst slowly drifting junk, Boba Fetts ship
+        appears moves after Falcon.
+
+EXTERIOR: DAGOBAH  BOG  CLEARING  DAY
+
+          clearing behind Yodas house, Luke again stands
+        upside-down, but his face shows less strain more
+        concentration than before. Yoda sitsground below the
+        young warrior.other sideclearing, two
+        equipment cases slowly rise into air. Nearby Artoo
+        watches, humminghimself, when suddenly, too, rises into
+        air. His little legs kick desperately hisad turns
+        frantically, looking forlp.
+
+YODA: Concentrate...feel Force flow. Yes. Good. Calm, yes. Through
+Force, things you will see. Other places. future...past.
+Old friends long gone.
+
+           Luke suddenly becomes distressed.
+
+LUKE: Han! Leia!
+
+           two packing boxes Artoo fallground with a
+        crash, then Luke himself tumbles over.
+
+YODA: (shaking hisad) Hmm. Control, control. You must learn control.
+
+LUKE: I saw...I sawcityclouds.
+
+YODA: Mmm. Friends you have there.
+
+LUKE: They werepain.
+
+YODA: is future you see.
+
+LUKE: Future? Will they die?
+
+           Yoda closes his elowers hisad.
+
+YODA: Difficultsee. Alwaysmotion is future.
+
+LUKE: Ive gotgothem.
+
+YODA: Decide you must howserve them best. If you leave now,lp
+them you could. But you would destroy all for which they have fought
+suffered.
+
+           Luke is stopped cold by Yodas words. Gloom shrouds has
+        nods hisad sadly.
+
+EXTERIOR: BESPIN SYSTEM  MILLENNIUM FALCON  DAWN
+
+           powerful pirate starship blasts through spaceit
+       ads toward soft pink planetBespin.
+
+EXTERIOR: BESPIN SURFACE  MILLENNIUM FALCON
+
+           is downgaseous planet. Huge billowing clouds
+        formcanyonship banks around them,ading toward
+        systems Cloud City.
+           Suddenly, two twin-pod cloud cars appear move toward
+        Falcon. cloud cars draw up alongside starship.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Onecloud cars opens fireFalcon,flak
+        rocking ship. Chewie barks his concern.
+
+HAN: (into transmitter) No, I dont havelanding permit. trying
+to reach Lando Calrissian.
+
+           More flak bursts outside cockpwindow rattles the
+        ships interior. Leia looks worried.
+
+HAN: (into transmitter) Whoa! Waitminute! Let me explain.
+
+INTERCOM VOICE: You will not deviate from your present course.
+
+THREEPIO: Rather touchy, arent they?
+
+LEIA: I thought you knew this person.
+
+           Chewie barks growlshis boss.
+
+HAN: (to Chewie) Well, that waslong time ago. sures
+forgotten about that.
+
+INTERCOM VOICE: Permission grantedlon Platform
+Three-two-seven.
+
+HAN: (into transmitter) Thank you.
+
+           Angry, Han snaps off intercom. Chewie lookshand
+        grunts. Han turnsworried princessr droid.
+
+HAN: Theres nothingworry about. We go way back, Lando me.
+
+           Leia doesnt look convinced.
+
+LEIA: Whos worried?
+
+EXTERIOR: CLOUD CITY  MILLENNIUM FALCON  CLOUD CARS
+
+           clouds partrevealfull viewcityit
+        bobsoutcloud surface. cloud cars the
+        Falconad for gleaming white metropolis.
+
+EXTERIOR: CLOUD CITY  LANDING PLATFORM  MILLENNIUM FALCON
+
+           With cloud cars still guarding it, Falcon lands on
+        oneCloud Citys platforms.
+
+EXTERIOR: LANDING PLATFORM  DOORMILLENNIUM FALCON
+
+           Han Leia stat open door, armed. Behind them,
+        Chewie, also armed, surveys scene warily.
+
+THREEPIO: Oh. No onemeet us.
+
+LEIA: I dont like this.
+
+HAN: Well, what would you like?
+
+THREEPIO: Well, they did let us land.
+
+HAN: Look, dont worry. Everythings goingbe fine. Trust me.
+
+INTERIOR: CLOUD CITY  CORRIDOR  DAY
+
+           Lando Calrissian,suave, dashing black manhis
+        thirties, leadsgroupaides some Cloud City guard
+        rapidly toward landing platform. group, like other
+        citizenscity, ismotley collectionaliens,
+        droids, humansall descriptions. Lando hasgrim
+        expressionhis facehe moves onto landing platform.
+
+EXTERIOR: LANDING PLATFORM  DOORMILLENNIUM FALCON
+
+HAN: See? My friend. (to Chewie) Keep your eopen, okay?
+
+           Chewie growlsHan walks down ramp. Lando his men
+       ad across bridgemeet space pirate.
+
+EXTERIOR: CLOUD CITY  LANDING PLATFORM
+
+           Lando stops ten feet from Han. two men eye each other
+        carefully. Lando shakes hisad.
+
+LANDO: Why, you slimy, double-crossing, no-good swindler! Youve got a
+lotguts comingre, after what you pulled.
+
+           Han pointshimself innocently, mouthing, Me?
+           Lando moves threateningly toward Han. Suddenly, throws
+        his arms around his startled, long-lost friend embraces
+        him.
+
+LANDO: (laughs) How you doing, you old pirate? So goodsee you! I
+never thought Id catch up with you again. Where you been?
+
+           two old friends embrace, laughing chuckling.
+
+EXTERIOR: LANDING PLATFORM  DOORMILLENNIUM FALCON.
+
+THREEPIO: Well, seems very friendly.
+
+LEIA: (wary) Yes...very friendly.
+
+EXTERIOR: CLOUD CITY  LANDING PLATFORM
+
+LANDO: What are you doingre?
+
+HAN: (gestures toward Falcon) Ahh...repairs. I thought you could
+help me out.
+
+LANDO: (in mock panic) What have you donemy ship?
+
+HAN: Your ship?y, remember, you lostrme fair square.
+
+           Chewie growlsreserved greeting. Lando suddenly notices
+        princess smiles.
+
+LANDO:llo. What have were? Welcome. Lando Calrissian. Im
+administratorthis facility. who might you be?
+
+LEIA: Leia.
+
+LANDO: Welcome, Leia.
+
+           Lando bows before Leia kissesr hand.
+
+HAN: All right, all right, you old smoothie.
+
+           Han takes Leia by hsteersr away from Lando.
+
+THREEPIO:llo, sir. I am See-Threepio, human-cyborg relations. My
+facilities areyour...
+
+           Before Threepio can finish his self-introduction, Lando has
+        turnedfollow Han Leia, who are walking toward the
+        city.
+
+THREEPIO: Well, really!
+
+           Lando, his aide, Lobot, Han lead way across the
+        bridge, followed by Threepio, Chewie Leia.
+
+LANDO: Whats wrong with Falcon?
+
+HAN: Hyperdrive.
+
+LANDO: Ill get my peopleworkit.
+
+HAN: Good.
+
+           Lando turnsLeia.
+
+LANDO: You know, that ship saved my life quitefew times. Shes the
+fastest hunkjunkgalaxy.
+
+INTERIOR: CLOUD CITY  CORRIDOR
+
+           groupcrossed narrow bridge entered the
+        city. They walk down lovely Art Deco passageway, rounding
+        several corners passing many small plazasthey go.
+        Threepio lagsbbehind.
+
+HAN: Hows gas mine? Is paying off for you?
+
+LANDO: Oh, notwellId like. Weresmall outpost not very
+self-sufficient. Ive had supply problemsevery kind. Ive had
+labor difficulties...(catches Han grinninghim) Whats so funny?
+
+HAN: You. Listenyou  you sound likebusinessman,responsible
+leader. Whod have thought that, huh?
+
+           Lando is reflective. looksHanmoment.
+
+LANDO: You know, seeing you sure brings backfew things.
+
+HAN: Yeah.
+
+LANDO: (shakes hisad) Yeah, responsible these days.the
+price you pay for being successful.
+
+           Han Lando laugh together, group moves on
+        through corridor.
+           lagging Threepio passesThreepio-type silver droid
+        who is coming out ofdoor.
+
+THREEPIO: Oh! Niceseefamiliar face.
+
+SECOND THREEPIO: (mumbles) E chu ta!
+
+THREEPIO: How rude!
+
+           Threepio stops, watching silver droid move away. Then
+       ars muffled beeping whistlingan R2 unit
+        coming from within room.
+
+INTERIOR: CLOUD CITY  ANTEROOM
+
+           Curious, Threepio enters room.
+
+THREEPIO: That sounds like an R2 unitthere. I wonder if...
+
+           Threepio walks through doorwaymain room.
+        looks in.
+
+THREEPIO:llo? How interesting. Oh, my.
+
+MANS VOICE: (from within) Who are you?
+
+THREEPIO: Oh, terribly sorry. I...I didnt meanintrude. No,
+no, please dont get up. No!
+
+          laser boltThreepios chest sends hflyingtwenty
+        directions. Smoldering mechanical arms legs bounce off the
+        wallsdoor whooshes closed behind him.
+
+INTERIOR: CLOUD CITY  CORRIDOR
+
+           Lando, Han, Leia continue down corridor unaware of
+        Threepios dreadful accident. Chewbacca glances around, sniffs
+        air, but shrugs his shoulders follows group.
+
+EXTERIOR: DAGOBAH  BOG  DUSK
+
+          bright lightsfighter, Luke loadsheavy
+        case into bellyship. Artoo sitstopthe
+        X-wing, settling down into his cubbyhole. Yoda stands nearby
+        onlog.
+
+YODA: Luke! You must complete training.
+
+LUKE: I cant keep vision outmyad. Theyre my friends. Ive
+gothelp them.
+
+YODA: You must not go!
+
+LUKE: But Han Leia will die if I dont.
+
+BENS VOICE: You dont know that.
+
+           Luke looks toward voiceamazement. Ben has
+        materialized asreal, slightly shimmering image near Yoda.
+        powerhis presence stops Luke.
+
+BEN: Even Yoda cannot see their fate.
+
+LUKE: But I canlp them! I feel Force!
+
+BEN: But you cannot control it. This isdangerous time for you, when
+you will be tempted by dark sideForce.
+
+YODA: Yes, yes.Obi-Wan you listen. cave. Remember your failure
+at cave!
+
+LUKE: But Ive learned so much since then. Master Yoda, I promise to
+return finish what Ive begun. You have my word.
+
+BEN: is you your abilities Emperor wants. that is why your
+friends are madesuffer.
+
+LUKE: that is why I havego.
+
+BEN: Luke, I dont wantlose youEmperor way I lost
+Vader.
+
+LUKE: You wont.
+
+YODA: Stopped they must be.this depends. Onlyfully trained Jedi
+Knight with Forcehis ally will conquer Vader his Emperor.
+If you end your training now, if you choose quick easy path,
+as Vader did, you will become an agentevil.
+
+BEN: Patience.
+
+LUKE: sacrifice Han Leia?
+
+YODA: If you honor what they fight for...yes!
+
+           Luke isgreat anguish. struggles with dilemma, a
+        battle raginghis mind.
+
+BEN: If you chooseface Vader, you will do alone. I cannot
+interfere.
+
+LUKE: I understand. (he moveshis X-wing) Artoo, fire up the
+converters.
+
+           Artoo whistleshappy reply.
+
+BEN: Luke, dont giveto hate  that leadsdark side.
+
+           Luke nods climbs into his ship.
+
+YODA: Strong is Vader. Mind what you have learned. Save you can.
+
+LUKE: I will. Ill return. I promise.
+
+           Artoo closes cockpit. Ben Yoda stwatching as
+        roarengines wind engulf them.
+
+YODA: (sighs) Told you, I did. Reckless is. Now matters are worse.
+
+BEN: That boy is our last hope.
+
+YODA: (looks up) No. There is another.
+
+EXTERIOR: SPACE  PLANET DAGOBAH
+
+           Lukes tiny X-wing rockets away from green planet of
+        Dagobah off into space.
+
+INTERIOR: CLOUD CITY  LIVING QUARTERS  DAY
+
+           Within quarters assignedrCloud City, Leia paces
+       agitation. Shechanged fromr cold-weather pants and
+        jacket tolovely dress.r hair is down, tied back with
+        ribbons. She moves fromlarge, open window turnssee
+        Han entering through doorway.
+
+HAN: ship is almost finished. Two or Three more things were
+in great shape.
+
+LEIA: sooner better. Somethings wrongre. No oneseen
+or knows anything about Threepio.s been gone too longhave
+gotten lost.
+
+           Han takes Leia by shoulders gently kissesr
+        forehead.
+
+HAN: Relax. Ill talkLando see what I can find out.
+
+LEIA: I dont trust Lando.
+
+HAN: Well, I dont trust him, either. But is my friend. Besides,
+well soon be gone.
+
+LEIA: then youregoodgone, arent you?
+
+           Not speaking, Han considersr words gazesher
+        troubled face.
+
+INTERIOR: CLOUD CITY  JUNK ROOM
+
+        room is piled high with broken discarded machine
+        parts. Four Ugnaughts, small hoglike creatures, separate the
+        junk throw some pieces ontoconveyer belt which moves
+        briskly towardpof molten metal. PiecesThreepios
+        golden body move down belt. Chewie enters room and
+        spots an Ugnaught picking up inspecting Threepiosad.
+        Wookiee barkscommand, startling Ugnaught, then
+        reachesgrabad. But Ugnaught tosses away from
+        himanother Ugnaught. This gamekeep-away goesuntil
+        Threepiosad falls from their grip bounces withclang
+        onto ground.
+
+INTERIOR: CLOUD CITY  LIVING QUARTERS  DAY
+
+           door zaps open. Chewbacca walks in, carryingpacking
+        caseThreepio, arms legs hanging over edge.
+
+LEIA: What happened?
+
+           Chewie sets case ontable, grunting groaning an
+        explanation.
+
+HAN: Where? Found hima junk pile?
+
+LEIA: Oh, whatmess. Chewie, do you think you can repair him?
+
+           giant Wookiee studies arrayrobot parts.
+        looksprincess shrugs sadly.
+
+HAN: Landos got people who can fix him.
+
+LEIA: No, thanks.
+
+           There isbuzz door slides open, revealing Lando.
+
+LANDO: sorry. Am I interrupting anything?
+
+LEIA: Not really.
+
+LANDO: You look absolutely beautiful. You truly belongre with us
+among clouds.
+
+LEIA: (coolly) Thank you.
+
+LANDO: Will you join me forlittle refreshment?
+
+           Han looksLando suspiciously, but Chewie barksthe
+        mentionfood licks his lips.
+
+LANDO: Everyones invited,course.
+
+           Leia takes Landos proffered arm, group turns to
+        go. Lando spots Threepios remains.
+
+LANDO: Having trouble with you droid?
+
+           Han Leia exchangequick glance.
+
+HAN: No. No problem. Why?
+
+           Han Leia move arm-in-arm through door, followed by
+        Lando Chewie. door slides closed behind them.
+
+INTERIOR: CLOUD CITY  CORRIDOR  DAY
+
+           Leia walks between Han LandoChewie followsshort
+        distance behind. Long shaftslight pour across corridor
+        between tall, pure-white columns.
+
+LANDO: So you see, since weresmall operation, we dont fall into
+the...uh...jurisdictionEmpire.
+
+LEIA: So youre partmining guild then?
+
+LANDO: No, not actually. Our operation is small enough notbe
+noticed...which is advantageous for everybody since our customers are
+anxiousavoid attracting attentionthemselves.
+
+           group walks into another corridorads forhuge
+        doorwayfar end.
+
+HAN: Arent you afraid Empires goingfind out about this
+little operation shut you down?
+
+LANDO: Thats always beendanger looming likeshadow over
+everything weve builtre. But things have developed that will
+insure security. Ive just madedeal that will keep Empire out
+ofre forever.
+
+INTERIOR: CLOUD CITY  DINING ROOM
+
+           mighty doorsdining room slide open the
+        group enters dining room.far end ofhuge banquet
+        table sits Darth Vader. Standinghis side slightly
+        behind his Boba Fett, bounty hunter.
+           Faster than winkan eye, Han draws his blaster and
+        pops offcoupleshots directlyVader. Dark Lord
+        quickly raises his hand, deflecting bolts into onethe
+        side walls, where they explode harmlessly. Justquickly,
+        Hans weapon zips into Vaders hand. evil presence calmly
+        places guntablefronthim.
+
+VADER: We would be honored if you would join us.
+
+           Han gives Landomean look.
+
+LANDO: I had no choice. They arrived right before you did. sorry.
+
+HAN: sorry, too.
+
+EXTERIOR: LUKES X-WING  BESPIN SYSTEM
+
+           Lukes X-wing races through thick clouds toward Cloud City.
+
+INTERIOR: LUKES X-WING  COCKPIT
+
+           Luke is grim-facedhe pilots his course toward Bespins
+        shining city. Artoos beeps whistles are transmitted onto
+        scope.
+
+LUKE: (into comlink) No, Threepios with them.
+
+           Artoo whistles another worried inquiry.
+
+LUKE: (into comlink) Just hang on. Were almost there.
+
+INTERIOR: CLOUD CITY  LARGE CELL
+
+           Chewbacca isa Cloud City prison cell. stark room is
+        flooded with hot light.addChewies misery, a
+        high-pitched whistle screeches loudly. Chewie is going mad.
+        hits wall with giant fistshe paces back forth
+        across cell floor. upper lights go off abruptly. The
+        prisoner rubs his emoves towall, where listens
+        formoment. Then, moaninghimself, moves toplatform
+        where disassembled piecesThreepio lie. picks up the
+        golden droidsad meditatesformoment, barking
+       few philosophical remarks. Chewie sticks robotsad on
+       torso starts adjusting wires circuits. Suddenly,
+        lightsThreepios esparklifeChewie touches
+        two connectors together. Threepio immediately beginsspeak,
+        but his voice is so slow so lowto be nearly
+        unintelligible.
+
+THREEPIO: Mmmm. Oh, my. Uh, I, uh  Take this off! I, uh, dont mean
+to intrudere. I, dont, no, no, no...Please dont get up. No!
+
+           Chewie looksThreepiobewilderment, then scratches
+        his furryad. gets an idea adjusts some connections,
+        whereupon Threepio immediately begins speaking normally.
+
+THREEPIO: Stormtroopers?re? Weredanger. I must tell the
+others. Oh, no! Ive been shot!
+
+INTERIOR: CLOUD CITY  PRISON ENTRY AREA
+
+           Darth Vader strides through roomtwo stormtroopers
+        prepare an elaborate torture mechanism. Han is strappeda
+        rack which tilts forward onto torture device. Vader
+        activates mechanism, creating two burstssparks, one of
+        which strikes Hans face.
+           door opens, Darth Vader movesholding
+        chamber, where Lando Boba Fett awahim.
+
+INTERIOR: CLOUD CITY  HOLDING CHAMBER
+
+LANDO: Lord Vader.
+
+VADER: (to Fett) You may take Captain SoloJabba Hut after I
+have Skywalker.
+
+           Hans screams filter through torture room door.
+
+BOBA FETT:s no goodme dead.
+
+VADER: will not be permanently damaged.
+
+LANDO: Lord Vader, what about Leia Wookiee?
+
+VADER: They must never again leave this city.
+
+LANDO: That was neverconditionour agreement, nor was giving Han
+to this bounty hunter!
+
+VADER: Perhaps you think youre being treated unfairly.
+
+LANDO: No.
+
+VADER: Good. would be unfortunate if I hadleavegarrison
+here.
+
+           Vader turns sweeps into elevator with Boba Fett.
+        Lando walks swiftly down another corridor, muttering to
+        himself.
+
+LANDO: This deals getting worse all time.
+
+INTERIOR: CLOUD CITY  LARGE CELL
+
+           Chewie now haslittle moreThreepio back together. One
+        arm is connected, but legs are yetbe attached. There
+      one small problem, however. seems Wookiee has
+        managedput droidsadbackwards.
+
+THREEPIO: Oh, yes, thats very good. I like that. Oh! Somethings not
+right because now I cant see. Wait. Wait! Oh, my! what have you done?
+backwards, you stupid furball. Only an overgrown mophead like you
+would be stupid enough...
+
+           Threepio is cut offmid-sentenceChewie angrily
+        deactivatescircudroid shuts down. Wookiee
+        smells something sits up. doorchamber slides
+        openragged Han Solo is shoved into room by two
+        stormtroopers. Barking his concern, huge Wookiee gives Han
+       big hug. Han is very pale, with dark circles under his eyes.
+
+HAN: I feel terrible.
+
+           Chewielps Han toplatform then turnsdoor
+        slides open revealing Leia. She, too, lookslittle worse for
+        wear. troopers pushr into cell, door slides
+        closed. She movesHan, who is lyingplatform, and
+        kneels nexthim, gently stroking hisad.
+
+LEIA: Why are they doing this?
+
+HAN: They never even asked me any questions.
+
+           cell door slides open. Lando twohis guards
+        enter.
+
+LEIA: Lando.
+
+HAN: Get outhere, Lando!
+
+LANDO: Shut up listen! Vaderagreedturn Leia Chewie
+overme.
+
+HAN: Overyou?
+
+LANDO: Theyll havestayre, butleast theyll be safe.
+
+LEIA: What about Han?
+
+LANDO Vaders giving himbounty hunter.
+
+LEIA: Vader wants us all dead.
+
+LANDO: doesnt want youall.s after somebody called
+Skywalker.
+
+HAN: Luke?
+
+LANDO: Lord Vadersettrap for him.
+
+           Leias mind is racing.
+
+LEIA: were bait.
+
+LANDO: Well,shis way.
+
+           Hans rage peaks.
+
+HAN: Perfect. You fixed us all pretty good, didnt you? (spits out)
+My friend!
+
+           Han hauls off punches Lando. two friends are
+        instantly engageda frantic close-quarters fight. The
+        guards hHan with their rifle butts flies across the
+        room. Chewie growls starts for guards. They point
+        their laser weaponsgiant Wookiee, but Lando stops
+        them.
+
+LANDO: Stop! Ive done all I can do. sorry I couldnt do better,
+but I have my own problems.
+
+HAN: Yeah, yourerealro.
+
+           Lando guards leave. Han wipes blood from his
+        chinLeia Chewielp hup.
+
+LEIA: (dabshis wound) You certainly haveway with people.
+
+INTERIOR: CLOUD CITY  CARBON-FREEZING CHAMBER
+
+           Four armor-suited stormtroopers stat readythe
+        large chamber, which is filled with pipes chemical tanks.
+       middleroom isround phousinghydraulic
+        platform. Darth Vader Lando stnear platform.
+
+VADER: This facility is crude, but should be adequatefreeze
+Skywalker for his journeyEmperor.
+
+           An Imperial soldier appears.
+
+IMPERIAL SOLDIER: Lord Vader, ship approaching. X-wing class.
+
+VADER: Good. Monitor Skywalker allow himland.
+
+           soldier bows leaves chamber.
+
+LANDO: Lord Vader, we only use this facility for carbon freezing. If
+you put himthere, might kill him.
+
+VADER: I do not want Emperors prize damaged. We will test it...on
+Captain Solo.
+
+           Landos face registers dismay.
+
+EXTERIOR: SPACE  BESPIN SYSTEM  LUKES X-WING
+
+           Lukes X-wing moves through cloudsnears the
+        city.
+
+INTERIOR: LUKES X-WING  COCKPIT
+
+           Encountering no city guards, Luke scans display panel
+        with concern.
+
+INTERIOR: CLOUD CITY  CARBON-FREEZING CHAMBER
+
+           There isgreat activitycarbon-freezing platform.
+        Six Ugnaughts frantically prepare chamber for use. A
+        special coffinlike container is putplace. With Boba Fett
+       lead,squadsix stormtroopers bringsHan, Leia
+        Chewie. StrappedChewies back, with only hisad,
+        torso, one arm assembled, is Threepio. Threepiosad
+        faces opposite direction from Chewies droid is
+        constantly twisting arounda vain effortsee what is
+        happening. His one attached arm is animate expressive,
+        intermittently pointing, gesturing, covering his eyes. The
+        remaining pieceshis body are randomly bundledthe
+        Wookiees back so that his legs other arm stick outodd
+        angles from pack.
+
+THREEPIO: If only you had attached my legs, I wouldnt bethis
+ridiculous position. Now, remember, Chewbacca, you have a
+responsibilityme, so dont do anything foolish.
+
+HAN: (to Lando) Whats going on...buddy?
+
+LANDO: Youre being put into carbon freeze.
+
+           Boba Fett moves away from groupDarth Vader.
+
+BOBA FETT: What if doesnt survive?s worthlotme.
+
+VADER: Empire will compensate you if dies. Put hin!
+
+           Realizing what is abouthappen, Chewie lets outwild
+        howl attacks stormtroopers surrounding Han. Within
+        seconds, other Imperial reinforcements join scuffle,
+        clubbing giant Wookiee with their laser weapons. From the
+        instantChewies first move, Threepio beginsscream in
+        panic while triesprotect himself with his one arm.
+
+THREEPIO: Oh, no! No, no, no! Stop, Chewbacca, stop...!
+
+           stormtroopers are aboutbash Chewieface.
+
+HAN: Stop, Chewie, stop! Do youar me? Stop!
+
+THREEPIO: Yes, stop, please! not readydie.
+
+           Han breaks away from his captors. Vader nodsguards
+       let hgo pirate breaks up fight.
+
+HAN: Chewie! Chewie, this wontlp me.y!
+
+           Han gives Wookieestern look.
+
+HAN: Save your strength. Therell be another time. princess  you
+havetake careher. Youar me?
+
+           Han winksWookiee, who wailsdoleful farewell.
+         flash guards have slipped bindersChewbacca,
+        who is too distraughtprotest. Han turnsPrincess Leia.
+        They look sorrowfullyone another, then Han moves toward
+       r givesrfinal, passionate kiss.
+
+LEIA: I love you!
+
+HAN: I know.
+
+           Tears roll down Leias faceshe watches dashing
+        pirate walkhydraulic platform. Han looks one final
+        timehis friends  then, suddenly, platform drops.
+        Chewie howls. Leia turns awayagony. Lando winces in
+        sorrow; makeslife-changing impressionhim.
+           Instantly, fiery liquid beginspour downa shower of
+        sparks fluidgreatany steel furnace. Holding Leia,
+        Chewie half-turns away from sight, giving Threepioview
+       procedure.
+
+THREEPIO: What...whats going on? Turn around, Chewbacca, I cant see.
+Oh...theyve encased himcarbonite. should be quite
+well-protected  if survives freezing process, that is.
+
+           Chewie isno mood for technical discussion; gives the
+        droid an angry glance barks.
+          huge mechanical tong lifts steaming metal-encased
+        space pirate outvat stands himplatform.
+        Some Ugnaughts rush over push block over onto the
+        platform. They slide coffinlike structureblock and
+        lift metal block, placing inside. They then attach an
+        electronic box onto structure step away.
+           Lando kneels adjusts some knobs, measuringat.
+        shakes hisadrelief.
+
+VADER: Well, Calrissian, did survive?
+
+LANDO: Yes,s alive.perfect hibernation.
+
+           Vader turnsBoba Fett.
+
+VADER:s all yours bounty hunter. Reset chamber for Skywalker.
+
+IMPERIAL OFFICER: Skywalkerjust landed, my lord.
+
+VADER: Good. Seethat finds his wayre. Calrissian, take
+princess Wookieemy ship.
+
+LANDO: You said theyd be leftcity under my supervision.
+
+VADER: I am altering deal. Pray I dont alter any further.
+
+           Landos hinstinctively goeshis throaturns
+       Leia, Chewie, Threepio.
+
+INTERIOR: CLOUD CITY  CORRIDOR  DAY
+
+          Luke Artoo move carefully downdeserted corridor,
+        theyargrouppeople coming downside hallway. Artoo
+        lets out an excited seriesbeeps whistles. Luke glares
+       tiny droid, who stopshis tracks withfeeble
+        squeak.
+           Boba Fett enters fromside hallway followed by two guards
+        pushing floating, encased bodyHan Solo. Two
+        stormtroopers, who follow, immediately spot Luke open fire
+       him. youth draws his weapon blasts two
+        troopers before they can get offsecond shot. two guards
+        whisk Han into another hallwayFett lowers his arm and
+        firesdeadly laserLuke, which explodesone side and
+        tears uphuge chunkwall.
+           Luke rushes toside hallway, but by time reaches
+        it, Fett, Han, guards are gone.think metal door
+        blocks passage. Luke turnssee Leia, Chewie, Threepio,
+        Lando beingrded downsecond hallway by several other
+        stormtroopers. Leia turns justtimesee Luke.
+
+LEIA: Luke! Luke, dont  itstrap! Itstrap!
+
+           Before she can finish, she is pulled throughdoorway and
+        disappears from sight. Luke races after group, leaving
+        little Artoo trailing behind.
+
+INTERIOR: CLOUD CITY  ANTEROOM
+
+           Luke runs into an anteroom stopsget his bearings.
+        Leia others are nowherebe seen. Behind Luke, Artoo
+        scoots down corridor toward anteroom when suddenly a
+        giant metal door comes slamming down, cutting off Lukes exit.
+        Several more doors clang shut, echoing through chamber.
+
+INTERIOR: CLOUD CITY  HALLWAY LEADINGANTEROOM
+
+           Artoo stands with his nose pressed against giant metal
+        door. whistleslong sighrelief and,little dazed,
+        wanders offother direction.
+
+INTERIOR: CLOUD CITY  CARBON-FREEZING CHAMBER  ANTEROOM
+
+           Luke cautiously walks forward among hissing pipes and
+        steam. Seeing an opening above him, stopslook up.he
+        does, platform standsbeginsmove.
+
+INTERIOR: CLOUD CITY  CARBON-FREEZING CHAMBER
+
+           Luke rises into chamber, borne by platform. The
+        room is deathly quiet. Very little steam escapes pipes and
+        no one else seemsbelarge room. Warily, Luke walks
+        toward stairway.
+           Steam beginsbuild upchamber. Looking up through
+        steam, Luke seesdark figure standing onwalkway above
+        him. Luke holsters his gun moves up stairsface
+        Vader. feels confident, eagerengage his enemy.
+
+VADER: Force is with you, young Skywalker. But you are notJedi
+yet.
+
+           Luke ignites his swordanswer.an instant, Vaders
+        own sword is lit. Luke lunges, but Vader repels blow.
+        Again Luke attacks, swordstwo combatants clash
+       battle.
+
+INTERIOR: CLOUD CITY  CORRIDOR
+
+           Leia, Lando, Chewie, with Threepiohis back, march
+        along, guarded by six stormtroopers. group reaches an
+        intersection where LobotdozenLandos guards stand
+       attention.
+           guards immediately atheir weaponsstartled
+        stormtroopers. Taking stormtroopers weapons from them,
+        Lobot hands oneLeia oneLando.
+
+LANDO: Well done. Hold themsecurity tower  keep it
+quiet. Move.
+
+          Landos guards quickly march stormtroopers away,
+        Lando beginsundo Chewies binding.
+
+LEIA: What do you think youre doing?
+
+LANDO: Were getting outhere.
+
+THREEPIO: I knew all along hadbemistake.
+
+           Chewie turnsLando startschoke him.
+
+LEIA: Do you think that after what you didHan were goingtrust
+you?
+
+           Lando triesfree himself from Chewie.
+
+LANDO: (choking) I had no choice...
+
+           Chewie barks ferociously.
+
+THREEPIO: (to Chewie) What are you doing? Trust him, trust him!
+
+LEIA: Oh, so we understand, dont we, Chewie? had no choice.
+
+LANDO: just tryinghelp...
+
+LEIA: We dont need anyyourlp.
+
+LANDO: (choking) H-a-a-a...
+
+LEIA: What?
+
+THREEPIO: sounds like Han.
+
+LANDO: Theres stillchancesave Han...I mean,East
+Platform...
+
+LEIA: Chewie.
+
+           Chewie finally releases Lando, who fightsget his breath
+        back.
+
+THREEPIO: (to Lando) terribly sorry about all this. After all,
+hes onlyWookiee.
+
+EXTERIOR: CLOUD CITY  EAST LANDING PLATFORM  BOBA FETTS SHIP
+
+           two guards slide Hans encased body into an opening in
+        sidebounty hunters ship. Boba Fett climb aboard
+        onladder nextcargo hold.
+
+BOBA FETT: Put Captain Solocargo hold.
+
+           with that, door slams shut.
+
+INTERIOR: CLOUD CITY  CORRIDOR
+
+           Lando, Leia, Chewie run downCloud City corridor when
+        suddenly they spot Artoo who rushes toward them, beeping
+        wildly.
+
+THREEPIO: Artoo! Artoo! Where have you been?
+
+           Chewie turns aroundsee stubby droid, causing
+        Threepiobe spun outsighthis friend.
+
+THREEPIO: Turn around, you wooly...! (to Artoo) Hurry, hurry! Were
+tryingsave Han from bounty hunter!
+
+           Whistling franticallyThreepio, Artoo scoots along with
+        racing group.
+
+THREEPIO: Well,least your stillone piece! Look what happened
+to me!
+
+EXTERIOR: EAST LANDING PLATFORM  SIDE BAY
+
+           An elevator door slides open Lando, Leia, Chewbacca
+        race forlarge bay overlooking East Landing Platform.
+           Justthey arrive, Boba Fetts ship takes off against a
+        cloudy sunset sky. 
+          wild anguish, Chewie howls starts firingthe
+        ship.
+
+THREEPIO: Oh, no! Chewie, theyre behind you!
+
+          laser bolt explodes near princess. Everyone turns to
+        see what Threepioalready spotted coming from other
+        direction;squadstormtroopers running toward them. Artoo
+        peeks out from elevator.
+           Leia Chewbacca start firingtroopersLando
+        makesbreak for elevator. Laser bolts continue to
+        explode around princess Wookiee, but they refuse
+       budge. Lando sticks hisad outelevator and
+        motions for pairrun, but they barely notice. They seem
+        possessed, transported,all frustrationcaptivity
+        angerloss pour through their death-dealing weapons.
+           But afterfew moments, they beginmove through the
+        rainlaser fire toward elevator. Once they are inside,
+        door slams shut stormtroopers race forward.
+
+INTERIOR: CLOUD CITY  CARBON-FREEZING CHAMBER
+
+           Luke Vader are lockedcombatplatform
+        overlooking chamber. Their swords clash, platform
+        sways. Luke aggressively drives Vader back, forcing Vader to
+        use defensive tactics.
+
+VADER: You have learned much, young one.
+
+LUKE: Youll find fullsurprises.
+
+           Vader makes two quick moves, hooking Lukes sword out of
+        his hsending flying. Another lightning move at
+        Lukes feet forces youthjump backprotect himself.
+        Losing his balance, Luke rolls down stairscircular
+        carbon-freezing platform. There sprawlsfloor,
+        surprised shaken. Justtime looks upsee Vader,
+        likegiant black bird, flying righthim. Luke rolls away
+       Vader lands. Crouching, Luke keeps his gaze steadilyhis
+        enemy.
+
+VADER: Your destiny lies with me, Skywalker. Obi-Wan knew thisbe
+true.
+
+LUKE: No!
+
+           Behind Luke hydraulic elevator coveropened
+        noiselessly. All while, Luke slowly, cautiously moves
+        back, away from Dark Lord.
+           Suddenly, Vader attacks so forcefully that Luke loses his
+        balance falls back into opening. There isrumble,
+       an instant freezing steam risesobscure Vaders
+        vision.  Vader turns aside deactivates his sword.
+
+VADER: Alleasy. Perhaps you are notstrongEmperor
+thought.
+
+           Through steam behind Vader something blurs upward.
+        Liquid metal beginspour into pit.
+           Vader turns around  then looks up. sees Luke, who
+       leaped fifteen feet straight up who now hangs from
+        some hosescarbonite outlet.
+
+VADER: Impressive...most impressive.
+
+           Luke jumps downplatform where is separated from
+        Vader by steaming carbonite pit. raises his hand. His
+        sword, which had fallenanother partplatform,
+        swiftly jumps into his outstretched his instantly
+        ignited. Vader immediately lights his swordwell.
+
+VADER: Obi-Wantaught you well. You have controlled your fear...
+now release your anger.
+
+           Luke is more cautious, controlling his anger. begins to
+        retreatVader goads hon.Luke takesdefensive
+        position, realizesbeen foolhardy.quick sword
+        exchange Luke forces Vader back. Another exchange and
+        Vader retreats. Luke presses forward.
+
+VADER: Only your hatred can destroy me.
+
+           Breathing hard, Luke jumpsair, turningsomersault
+        over Vader. landsfloor slashesVaderthe
+        room continuesfill up with steam.
+           Vader retreats before Lukes skillful sword. Vader blocks
+        sword, but looses his balance falls into outer rim
+       pipes. energy Lukeusedstop Vaderbrought
+        himpointcollapse. Luke movesedge looks
+        down, but sees no signVader. then deactivates his
+        sword, hooks ithis belt, lowers himself into pit.
+
+INTERIOR: CLOUD CITY  TUNNEL REACTOR CONTROL ROOM
+
+           Moving throughtunnellike entrance, Luke cautiously
+        approaches reactor room. ignites his sword moves
+        into room towardlarge windowVader enters.
+           Luke raises his sword moves forwardattack.
+           Behind Lukelarge piecemachinery detaches itself from
+        wall comes smashing forward toward his back. Luke
+        turns cuts ithalf justanother machine comes
+        hurtlinghim. Using Force, Luke managesdeflect it
+        send flyingif had han invisible shield. A
+        large pipe detaches comes flyingLuke. deflects it.
+        Sparking wires pull outwall beginwhipthe
+        youth. Small tools equipment come flyinghim.
+        Bombardment from all sides, Luke does his bestdeflect
+        everything, but soon is bloodied bruised. Finally, one
+        machine glances off his goes flying out large window.
+       fierce wind blows into room, unmoving, stands dark,
+        rocklike figureVader.
+          piecemachinery hits Luke is knocked outthe
+        window.
+
+INTERIOR: GANTRY  OUTSIDE CONTROL ROOM  REACTOR SHAFT
+
+           Luke falls onto gantry, rolls, hangs over edge,
+        holding his deactivated swordhand. puts sword on
+        his belt beginsscramble up.
+
+INTERIOR: CLOUD CITY  CORRIDOR LEADINGLANDING PLATFORM
+
+           Leia, Lando, Chewie droids come roundcorner and
+       ad for doorlanding platform. They glimpse the
+        Millennium Falcon formoment before door slams shut. The
+        group ducks into an alcovestormtroopers arriveend
+       corridor. troopers sendrainlaser bolts at
+        group. Chewie returns their fireLando punches
+        desperatelydoors control panel.
+
+LANDO: security codesbeen changed!
+
+THREEPIO: Artoo, you can tell computeroverride security
+system.
+
+           Threepio points tocomputer socketcontrol panel.
+        Artoo beeps scoots toward it. Lando meanwhile has
+        connected uppanels intercom.
+
+LANDO: Attention! This is Lando Calrissian. Empiretakes
+controlcity. I advise everyoneleave before more Imperial
+troops arrive.
+
+           Artoo takes offcomputer cover sticks his computer
+        arm into socket. Suddenly,short beep turns intowild
+        scream. Artoos circuits light up, hisad spins wildly, and
+        smoke beginsseep out underneath him. Quickly, Chewie pulls
+        haway.
+
+LANDO: This way.
+
+           Lando, Leia, Artoo, Chewie flee down corridor. As
+        scoots along with them, Artoo sends some angry beeps
+        Threepios way.
+
+THREEPIO: Dont blame me. an interpreter. not supposedknow
+a power socket fromcomputer terminal.
+
+INTERIOR: CLOUD CITY  CORRIDOR
+
+         panic, Cloud City residents are tryingget out of
+        city. Some carry boxes, others packages. They run, then
+        change direction. Some are shootingstormtroopers, others
+        simply tryhide.
+           Other stormtroopers pursue Lando, Leia, Chewie who are
+        firing backthem. Artoo worksanother doorthe
+        landing platform while Threepio berates hfor his seeming
+        ineptitude.
+
+THREEPIO: What are you talking about? Were not interestedthe
+hyperdriveMillennium Falcon.fixed! Just open door,
+you stupid lump.
+
+           Chewie, Leia, Lando retreat along corridor. A
+        triumphant beep from Artoo  door snaps open.
+
+THREEPIO: (to Artoo) I never doubted you forsecond. Wonderful!
+
+           Artoo layscloud fog, obscuring everything,group
+        dashes outside.
+
+EXTERIOR: LANDING PLATFORM  CLOUD CITY  DUSK
+
+           They race for Millennium Falcon asbattalion of
+        stormtroopers reaches main door. Lando Leia hold off
+        troopsdroids getboard with Chewie.Chewie
+        boundsship Threepiohis back, Threepio hits his
+       adtopramp.
+
+THREEPIO: Ouch! Oh! Ah! That hurt, Bend down, you thoughtless...Ow!
+
+           Chewie starts up ship. giant engines beginwhine
+       Lando Leia race up ramp underhaillaser fire.
+
+LANDO: Leia! Go!
+
+INTERIOR: MILLENNIUM FALCON  CORRIDOR
+
+           Artoo drags partially assembled Threepio down the
+        corridorFalcon.
+
+THREEPIO: I thought that hairy beast would be endme. Of
+course, Ive looked better.
+
+           Artoo beeps understandingly.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Chewie works controlsLeia sitsHans seat and
+        Lando watches over their shoulders.Chewie pulls back on
+        throttle, ship beginsmove.
+
+EXTERIOR: CLOUD CITY  LANDING PLATFORM  DUSK
+
+           Millennium Falcon lifts gracefully into twilight
+        sky roars away from city. Troops fire after TIE
+        fighters take offpursuit.
+
+INTERIOR: GANTRY  OUTSIDE CONTROL ROOM  REACTOR SHAFT
+
+           Luke moves along railing upcontrol room.
+        Vader lungeshLuke immediately raises his lsword
+       meet Vaders. Sparks flythey duel, Vader gradually
+        forcing Luke backward toward gantry.
+
+VADER: You are beaten. is uselessresist. Dont let yourself be
+destroyedObi-Wan did.
+
+           Luke answers by rolling sideways thrusting his sword at
+        Vader so viciously that nicks Vadershoulder. The
+        black armor sparks smokes Vader seemsbe hurt, but
+        immediately recovers.
+           Luke backs off along narrow endgantryVader
+        comeshim, slashingyoung Jedi with his sword. Luke
+        makesquick move around instrument complex attached to
+        endgantry. Vaders sword comes slashing down,
+        cutting complex loose; beginsfall, then is caught
+        by rising wind blown upward.
+           Luke glancesinstrument complex floating away. At
+        that instant, Vaders sword comes down across Lukes right
+        forearm, cutting off his hsending his sword flying. 
+       great pain, Luke squeezes his forearm under his left armp
+        moves back along gantry toextreme end. Vader
+        follows. wind subsides. Luke holds on. There is nowhere
+        elsego. 
+
+VADER: There is no escape. Dont make me destroy you. You do not yet
+realize your importance. You have only begundiscover you power.
+Join me I will complete your training. With our combined strength,
+we can end this destructive conflict bring ordergalaxy.
+
+LUKE: Ill never join you!
+
+VADER: If you only knew powerdark side. Obi-Wan never told
+you what happenedyour father.
+
+LUKE: told me enough! told me you killed him.
+
+VADER: No. I am your father.
+
+           Shocked, Luke looksVaderutter disbelief.
+
+LUKE: No. No. Thats not true! Thats impossible!
+
+VADER: Search your feelings. You knowbe true.
+
+LUKE: No! No! No!
+
+VADER: Luke. You can destroy Emperor.foreseen this. is
+your destiny. Join me, we can rule galaxyfather son.
+Come with me.only way.
+
+           Vader puts away his sword holds his houtLuke.
+          calm comes over Luke, makesdecision.the
+        next instant steps off gantry platform into space. The
+        Dark Lord looks over platform sees Luke falling far
+        below. wind beginsblowVaders cape torrent
+        finally forces hback, away from edge. wind soon
+        fades wounded Jedi beginsdrop fast, unablegrab
+        onto anythingbreak his fall.
+
+INTERIOR: REACTOR SHAFT
+
+           Suddenly Luke is sucked into an exhaust pipeside of
+        shaft. When Vader sees this, turns hurries off the
+        platform.
+
+INTERIOR: EXHAUST PIPE
+
+           Luke tumbles through exhaust pipe.
+           slidesendslickly polished pipe stops
+       his feet hitcircular grill knock open. Luke claws
+       surfacepipe, tryingkeep from sliding out
+        into space.
+
+EXTERIOR: BOTTOMCLOUD CITY  WEATHER VANE  DUSK
+
+           Unablehang onto pipe, Luke tumbles out, emerging at
+        undermost partCloud City. Reaching out desperately,
+        managesgrab ontoelectronic weather vane.
+
+LUKE: Ben...Ben, please!
+
+           Luke triespull himself upweather vane but slips
+        back down. hooks onehis legs around fragile
+        instruments. All while,powerful currentair rushes
+        outhfrom exhaust pipe.
+
+LUKE: Ben. Leia!
+
+           There is an ominous cracking sound from basethe
+        weather vanepiece breaks off, falling into clouds
+        far below.
+
+LUKE:ar me! Leia!
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Leia seemsbe losta fog,r expression troubled.
+        Chewie is busy operating ship. Lando stands nextthe
+        Wookiee, watchingreadoutcontrol panel.
+
+LEIA: Luke...Weve gotgo back.
+
+           Chewie growlssurprise.
+
+LANDO: What?
+
+LEIA: I know where Luke is.
+
+LANDO: But what about those fighter?
+
+           Chewie barksagreement with Lando.
+
+LEIA: Chewie, just do it.
+
+LANDO: But what about Vader?
+
+           Chewie turnsLando, newcomer, with an ominous growl.
+
+LANDO: All right, all right, all right.
+
+EXTERIOR: CLOUD CITY  MILLENNIUM FALCON  DUSK
+
+           Falcon makesgraceful banking turn back toward Cloud
+        City.
+
+EXTERIOR: CLOUD CITY  LANDING PLATFORM
+
+           Vader enters landing platform watchesspeck
+        that is Falcon disappears. wind blowshis cape.
+           turnstwo aides who are standing near entrance to
+        landing platform.
+
+VADER: Bring my shuttle.
+
+EXTERIOR: BOTTOMCLOUD CITY  WEATHER VANE
+
+           Nearly unconscious, Luke hangs upside-downweather
+        vanehis body shiftswind.
+
+EXTERIOR: MILLENNIUM FALCON  BOTTOMCLOUD CITY
+
+           Falcon divesundersidefloating city.
+        Three TIE fighter closeon starship.
+
+INTERIOR: MILLENNIUM FALCON
+
+           Leia triesremain calm.
+
+LANDO: (pointing out cockpwindow) Look, someones up there.
+
+LEIA:Luke. Chewie, slow down. Slow down well get under him.
+Lando, open top hatch.
+
+           Lando rushes outcockpit.
+
+EXTERIOR: BOTTOMCLOUD CITY  WEATHER VANE
+
+           Luke hangs by one arm from crossbarweather
+        vane. slips from bar grabs onto polethe
+        vaneFalcon banks toward him. Falcon positions
+        itself under LukeLando moves up through openingthe
+        hatch. Luke beginsslide finally falls from vane
+        into space.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Out cockpwindow, Leia sees Luke falling from the
+        bottomcity. ship gainshim.
+
+LEIA: Okay. Easy, Chewie.
+
+           Falcon closeson Luke.
+
+EXTERIOR: BOTTOMCLOUD CITY
+
+           Three TIE fighters race toward Falcon, firing away.
+
+INTERIOR: MILLENNIUM FALCON  HATCH
+
+           hatch pops open withhisspressure. Lando reaches
+        outhelp battered warrior inside ship.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Flak bursts all around itFalcon banks away from the
+        city. Leia Chewie struggle with controls.
+
+LEIA: (into intercom) Lando?
+
+LANDO: (over intercom) Okay, lets go.
+
+EXTERIOR: BOTTOMCLOUD CITY
+
+           Falcon races away. is closely followed by three TIE
+        fighters, allwhich keep upheavy laser assaultthe
+        fleeing starship.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Explosions erupt all around cockpit, buffeting ship
+        wildly. Chewie howlshe frantically triescontrol the
+        ship.
+           Leia Chewie turnssee Luke, bloody battered,
+        enter cockpsupported by Lando. Leia jumps up hugs
+        hwhile Chewie barksjoyous relief.
+
+LUKE: Oh, Leia.
+
+LANDO: All right, Chewie. Lets go.
+
+           Leialps Luke from cockpitanother huge blast
+        rocks ship.
+
+EXTERIOR: SPACE  CLOUD CITY  DAY
+
+           Falcon, still followed by three TIE fighters, races
+        away from cloud-covered city.
+
+INTERIOR: MILLENNIUM FALCON  SLEEPING QUARTERS
+
+           Luke rests oncot, his injured arm wrappeda
+        protective cuff. Leia gently wipes his face. ship lurches
+        again.
+
+LEIA: Ill be back.
+
+           She kisses him, then leaves quarters.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           All over ship muted alarm buzzers sound. Lando
+        anxiously watches flashing lightscontrol panel and
+        hurriedly adjusts some switches. Seated nexthim, Chewie
+        points outnew blip appearingpanel. Leia, watching
+        over their shoulders, recognizes shape.
+
+LEIA: Star Destroyer.
+
+LANDO: All right, Chewie. Ready for light-speed.
+
+LEIA: If your people fixed hyperdrive.
+
+           Another explosion rocks ship. Leia notices asgreen
+        lightpanel nexther flashes on.
+
+LEIA: All coordinates are set.now or never.
+
+           Chewie barksagreement.
+
+LANDO: Punch it!
+
+           Wookiee shrugs pulls backlight-speed
+        throttle. soundion engine changes...is winding
+        up. Faces are tense, expectant. But nothing happens, the
+        engine goes off. Chewie lets outfrustrated howl. flak
+        still violently rocks ship.
+
+LANDO: They told me they fixed it. I trusted themfix it.not
+my fault!
+
+           Chewie gets up from his chair starts outthe
+        cockpit. gives Lando angry shovehe storms past him.
+
+EXTERIOR: SPACE
+
+          distance TIE fighters continue their chase,
+        still shooting lasers. Vaders Star Destroyer moves behind
+        them, determinedly following Falcon.
+
+INTERIOR: VADERS STAR DESTROYER  BRIDGE
+
+           Vader standsbridge looking out window as
+        Admiral Piett approaches him.
+
+PIETT: Theyll berangeour tractor beammoments, lord.
+
+VADER: Did your men deactivate hyperdriveMillennium
+Falcon?
+
+PIETT: Yes, my lord.
+
+VADER: Good. Prepare boarding party set for your weapons for
+stun.
+
+PIETT: Yes, my lord.
+
+INTERIOR: MILLENNIUM FALCON
+
+           Beeping while works, Artoo is busy connecting some wires
+       Threepio who nowone leg attached.
+           Chewie enters through doorway, gruntinghimself.
+
+THREEPIO: Noisy brute. Why dont we just go into light-speed?
+
+           Artoo beepsresponse.
+
+THREEPIO: We cant? How would you know hyperdrive is deactivated?
+
+           Artoo whistles knowingly.
+
+THREEPIO: citys central computer told you? Artoo-Detoo, you know
+better thantruststrange computer. Ouch! Pay attentionwhat
+youre doing!
+
+           Chewie ispit. is tryingloosen something with
+        an enormous wrench. Frustrated, uses wrench likeclub
+        hits panel...
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Leia Lando, seatedfrontcontrol panel, are
+        suddenly sprayed byshowersparks.
+
+INTERIOR: VADERS STAR DESTROYER  BRIDGE
+
+           Vader standsbridge, watchingMillennium
+        Falcon is chased by TIE fighters.his Destroyer draws
+        nearer, Vaders breathing gets slightly faster.
+
+VADER: Luke.
+
+INTERIOR: MILLENNIUM FALCON  SLEEPING QUARTERS
+
+           Luke realizes that Vaders ship is very near. feels
+        resignedhis fate. senses that is beaten, more
+        emotionally than physically.
+
+LUKE: Father.
+
+INTERIOR: VADERS STAR DESTROYER  BRIDGE
+
+VADER: Son, come with me.
+
+INTERIOR: MILLENNIUM FALCON  SLEEPING QUARTERS
+
+LUKE: (moaning) Ben, why didnt you tell me?
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Lando Leia arecontrolsFalcon.
+        Meanwhile,ships hold, Chewie continueswork
+        franticallyhyperdrive mechanism.
+
+LANDO: (into intercom) Chewie!
+
+EXTERIOR: SPACE
+
+           Falcon races through space followed very closely by the
+        TIE fighters huge Imperial Star Destroyer.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Luke enters cockplooks out window. is
+        almost unconscious with pain depression.
+
+LUKE:Vader.
+
+INTERIOR: VADERS STAR DESTROYER  BRIDGE
+
+VADER: Luke...is your destiny.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+LUKE: Ben, why didnt you tell me?
+
+INTERIOR: VADERS STAR DESTROYER  BRIDGE
+
+PIETT: Alert all commands. Ready for tractor beam.
+
+INTERIOR: MILLENNIUM FALCON  HOLD
+
+           Artoo races tocontrol panel starts workinga
+        circuboard. Furious, Threepio standsone leg, yelling.
+
+THREEPIO: Artoo, come backonce! You havent finished with me yet!
+You dont know howfix hyperdrive. Chewbacca can do it. Im
+standingrepieces, youre having delusionsgrandeur!
+
+           Artoo movescircuoncontrol panel. Suddenly, the
+        control panel lights up.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Leia Lando are thrown into their seatsthe
+        Millennium Falcon unexpectedly shoot into hyperspace.
+
+INTERIOR: MILLENNIUM FALCON  HOLD
+
+           ship tilts up Artoo topples into pittop of
+        Chewie.
+
+THREEPIO: Oh, you did it!
+
+EXTERIOR: SPACE
+
+           Falcon soars into infinity away from huge Star
+        Destroyer which seems, by contrast,ststill.
+
+INTERIOR: VADERS STAR DESTROYER  BRIDGE
+
+           Admiral Piett another captain glanceVader in
+        terror. Vader turns slowly walks off bridge, his hands
+       ld behind his backa contemplative gesture.
+
+EXTERIOR: SPACE  REBEL CRUISER
+
+           Millennium Falcon is attached tohuge Rebel cruiser
+        bydocking tube. Rebel fighters move about giant
+        cruiser,Rebel transport ship hovers near fleet.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+           Lando sitspilots seatalks into the
+        comlink. Chewie busily throwsvarietyswitches in
+        preparation for takeoff.
+
+LANDO: (into comlink) Luke, were ready for takeoff.
+
+LUKE: (over comlink) Good luck, Lando
+
+LANDO: (into comlink) When we find Jabba Hut that bounty
+hunter, well contact you.
+
+INTERIOR: STAR CRUISER  MEDICAL CENTER
+
+           Luke speaking into comlink asmedical droid works on
+        his hand. Leia stands near hwhile Threepio Artoo look
+        out window.
+
+LUKE: (into comlink) Ill meet yourendezvous point on
+Tatooine.
+
+INTERIOR: MILLENNIUM FALCON  COCKPIT
+
+LANDO: (into comlink) Princess, well find Han. I promise.
+
+INTERIOR: STAR CRUISER  MEDICAL CENTER
+
+LUKE: (into comlink) Chewie, Ill be waiting for your signal.
+
+           Chewies wail comes over comlink.
+
+LUKE: (into comlink) Take care, you two. May Force be with you.
+
+           Luke looks downhis hand.metalized typebandage
+       been wrapped around his wrist. medical droid makes
+        some adjustmentsa tiny electronic unit, then pricks each
+        oneLukes fingers.
+
+LUKE: Ow!
+
+           Luke wriggles his fingers, makesfist, relaxes it.
+        His his completely functional.
+           gets up walks overLeia. There isnew bond
+        between them,new understanding. Leia is thinking about Han;
+        Luke is thinking about his uncertain newly complicated
+        future. Together they stat large windowmedical
+        center looking outRebel Star Cruiserdense,
+        luminous galaxy swirlingspace. Luke puts his arm around
+        Leia. droids stnextthem, Threepio moves closer
+       Artoo putting his armhim. group watchesthe
+        Millennium Falcon moves into view, makesturn, zooms
+        away into space.
+
+EXTERIOR: SPACE  REBEL STAR CRUISER
+
+           While Luke, Leia, droids stand, looking out the
+        windowstar cruiser, two escort fighters join large
+        ship. Slowly, cruiser turns moves away into space.
+
+EXTERIOR: GALAXY  SPACE
+	"),
+  stringsAsFactors = FALSE
+)
+tidy_text <- text_data %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words, by = "word") %>%
+  filter(!str_detect(word, "^[0-9]+$")) %>%
+  mutate(word = str_remove_all(word, "[[:punct:]]")) %>%
+  filter(word != "")
+
+
+word_freq <- tidy_text %>%
+  count(word, sort = TRUE)
+
+
+set.seed(1234) 
+pal <- brewer.pal(11, "Set2")  
+
+wordcloud(words = word_freq$word, freq = word_freq$n, min.freq = 1,
+          max.words = 150, random.order = FALSE, rot.per = 0.20, 
+          colors = pal)
+
