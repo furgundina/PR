@@ -1,0 +1,57 @@
+
+install.packages("tidytext")
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("readr")
+install.packages("textdata")
+install.packages("tibble")
+install.packages("tidyr")
+
+
+library(tidytext)
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(textdata)
+library(tibble)
+library(tidyr)
+film_script <- read_lines("C:\\Users\\User\\Desktop\\Scripts/film_script6.txt")
+
+
+
+script_df <- tibble(line = 1:length(film_script), text = film_script)
+
+script_words <- script_df %>%
+  unnest_tokens(word, text)
+
+# Загрузка словаря сентиментов
+sentiments <- get_sentiments("bing")
+
+script_sentiment <- script_words %>%
+  inner_join(sentiments, by = "word") %>%
+  count(line, sentiment) %>%
+  spread(sentiment, n, fill = 0) %>%
+  mutate(sentiment = positive - negative)
+
+ggplot(script_sentiment, aes(x = line, y = sentiment, fill = sentiment > 0)) +
+  geom_col(show.legend = FALSE) +
+  scale_fill_manual(values = c("green", "red"), labels = c("Negative", "Positive")) +
+  labs(
+    title = "Sentiment Analysis of Film Script",
+    subtitle = "Positive and Negative Sentiment Scores Across the Script",
+    x = "Line Number",
+    y = "Sentiment Score",
+    caption = "Data Source: Episode 6 Script"
+  ) +
+  theme_minimal(base_size = 15) +
+  theme(
+    plot.title = element_text(face = "bold", size = 20, hjust = 0.5),
+    plot.subtitle = element_text(size = 14, hjust = 0.5),
+    plot.caption = element_text(size = 10, face = "italic"),
+    axis.title.x = element_text(face = "bold", size = 15),
+    axis.title.y = element_text(face = "bold", size = 15),
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
+  ) +
+  geom_hline(yintercept = 0, color = "black", linetype = "dotted") +
+  geom_smooth(method = "gam", se = FALSE, color = "darkgreen", size = 0.5)
