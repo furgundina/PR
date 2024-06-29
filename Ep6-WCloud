@@ -5037,7 +5037,7 @@ word_freq <- tidy_text %>%
 
 
 set.seed(1234) 
-pal <- brewer.pal(11, "Spectral")  
+pal <- brewer.pal(11, "Spectral")  #позже изменила цветовую палитру 
 
 wordcloud(words = word_freq$word, freq = word_freq$n, min.freq = 1,
           max.words = 150, random.order = FALSE, rot.per = 0.20, 
