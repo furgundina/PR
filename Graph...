@@ -24,7 +24,6 @@ script_df <- tibble(line = 1:length(film_script), text = film_script)
 script_words <- script_df %>%
   unnest_tokens(word, text)
 
-# Загрузка словаря сентиментов
 sentiments <- get_sentiments("bing")
 
 script_sentiment <- script_words %>%
